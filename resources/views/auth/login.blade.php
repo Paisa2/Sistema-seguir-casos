@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>@yield('title') - Laravel App</title>
+    <title>@yield('title') - Sistema de Siguimiento App</title>
     <link rel="stylesheet"
     href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css">
 </head>
@@ -35,9 +35,9 @@ align-items: center;">
             <h1 class="h3 mb-3 font-weight-normal" style="font-family: 'Times New Roman'; text-align: center; font-size: 40px;">Inicia sesión</h1>
         </div>
         <div style="padding-top: 8%; width: 300px">
-            <input style="font-family: 'Times New Roman';" type="email" id="email" name="email" class="form-control" placeholder="Correo electronico" required autofocus maxlength="255">
+            <input style="font-family: 'Times New Roman';" type="email" id="email" name="email" class="form-control" autocomplete="current-email" placeholder="Correo electronico" required autofocus maxlength="255">
 
-            <input style="font-family: 'Times New Roman';" type="password" id="password" name="password" class="form-control" placeholder="Contraseña" required minlength="5" maxlength="15">
+            <input style="font-family: 'Times New Roman';" type="password" id="password" name="password" class="form-control" autocomplete="current-password" placeholder="Contraseña" required minlength="5" maxlength="15">
 
 
         </div>

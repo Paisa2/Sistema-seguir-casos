@@ -30,9 +30,9 @@ class UserSeeder extends Seeder
 
         $user2 = User::create([
             'name' => 'Patricia Rodriguez',
-            'email' => 'docente@gmail.com',
+            'email' => 'usuario@gmail.com',
             'estadoCuenta' => 'Habilitado',
-            'password' => 'docente',
+            'password' => 'usuario',
             'ci' => '5432101',
         ]);
 
@@ -40,9 +40,9 @@ class UserSeeder extends Seeder
 
         $user3 = User::create([
             'name' => 'Paco Fernandez',
-            'email' => 'docente2@gmail.com',
+            'email' => 'usuario2@gmail.com',
             'estadoCuenta' => 'Habilitado',
-            'password' => 'docente',
+            'password' => 'usuario2',
             'ci' => '4232332',
         ]);
 
