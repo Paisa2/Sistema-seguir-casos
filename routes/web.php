@@ -58,3 +58,32 @@ Route::get('/auth', function () {
     return view('index');
 })->middleware('auth.user')
 ->name('auth.user');
+
+//Usuarios
+Route::get('/usuarios/index', [App\Http\Controllers\UsuarioController::class, 'index'])
+->name('admin.usuarios.index');
+
+Route::get('/usuarios/create', [App\Http\Controllers\UsuarioController::class, 'create'])
+->name('admin.usuarios.create');
+
+Route::get('/usuarios/store', [App\Http\Controllers\UsuarioController::class, 'store'])
+->name('admin.usuarios.store');
+
+Route::get('/usuarios/edit', [App\Http\Controllers\UsuarioController::class, 'edit'])
+->name('admin.usuarios.edit');
+
+Route::get('/usuarios/update', [App\Http\Controllers\UsuarioController::class, 'update'])
+->name('admin.usuarios.update');
+
+//Roles de Usuarios
+Route::get('/roles/index', [\App\Http\Controllers\RoleController::class, 'index'])
+->name('roles.index');
+
+Route::post('/roles/store', [App\Http\Controllers\RoleController::class, 'store'])
+->name('roles.store');
+
+Route::delete('/roles/delete', [App\Http\Controllers\RoleController::class, 'delete'])
+->name('roles.delete');
+
+Route::post('/roles/{roleId}/update', [App\Http\Controllers\RoleController::class, 'update'])
+->name('roles.update');

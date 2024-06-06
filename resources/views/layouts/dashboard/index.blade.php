@@ -30,7 +30,7 @@
     <!-- Page Wrapper -->
     <div id="wrapper">
         <!-- Sidebar -->
-        <ul class="navbar-nav sidebar sidebar-dark accordion" id="accordionSidebar" style="background: #1D3354">
+        <ul class="navbar-nav sidebar sidebar-dark accordion" id="accordionSidebar" style="background: #27C5F0">
 
             <!-- Sidebar - Brand -->
             <a class="sidebar-brand d-flex align-items-center justify-content-center" href="/auth">
@@ -42,6 +42,25 @@
 
             <!-- Divider -->
             <hr class="sidebar-divider my-0">
+
+            @can('user_index')
+            <li class="nav-item {{ request()->is('usuarios')  ? 'active' : ''}}">
+                <a class="nav-link" href="{{route('admin.usuarios.index')}}" >
+                    <span>{{ __('Usuarios') }}</span>
+                </a>
+            </li>
+            @endcan
+
+                <!-- Divider -->
+            <hr class="sidebar-divider my-0">
+
+            @can('role_index')
+            <li class="nav-item active {{ request()->is('roles') ? 'active' : '' }}">
+                <a class="nav-link" href="{{ route('roles.index') }}" >
+                    <span>{{ __('Roles') }}</span>
+                </a>
+            </li>
+            @endcan
 
 
             <!-- Divider -->
