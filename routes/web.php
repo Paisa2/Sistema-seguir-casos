@@ -75,9 +75,15 @@ Route::get('/usuarios/edit', [App\Http\Controllers\UsuarioController::class, 'ed
 Route::get('/usuarios/update', [App\Http\Controllers\UsuarioController::class, 'update'])
 ->name('admin.usuarios.update');
 
-//Roles de Usuarios
+//Roles
 Route::get('/roles/index', [\App\Http\Controllers\RoleController::class, 'index'])
 ->name('roles.index');
+
+Route::post('/roles/create', [App\Http\Controllers\RoleController::class, 'create'])
+->name('roles.create');
+
+Route::post('/roles/edit', [App\Http\Controllers\RoleController::class, 'edit'])
+->name('roles.edit');
 
 Route::post('/roles/store', [App\Http\Controllers\RoleController::class, 'store'])
 ->name('roles.store');
