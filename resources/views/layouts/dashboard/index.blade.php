@@ -42,7 +42,7 @@
 
             <!-- Divider -->
             <hr class="sidebar-divider my-0">
-
+            <!-- Ruta los Usuarios -->
             @can('user_index')
             <li class="nav-item {{ request()->is('usuarios')  ? 'active' : ''}}">
                 <a class="nav-link" href="{{route('admin.usuarios.index')}}" >
@@ -53,7 +53,7 @@
 
                 <!-- Divider -->
             <hr class="sidebar-divider my-0">
-
+            <!-- Ruta los Roles -->
             @can('role_index')
             <li class="nav-item active {{ request()->is('roles') ? 'active' : '' }}">
                 <a class="nav-link" href="{{ route('roles.index') }}" >
@@ -62,6 +62,14 @@
             </li>
             @endcan
 
+                <!-- Divider -->
+            <hr class="sidebar-divider my-0">
+            <!-- Ruta Adultos -->
+            <li class="nav-item active {{ request()->is('adultos') ? 'active' : ''}}">
+                <a class="nav-link" href="#">
+                    <span>{{__('Casos Adultos Mayores')}}</span>
+                </a>
+            </li>
 
             <!-- Divider -->
             {{-- <hr class="sidebar-divider">

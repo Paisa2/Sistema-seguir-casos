@@ -87,3 +87,16 @@ Route::delete('/roles/delete', [App\Http\Controllers\RoleController::class, 'del
 
 Route::post('/roles/{roleId}/update', [App\Http\Controllers\RoleController::class, 'update'])
 ->name('roles.update');
+
+//Rutas de Adultos Mayores
+Route::get('/adultos/index', [\App\Http\Controllers\AdultoMController::class, 'index'])
+->name('admin.adultos.index');
+
+Route::post('/adultos/store', [\App\Http\Controllers\AdultoMController::class, 'store'])
+->name('admin.adultos.store');
+
+Route::delete('/adotos/delete', [App\Http\Controllers\AdultoMController::class, 'delete'])
+->name('admin.adulto.delete');
+
+Route::post('/adulto/{adultoId}/update', [App\Http\Controllers\AdultoMController::class, 'update'])
+->name('admin.adultos.update');
