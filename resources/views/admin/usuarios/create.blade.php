@@ -16,7 +16,7 @@
                             <div class="row">
                                 <label for="name" class="col-sm-2 col-form-label">Nombre</label>
                                 <div class="col-sm-7">
-                                    <input type="text" class="form-control" name="name" placeholder="Ingresar Nombre" value="{{ old('name')}}" autofocus minlength="8" maxlength="25">
+                                    <input type="text" class="form-control" name="name" placeholder="Ingresar Nombre" value="{{ old('name')}}" autofocus minlength="1" maxlength="25">
                                     @if ($errors->has('name'))
                                         <span class="error text-danger" for='input-name' style="font: size 15px;">{{ $errors->first('name')}}</span>
                                     @endif
@@ -24,11 +24,21 @@
                             </div>
 
                             <div class="row">
-                                <label for="ci" class="col-sm-2 col-form-label">Carnet Identidad</label>
+                                <label for="apellido" class="col-sm-2 col-form-label">Apellido</label>
                                 <div class="col-sm-7">
-                                    <input type="text" class="form-control" name="ci" placeholder="Ingresar Carnet Identidad" value="{{ old('ci')}}" autofocus minlength="1" maxlength="7">
-                                    @if ($errors->has('ci'))
-                                        <span class="error text-danger" for='input-ci' style="font: size 15px;">{{ $errors->first('ci')}}</span>
+                                    <input type="text" class="form-control" name="apellido" placeholder="Ingresar Apellido" value="{{ old('apellido')}}" autofocus minlength="1" maxlength="25">
+                                    @if ($errors->has('name'))
+                                        <span class="error text-danger" for='input-name' style="font: size 15px;">{{ $errors->first('name')}}</span>
+                                    @endif
+                                </div>
+                            </div>
+
+                            <div class="row">
+                                <label for="cargo" class="col-sm-2 col-form-label">Cargo</label>
+                                <div class="col-sm-7">
+                                    <input type="text" class="form-control" name="cargo" placeholder="Ingresar Cargo" value="{{ old('cargo')}}" autofocus minlength="1" maxlength="25">
+                                    @if ($errors->has('cargo'))
+                                        <span class="error text-danger" for='input-cargo' style="font: size 15px;">{{ $errors->first('cargo')}}</span>
                                     @endif
                                 </div>
                             </div>
@@ -51,6 +61,9 @@
                                         <span class="error text-danger" for='input-password' style="font: size 15px;">{{ $errors->first('password')}}</span>
                                     @endif
                                 </div>
+                            </div>
+                            <div class="card-footer ml-auto mr-auto">
+                                <button type="submit" class="btn btn-primary">Guardar</button>
                             </div>
                         </div>
                     </form>
