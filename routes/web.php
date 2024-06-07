@@ -79,21 +79,21 @@ Route::delete('/usuarios/{user}', [App\Http\Controllers\UsuarioController::class
 ->name('admin.usuarios.delete');
 
 //Roles
-Route::get('/roles/index', [\App\Http\Controllers\RoleController::class, 'index'])
+Route::get('/roles/index', [App\Http\Controllers\RoleController::class, 'index'])
 ->name('roles.index');
 
-Route::post('/roles/create', [App\Http\Controllers\RoleController::class, 'create'])
+Route::get('/roles/create', [App\Http\Controllers\RoleController::class, 'create'])
 ->name('roles.create');
 
-Route::post('/roles/edit', [App\Http\Controllers\RoleController::class, 'edit'])
+Route::get('/roles/edit', [App\Http\Controllers\RoleController::class, 'edit'])
 ->name('roles.edit');
 
 Route::post('/roles/store', [App\Http\Controllers\RoleController::class, 'store'])
 ->name('roles.store');
 
-Route::delete('/roles/delete', [App\Http\Controllers\RoleController::class, 'delete'])
+Route::delete('/roles/{roleId}/delete', [App\Http\Controllers\RoleController::class, 'delete'])
 ->name('roles.delete');
 
-Route::post('/roles/{roleId}/update', [App\Http\Controllers\RoleController::class, 'update'])
+Route::post('/rols/{roleId}/update', [App\Http\Controllers\RoleController::class, 'update'])
 ->name('roles.update');
 

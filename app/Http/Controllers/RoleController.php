@@ -2,12 +2,12 @@
 
 namespace App\Http\Controllers;
 
-use App\Http\Requests\RoleCreateRequest;
-use App\Http\Requests\RoleEditRequest;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Gate;
 use Spatie\Permission\Models\Permission;
 use Spatie\Permission\Models\Role;
+use App\Http\Requests\RoleCreateRequest;
+use App\Http\Requests\RoleEditRequest;
 
 class RoleController extends Controller
 {
@@ -117,3 +117,4 @@ class RoleController extends Controller
         return redirect()->route('roles.index');
     }
 }
+
