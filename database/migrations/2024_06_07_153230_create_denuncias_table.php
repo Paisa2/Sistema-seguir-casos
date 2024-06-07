@@ -17,6 +17,8 @@ class CreateDenunciasTable extends Migration
             $table->id();
             $table->string('descripcion');
             $table->date('fecha_registro');
+            $table->string('nom_demandante');
+            $table->string('nom_demandado');
 
             $table->unsignedBigInteger('user');
             $table->foreign('user')->references('id')->on('users')->onUpdate('cascade')->onDelete('cascade');

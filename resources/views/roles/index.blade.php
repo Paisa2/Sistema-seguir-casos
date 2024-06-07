@@ -8,8 +8,7 @@
     <a href="{{ route('roles.create') }}" type="button" class="btn btn-dark" style="background-color: #1D3354; padding-top: 0.8%">Crear Rol</a>
     @endcan
 </div>
-
-    <div style="margin-top: 1%; display: flex; justify-content: center;">
+<div style="margin-top: 1%; display: flex; justify-content: center;">
     @error('message')
 
     <p class="alert alert-danger ">{{$message}}</p>
@@ -17,9 +16,9 @@
         <span aria-hidden="true" >&times;</span></button>
 
     @enderror
-    </div>
+</div>
 
-    <!--Tabla de AULAS-->
+<!--Tabla de AULAS-->
     <div class="form-group">
     @can('role_buscar')
     <span class="input-group" style="width: 60%; margin-right:auto; margin-left:auto">
@@ -28,8 +27,8 @@
     </span>
     @endcan
     </div>
-    <div style="margin-top: 1%" class="table-responsive" >
-    <table class="table" id="roles" >
+<div style="margin-top: 1%" class="table-responsive" >
+<table class="table" id="roles" >
     <thead>
         <tr>
             <th scope="col">ID</th>
@@ -62,7 +61,7 @@
                 @endcan
                 @can('role_destroy')
                 <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#modalEliminar-{{$role->id}}">
-                    Eliminar
+                Eliminar
                 </button>
                 @endcan
             </td>
@@ -76,25 +75,25 @@
 </table>
 </div>
 <script language="javascript">
-function doSearch() {
-    var tableReg = document.getElementById('roles');
-    var searchText = document.getElementById('searchTerm').value.toLowerCase();
-    for (var i = 1; i < tableReg.rows.length; i++) {
-        var cellsOfRow = tableReg.rows[i].getElementsByTagName('td');
-        var found = false;
-        for (var j = 0; j < cellsOfRow.length && !found; j++) {
-            var compareWith = cellsOfRow[j].innerHTML.toLowerCase();
-            if (searchText.length == 0 || (compareWith.indexOf(searchText) > -1)) {
-                found = true;
+    function doSearch() {
+        var tableReg = document.getElementById('roles');
+        var searchText = document.getElementById('searchTerm').value.toLowerCase();
+        for (var i = 1; i < tableReg.rows.length; i++) {
+            var cellsOfRow = tableReg.rows[i].getElementsByTagName('td');
+            var found = false;
+            for (var j = 0; j < cellsOfRow.length && !found; j++) {
+                var compareWith = cellsOfRow[j].innerHTML.toLowerCase();
+                if (searchText.length == 0 || (compareWith.indexOf(searchText) > -1)) {
+                    found = true;
+                }
+            }
+            if (found) {
+                tableReg.rows[i].style.display = '';
+            } else {
+                tableReg.rows[i].style.display = 'none';
             }
         }
-        if (found) {
-            tableReg.rows[i].style.display = '';
-        } else {
-            tableReg.rows[i].style.display = 'none';
-        }
     }
-}
 </script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>

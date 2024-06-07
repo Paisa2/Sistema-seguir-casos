@@ -66,14 +66,17 @@ Route::get('/usuarios/index', [App\Http\Controllers\UsuarioController::class, 'i
 Route::get('/usuarios/create', [App\Http\Controllers\UsuarioController::class, 'create'])
 ->name('admin.usuarios.create');
 
-Route::get('/usuarios/store', [App\Http\Controllers\UsuarioController::class, 'store'])
+Route::post('/usuarios/store', [App\Http\Controllers\UsuarioController::class, 'store'])
 ->name('admin.usuarios.store');
 
-Route::get('/usuarios/edit', [App\Http\Controllers\UsuarioController::class, 'edit'])
+Route::get('/usuarios/{user}/edit', [App\Http\Controllers\UsuarioController::class, 'edit'])
 ->name('admin.usuarios.edit');
 
-Route::get('/usuarios/update', [App\Http\Controllers\UsuarioController::class, 'update'])
+Route::post('/usuarios/{user}', [App\Http\Controllers\UsuarioController::class, 'update'])
 ->name('admin.usuarios.update');
+
+Route::delete('/usuarios/{user}', [App\Http\Controllers\UsuarioController::class, 'destroy'])
+->name('admin.usuarios.delete');
 
 //Roles
 Route::get('/roles/index', [\App\Http\Controllers\RoleController::class, 'index'])
@@ -94,15 +97,3 @@ Route::delete('/roles/delete', [App\Http\Controllers\RoleController::class, 'del
 Route::post('/roles/{roleId}/update', [App\Http\Controllers\RoleController::class, 'update'])
 ->name('roles.update');
 
-//Rutas de Adultos Mayores
-Route::get('/adultos/index', [\App\Http\Controllers\AdultoMController::class, 'index'])
-->name('admin.adultos.index');
-
-Route::post('/adultos/store', [\App\Http\Controllers\AdultoMController::class, 'store'])
-->name('admin.adultos.store');
-
-Route::delete('/adotos/delete', [App\Http\Controllers\AdultoMController::class, 'delete'])
-->name('admin.adulto.delete');
-
-Route::post('/adulto/{adultoId}/update', [App\Http\Controllers\AdultoMController::class, 'update'])
-->name('admin.adultos.update');

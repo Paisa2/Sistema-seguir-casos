@@ -110,7 +110,7 @@ class UsuarioController extends Controller
     {
         abort_if(Gate::denies('user_destroy'), 403);
         if(auth()->user()->id == $user->id) {
-            return redirect()->route('admin.usuario.index');
+            return redirect()->route('admin.usuarios.index');
         }
         $user->delete();
         return back()->with('success', 'Usuario eliminado correctamente');

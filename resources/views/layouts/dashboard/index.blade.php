@@ -64,12 +64,8 @@
 
                 <!-- Divider -->
             <hr class="sidebar-divider my-0">
-            <!-- Ruta Adultos -->
-            <li class="nav-item active {{ request()->is('adultos') ? 'active' : ''}}">
-                <a class="nav-link" href="#">
-                    <span>{{__('Casos Adultos Mayores')}}</span>
-                </a>
-            </li>
+
+
 
             <!-- Divider -->
             {{-- <hr class="sidebar-divider">
