@@ -94,6 +94,6 @@ Route::post('/roles/store', [App\Http\Controllers\RoleController::class, 'store'
 Route::delete('/roles/{roleId}/delete', [App\Http\Controllers\RoleController::class, 'delete'])
 ->name('roles.delete');
 
-Route::post('/rols/{roleId}/update', [App\Http\Controllers\RoleController::class, 'update'])
+Route::post('/roles/{roleId}/update', [App\Http\Controllers\RoleController::class, 'update'])
 ->name('roles.update');
 
