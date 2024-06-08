@@ -88,7 +88,7 @@ class UsuarioController extends Controller
      */
     public function update(UserEditRequest $request, User $user)
     {
-        $data = $request->only('name', 'email', 'estadoCuenta');
+        $data = $request->only('name', 'apellido', 'email', 'cargo', 'estadoCuenta');
         $password= $request->input('password');
         if($password)
             $data['password'] = $password;
