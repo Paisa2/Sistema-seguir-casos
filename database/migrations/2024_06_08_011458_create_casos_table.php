@@ -16,6 +16,7 @@ class CreateCasosTable extends Migration
         Schema::create('casos', function (Blueprint $table) {
             $table->id();
             $table->string('tipologia')->unique();
+            $table->string('descripcion');
             $table->string('estado');
             $table->timestamps();
         });

@@ -44,7 +44,7 @@
             <hr class="sidebar-divider my-0">
             <!-- Ruta los Usuarios -->
             @can('user_index')
-            <li class="nav-item {{ request()->is('usuarios')  ? 'active' : ''}}">
+            <li class="nav-item active {{ request()->is('usuarios')  ? 'active' : ''}}">
                 <a class="nav-link" href="{{route('admin.usuarios.index')}}" >
                     <span>{{ __('Usuarios') }}</span>
                 </a>
@@ -61,6 +61,18 @@
                 </a>
             </li>
             @endcan
+
+            <!-- Divider -->
+            <hr class="sidebar-divider my-0">
+            <!-- Ruta de las Unidades -->
+            @can('unidad_index')
+            <li class="nav-item active {{ request()->is('unidades')  ? 'active' : ''}}">
+                <a class="nav-link" href="{{route('admin.unidades.index')}}" >
+                    <span>{{ __('Unidades') }}</span>
+                </a>
+            </li>
+            @endcan
+
 
                 <!-- Divider -->
             <hr class="sidebar-divider my-0">

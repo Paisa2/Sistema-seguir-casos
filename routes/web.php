@@ -97,3 +97,21 @@ Route::delete('/roles/{roleId}/delete', [App\Http\Controllers\RoleController::cl
 Route::post('/roles/{roleId}/update', [App\Http\Controllers\RoleController::class, 'update'])
 ->name('roles.update');
 
+//Rutas Unidades
+Route::get('/unidades/index', [App\Http\Controllers\UnidadController::class, 'index'])
+->name('admin.unidades.index');
+
+Route::get('/unidades/create', [App\Http\Controllers\UnidadController::class, 'create'])
+->name('admin.unidades.create');
+
+Route::post('/unidades/store', [App\Http\Controllers\UnidadController::class, 'store'])
+->name('admin.unidades.store');
+
+Route::get('/unidades/edit', [App\Http\Controllers\UnidadController::class, 'edit'])
+->name('admin.unidades.edit');
+
+Route::delete('/unidades/{unidadId}/delete', [App\Http\Controllers\UnidadController::class, 'delete'])
+->name('admin.unidades.delete');
+
+Route::post('/unidades/{unidadId}/update', [\App\Http\Controllers\UnidadController::class, 'update'])
+->name('admin.unidades.update');

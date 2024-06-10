@@ -42,8 +42,5 @@ class User extends Authenticatable
         $this->attributes['password'] = bcrypt($password);
     }
 
-    public function unidad() {
-        return $this->belongsTo(Unidad::class);
-    }
 
 }

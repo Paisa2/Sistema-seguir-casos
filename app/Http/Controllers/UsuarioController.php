@@ -31,8 +31,8 @@ class UsuarioController extends Controller
     public function create()
     {
         abort_if(Gate::denies('user_create'), 403);
-        $users = User::all();
-        return view('admin.usuarios.create', compact('users'));
+        $roles = Role::all()->pluck('name', 'id');
+        return view('admin.usuarios.create', compact('roles'));
     }
 
     /**

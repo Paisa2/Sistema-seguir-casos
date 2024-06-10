@@ -34,7 +34,8 @@
             <tr>
                 <th scope="col">#</th>
                 <th scope="col">Nombre</th>
-                <th scope="col">Carnet de identidad</th>
+                <th scope="col">Apellidos</th>
+                <th scope="col">Cargo</th>
                 <th scope="col">Correo Electronico</th>
                 <th scope="col">Estado</th>
                 <th scope="col">Rol</th>
@@ -46,7 +47,8 @@
                 <tr scope="row">
                     <td>{{ @$user->id}}</td>
                     <td>{{ @$user->name }}</td>
-                    <td>{{ @$user->ci }}</td>
+                    <td>{{ @$user->apellido }}</td>
+                    <td>{{ @$user-> cargo }}</td>
                     <td>{{ @$user->email }}</td>
                     <td>{{ @$user->estadoCuenta }}</td>
                     <td>
@@ -63,11 +65,11 @@
                                 Editar
                             </a>
                         @endcan
-                        @can('user_destroy')
+                        <!-- @can('user_destroy')
                             <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#modalEliminar-{{$user->id}}">
                                 Eliminar
                             </button>
-                        @endcan
+                        @endcan -->
                     </td>
                 </tr>
                     @include('admin.usuarios.modalEliminar')

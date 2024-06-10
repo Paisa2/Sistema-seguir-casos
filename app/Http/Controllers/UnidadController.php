@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Unidad;
 use App\Http\Requests\StoreUnidadRequest;
 use App\Http\Requests\UpdateUnidadRequest;
+use Illuminate\Support\Facades\Gate;
 
 class UnidadController extends Controller
 {
@@ -15,7 +16,10 @@ class UnidadController extends Controller
      */
     public function index()
     {
-        //
+        abort_if(Gate::denies('unidad_index'), 403);
+        $unidades = Unidad::all();
+        // dd($unidades);
+        return view('admin.unidades.index', compact('unidades'));
     }
 
     /**
