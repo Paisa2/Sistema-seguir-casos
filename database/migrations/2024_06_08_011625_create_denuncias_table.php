@@ -22,8 +22,6 @@ class CreateDenunciasTable extends Migration
 
             $table->unsignedBigInteger('unidad');
             $table->foreign('unidad')->references('id')->on('unidades')->onUpdate('cascade')->onDelete('cascade');
-            $table->unsignedBigInteger('casos_id');
-            $table->foreign('casos_id')->references('id')->on('casos')->onUpdate('cascade')->onDelete('cascade');
 
             $table->timestamps();
         });

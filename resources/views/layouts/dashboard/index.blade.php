@@ -73,6 +73,17 @@
             </li>
             @endcan
 
+            <!-- Divider -->
+            <hr class="sidebar-divider my-0">
+            <!-- Ruta de las Denuncias -->
+            @can('denuncia_index')
+            <li class="nav-item active {{ request()->is('denuncias')  ? 'active' : ''}}">
+                <a class="nav-link" href="{{route('admin.denuncias.index')}}" >
+                    <span>{{ __('Denuncias') }}</span>
+                </a>
+            </li>
+            @endcan
+
 
                 <!-- Divider -->
             <hr class="sidebar-divider my-0">

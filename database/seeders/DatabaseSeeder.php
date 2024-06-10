@@ -19,6 +19,9 @@ class DatabaseSeeder extends Seeder
             RoleSeeder::class,
             RoleHashPermissionSeeder::class,
             UserSeeder::class,
+            UnidadSeeder::class,
+            CasoSeeder::class,
+            DenunciaSeeder::class,
         ]);
 
     }

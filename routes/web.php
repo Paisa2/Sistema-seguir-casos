@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\DenunciaController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -115,3 +116,22 @@ Route::delete('/unidades/{unidadId}/delete', [App\Http\Controllers\UnidadControl
 
 Route::post('/unidades/{unidadId}/update', [\App\Http\Controllers\UnidadController::class, 'update'])
 ->name('admin.unidades.update');
+
+//Rutas denuncias
+Route::get('/denuncias/index', [\App\Http\Controllers\DenunciaController::class, 'index'])
+->name('admin.denuncias.index');
+
+Route::get('/denuncias/create', [\App\Http\Controllers\DenunciaController::class, 'create'])
+->name('admin.denuncias.create');
+
+Route::post('/denuncias.store', [\App\Http\Controllers\DenunciaController::class, 'store'])
+->name('admin.denuncias.store');
+
+Route::get('denuncias/edit', [\App\Http\Controllers\DenunciaController::class, 'edit'])
+->name('admin.denuncias.edit');
+
+Route::delete('/denuncias/{denunciaId}/delete', [\App\Http\Controllers\DenunciaController::class,'delete'])
+->name('admin.denuncias.delete');
+
+Route::post('/denuncias/{denunciaId}/update', [\App\Http\Controllers\DenunciaController::class, 'update'])
+->name('admin.denuncias.update');

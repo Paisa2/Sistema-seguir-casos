@@ -42,6 +42,12 @@ class PermissionSeeder extends Seeder
             'unidad_destroy',
             'unidad_buscar',
 
+            'denuncia_index',
+            'denuncia_create',
+            'denuncia_edit',
+            'denuncia_destroy',
+            'denuncia_buscar',
+
 
 
         ];

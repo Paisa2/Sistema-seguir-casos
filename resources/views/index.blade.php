@@ -6,7 +6,7 @@
 
     <h1 class="text-center">BIENVENIDO</h1>
     <div style=" width: 96%; max-width: 960px; margin: 0 auto;" >
-        <!-- <img src="{{asset('images/umss.png')}}" alt="" style=" width:100%; height: auto;" width="960" height="640"> -->
+        <img src="{{asset('images/colca.jpg')}}" alt="" style=" width:100%; height: auto;" width="960" height="640">
     </div>
 
 </div>
