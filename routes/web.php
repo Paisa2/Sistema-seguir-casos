@@ -1,6 +1,6 @@
 <?php
 
-use App\Http\Controllers\DenunciaController;
+
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -118,20 +118,39 @@ Route::post('/unidades/{unidadId}/update', [\App\Http\Controllers\UnidadControll
 ->name('admin.unidades.update');
 
 //Rutas denuncias
-Route::get('/denuncias/index', [\App\Http\Controllers\DenunciaController::class, 'index'])
+Route::get('/denuncias/index', [App\Http\Controllers\DenunciaController::class, 'index'])
 ->name('admin.denuncias.index');
 
-Route::get('/denuncias/create', [\App\Http\Controllers\DenunciaController::class, 'create'])
+Route::get('/denuncias/create', [App\Http\Controllers\UnidadController::class, 'create'])
 ->name('admin.denuncias.create');
 
-Route::post('/denuncias.store', [\App\Http\Controllers\DenunciaController::class, 'store'])
+Route::post('/denuncias/store', [App\Http\Controllers\UnidadController::class, 'store'])
 ->name('admin.denuncias.store');
 
-Route::get('denuncias/edit', [\App\Http\Controllers\DenunciaController::class, 'edit'])
+Route::get('/denuncias/edit', [App\Http\Controllers\UnidadController::class, 'edit'])
 ->name('admin.denuncias.edit');
 
-Route::delete('/denuncias/{denunciaId}/delete', [\App\Http\Controllers\DenunciaController::class,'delete'])
+Route::delete('/denuncias/{unidadId}/delete', [App\Http\Controllers\UnidadController::class, 'delete'])
 ->name('admin.denuncias.delete');
 
-Route::post('/denuncias/{denunciaId}/update', [\App\Http\Controllers\DenunciaController::class, 'update'])
+Route::post('/denuncias/{unidadId}/update', [\App\Http\Controllers\UnidadController::class, 'update'])
 ->name('admin.denuncias.update');
+
+//Ruta Casos
+Route::get('/casos/index', [\App\Http\Controllers\CasoController::class, 'index'])
+->name('admin.casos.index');
+
+Route::get('/casos/create', [\App\Http\Controllers\CasoController::class, 'create'])
+->name('admin.casos.create');
+
+Route::post('/casos.store', [\App\Http\Controllers\CasoController::class,'store'])
+->name('admin.casos.store');
+
+Route::get('/casos/edit', [\App\Http\Controllers\CasoController::class, 'edit'])
+->name('admin.casos.edit');
+
+Route::delete('/casos/{casosId}/delete', [\App\Http\Controllers\CasoController::class, 'delete'])
+->name('admin.casos.delete');
+
+Route::post('/casos/{casosId}update', [\App\Http\Controllers\CasoController::class, 'update'])
+->name('admin.casos.update');

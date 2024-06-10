@@ -15,9 +15,9 @@ class DenunciaController extends Controller
      */
     public function index()
     {
-        abort_if(Gate::denies('denuncia_index'), 403);
+        // abort_if(Gate::denies('denuncia_index'), 403);
         $denuncias = Denuncia::all();
-        dd($denuncias);
+        // dd($denuncias);
         return view('admin.denuncias.index', compact('denuncias'));
     }
 

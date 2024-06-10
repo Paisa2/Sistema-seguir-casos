@@ -2,7 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Caso;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Gate;
 
 class CasoController extends Controller
 {
@@ -13,7 +15,10 @@ class CasoController extends Controller
      */
     public function index()
     {
-        //
+        // abort_if(Gate::denies('caso_index'), 403);
+        $casos = Caso::all();
+        // dd($casos);
+        return view('admin.casos.index', compact('casos'));
     }
 
     /**
