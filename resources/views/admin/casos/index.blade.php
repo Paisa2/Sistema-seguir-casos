@@ -28,4 +28,37 @@
         @endcan
     </div>
 
+    <div style="margin-top: 8%" class="table-reponsive">
+        <table class="table" id="casos">
+            <thead>
+                <tr>
+                    <th scope='col'>#</th>
+                    <th scope='col'>Tipologia</th>
+                    <th scope='col'>Descripcion</th>
+                    <th scope='col'>Estado</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach ($casos as $caso)
+                <tr>
+                    <td>{{ $caso->id }}</td>
+                    <td>{{ $caso->tipologia }}</td>
+                    <td>{{ $caso->descripcion }}</td>
+                    <td>{{ $caso->estado }}</td>
+                    <td>
+                        <a type="button" class="btn btn-primary" href="{{ route('admin.unidades.edit', $unidad->id) }}">
+                            Editar
+                        </a>
+
+                        <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#modalEliminar-{{$unidad->id}}">
+                            Eliminar
+                        </button>
+                    </td>
+                </tr>
+                @include('admin.casos.modalEliminar')
+                @endforeach
+            </tbody>
+        </table>
+    </div>
+
 @endsection

@@ -20,7 +20,7 @@ class UnidadSeeder extends Seeder
             DB::table('unidades')->isert([
                 'nombre' => rand(1, 100)*1000,
                 'descripcion' => rand(1, 100)*1000,
-                'unidades' => $unidades(rand(0, 3)),
+                'unidad' => $unidades(rand(0, 3)),
             ]);
         }
     }

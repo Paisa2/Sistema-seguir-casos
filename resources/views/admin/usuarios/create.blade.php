@@ -37,7 +37,7 @@
                             <div class="row">
                                 <label for="email" class="col-sm-2 col-form-label">Correo</label>
                                 <div class="col-sm-7">
-                                    <input type="email" class="form-control" name="email" placeholder="Ingrese su correo" value="{{ old('email') }}" minlength="10" maxlength="35"  >
+                                    <input type="email" class="form-control" name="email" autocomplete="current-email" placeholder="Ingrese su correo" value="{{ old('email') }}" minlength="10" maxlength="35"  >
                                     @if ($errors->has('email'))
                                         <span class="error text-danger" for="input-email" style="font-size: 15px">{{ $errors->first('email') }}</span>
                                     @endif
@@ -47,7 +47,7 @@
                             <div class="row">
                                 <label for="password" class="col-sm-2 col-form-label">Contraseña</label>
                                 <div class="col-sm-7">
-                                    <input type="password" class="form-control" name="password" placeholder="Contraseña" minlength="5" maxlength="15" >
+                                    <input type="password" class="form-control" name="password" autocomplete="current-password" placeholder="Contraseña" minlength="5" maxlength="15" >
                                     @if ($errors->has('password'))
                                         <span class="error text-danger" for="input-password" style="font-size: 15px">{{ $errors->first('password') }}</span>
                                     @endif
@@ -116,14 +116,11 @@
         document.all ? k = e.keyCode : k = e.which;
         return ((k > 64 && k < 91) || (k > 96 && k < 123) || k == 8 || k == 32);
         }
-  function blockNoNumber(e){
-      var k;
-      document.all ? k = e.keyCode : k = e.which;
-      return ( (k >= 48 && k <= 57));
-      }
-  let refresh = document.getElementById('refresh');
-  refresh.addEventListener('click', _ => {
-          location.reload();
-})
+    function blockNoNumber(e){
+        var k;
+        document.all ? k = e.keyCode : k = e.which;
+        return ( (k >= 48 && k <= 57));
+        }
+    let refresh = document.getElementById('refresh');
 </script>
 @endsection

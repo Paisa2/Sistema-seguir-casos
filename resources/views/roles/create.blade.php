@@ -117,8 +117,5 @@
         return ( (k >= 48 && k <= 57));
         }
     let refresh = document.getElementById('refresh');
-    refresh.addEventListener('click', _ => {
-            location.reload();
-    })
 </script>
 @endsection

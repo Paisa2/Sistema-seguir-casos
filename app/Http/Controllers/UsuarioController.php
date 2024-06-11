@@ -63,26 +63,27 @@ class UsuarioController extends Controller
 
     public function update(UserEditRequest $request, User $user)
     {
-        // $user=User::findOrFail($id);
+         // $user=User::findOrFail($id);
         $data = $request->only('name', 'apellido', 'email', 'cargo', 'estadoCuenta');
         $password=$request->input('password');
-        if($password)
-            $data['password'] = $password;
-        // if(trim($request->password)=='')
-        // {
-        //     $data=$request->except('password');
-        // }
-        // else{
-        //     $data=$request->all();
-        //     $data['password']=bcrypt($request->password);
-        // }
+            if($password)
+                $data['password'] = $password;
+            // if(trim($request->password)=='')
+            // {
+            //     $data=$request->except('password');
+            // }
+            // else{
+            //     $data=$request->all();
+            //     $data['password']=bcrypt($request->password);
+            // }
 
-        $user->update($data);
+            $user->update($data);
 
-        $roles = $request->input('roles', []);
-        $user->syncRoles($roles);
+            $roles = $request->input('roles', []);
+            $user->syncRoles($roles);
         return redirect()->route('admin.usuarios.index', $user->id)->with('success', 'Usuario actualizado correctamente');
     }
+
     public function destroy(User $user)
     {
         abort_if(Gate::denies('user_destroy'), 403);
