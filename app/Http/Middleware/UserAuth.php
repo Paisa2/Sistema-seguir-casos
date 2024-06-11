@@ -17,7 +17,7 @@ class UserAuth
     public function handle(Request $request, Closure $next)
     {
         if (auth()->check()) {
-            // if(auth()->user()->role=='docente'){
+            // if(auth()->user()->role=='usuario'){
             return $next($request);
             // }
             // return redirect()->to('/admin');

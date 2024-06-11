@@ -98,6 +98,7 @@ Route::delete('/roles/{roleId}/delete', [App\Http\Controllers\RoleController::cl
 Route::post('/roles/{roleId}/update', [App\Http\Controllers\RoleController::class, 'update'])
 ->name('roles.update');
 
+
 //Rutas Unidades
 Route::get('/unidades/index', [App\Http\Controllers\UnidadController::class, 'index'])
 ->name('admin.unidades.index');

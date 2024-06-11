@@ -19,9 +19,7 @@ class RoleController extends Controller
     public function index()
     {
         abort_if(Gate::denies('role_index'), 403);
-
         $roles = Role::all();
-
         return view('roles.index', compact('roles'));
     }
 
@@ -53,6 +51,13 @@ class RoleController extends Controller
         $role->syncPermissions($request->input('permissions', []));
 
         return redirect()->route('roles.index');
+    }
+
+    public function delete($roleId)
+    {
+        $role = Role::findOrFail($roleId);
+        $role->delete();
+        return redirect()->back();
     }
 
     /**

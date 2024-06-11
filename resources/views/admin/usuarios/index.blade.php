@@ -82,7 +82,7 @@
 
 <script language="javascript">
     function doSearch() {
-        var tableReg = document.getElementById('docentematerias');
+        var tableReg = document.getElementById('usuarios');
         var searchText = document.getElementById('searchTerm').value.toLowerCase();
         for (var i = 1; i < tableReg.rows.length; i++) {
             var cellsOfRow = tableReg.rows[i].getElementsByTagName('td');
