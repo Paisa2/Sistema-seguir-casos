@@ -25,17 +25,20 @@ class UserCreateRequest extends FormRequest
     {
         return [
             'name' => 'required',
-            'ci' => 'required|unique:users',
+            'apellido' => 'required',
             'email' => 'required|email|unique:users',
             'password' => 'required',
-            'departamento' => 'required',
+            'cargo' => 'required',
         ];
     }
 
     public function messages()
     {
         return [
-            'name.required' => 'El nombre es requerido '
+            'name.required' => 'El campo nombre es obligatorio ',
+            'apellido.required' => 'El campo apellido es obligatorio',
+            'email.required' => 'El campo correo es obligatorio',
+            'password.required' => 'El campo contraña es obligatorio',
         ];
     }
 }

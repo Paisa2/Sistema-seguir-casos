@@ -20,7 +20,7 @@ class UserSeeder extends Seeder
             'email' => 'admin@gmail.com',
             'estadoCuenta' => 'Habilitado',
             'password' => 'admin',
-            'cargo' => 'jefe',
+            'cargo' => 'Jefe',
         ]);
 
         $user->assignRole('Admin');
@@ -31,7 +31,7 @@ class UserSeeder extends Seeder
             'email' => 'usuario@gmail.com',
             'estadoCuenta' => 'Habilitado',
             'password' => 'usuario',
-            'cargo' => 'jefe de discapacidad',
+            'cargo' => 'Discapacidad',
         ]);
 
         $user2->assignRole('User');
@@ -42,7 +42,7 @@ class UserSeeder extends Seeder
             'email' => 'usuario2@gmail.com',
             'estadoCuenta' => 'Habilitado',
             'password' => 'usuario2',
-            'cargo' => 'jefe de slam',
+            'cargo' => 'Slam',
         ]);
 
         $user3->assignRole('User');
