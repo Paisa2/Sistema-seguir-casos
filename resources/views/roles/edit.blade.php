@@ -1,5 +1,6 @@
 @extends('layouts.dashboard.index', ['activePage' => 'roles', 'titlePage' => 'Editar Rol'])
 @section('main-content')
+
 <div class="content">
             <div class="container-fluid">
                     <div class="row">
@@ -75,6 +76,7 @@
         </div>
     </div>
 </div>
+
     <script language="javascript">
     function doSearch() {
         var tableReg = document.getElementById('rol_permisos_edit');

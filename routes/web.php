@@ -85,20 +85,20 @@ Route::put('/usuarios/{user}', [App\Http\Controllers\UsuariosRController::class,
 Route::get('/roles/index', [App\Http\Controllers\RoleController::class, 'index'])
 ->name('roles.index');
 
-Route::get('/roles/create', [App\Http\Controllers\RoleController::class, 'create'])
-->name('roles.create');
-
-Route::get('/roles/edit', [App\Http\Controllers\RoleController::class, 'edit'])
-->name('roles.edit');
-
 Route::post('/roles/store', [App\Http\Controllers\RoleController::class, 'store'])
 ->name('roles.store');
 
 Route::delete('/roles/{roleId}/delete', [App\Http\Controllers\RoleController::class, 'delete'])
 ->name('roles.delete');
 
-Route::put('/roles/{roleId}/update', [App\Http\Controllers\RoleController::class, 'update'])
+Route::post('/roles/{roleId}/update', [App\Http\Controllers\RoleController::class, 'update'])
 ->name('roles.update');
+
+//permisos
+Route::group(['middleware' => 'auth'], function() {
+Route::resource('permissions', App\Http\Controllers\PermissionController::class);
+Route::resource('roles', App\Http\Controllers\RoleController::class);
+});
 
 
 //Rutas Unidades
