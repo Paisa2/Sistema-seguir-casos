@@ -61,22 +61,22 @@ Route::get('/auth', function () {
 ->name('auth.user');
 
 //Usuarios
-Route::get('/usuarios/index', [App\Http\Controllers\UsuarioController::class, 'index'])
+Route::get('/usuarios/index', [App\Http\Controllers\UsuariosRController::class, 'index'])
 ->name('admin.usuarios.index');
 
-Route::get('/usuarios/create', [App\Http\Controllers\UsuarioController::class, 'create'])
+Route::get('/usuarios/create', [App\Http\Controllers\UsuariosRController::class, 'create'])
 ->name('admin.usuarios.create');
 
-Route::post('/usuarios/store', [App\Http\Controllers\UsuarioController::class, 'store'])
+Route::post('/usuarios/store', [App\Http\Controllers\UsuariosRController::class, 'store'])
 ->name('admin.usuarios.store');
 
-Route::delete('/usuarios/{user}', [App\Http\Controllers\UsuarioController::class, 'destroy'])
+Route::delete('/usuarios/{user}', [App\Http\Controllers\UsuariosRController::class, 'destroy'])
 ->name('admin.usuarios.delete');
 
-Route::get('/usuarios/{user}/edit', [App\Http\Controllers\UsuarioController::class, 'edit'])
+Route::get('/usuarios/{user}/edit', [App\Http\Controllers\UsuariosRController::class, 'edit'])
 ->name('admin.usuarios.edit');
 
-Route::put('/usuarios/{user}', [App\Http\Controllers\UsuarioController::class, 'update'])
+Route::put('/usuarios/{user}', [App\Http\Controllers\UsuariosRController::class, 'update'])
 ->name('admin.usuarios.update');
 
 

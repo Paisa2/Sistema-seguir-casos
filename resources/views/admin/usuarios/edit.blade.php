@@ -12,23 +12,19 @@ use Illuminate\Support\Arr;
     <div class="container-fluid">
         <div class="row">
         <div class="col-md-12">
-            <form action="{{route('admin.usuarios.update', $user->id)}}" method="post" class="form-horizontal">
-                @csrf
-                @method('PUT')
-                <div class="card">
-                    <div class="card-header card-header-primary">
-                        <h4 class="card-title">Usuario</h4>
-                        <p class="card-category">Editar datos</p>
-                    </div>
-                        <div class="card-body">
+        <form action="{{route('admin.usuarios.update', $user->id)}}" method="post" class="form-horizontal">
+                        @csrf
+                        @method('PUT')
+                        <div class="card">
+                            <div class="card-body">
                             <div class="row">
                                 <label for="name" class="col-sm-2 col-form-label">Nombre</label>
                                 <div class="col-sm-7">
-                                <input type="text" class="form-control" name="name" value="{{ old('name', $user->name) }}" autofocus minlength="4" maxlength="20"
-                                onkeypress="return blockSpecialChar(event)">
-                                @if ($errors->has('name'))
-                                    <span class="error text-danger" for="input-name" style="font-size: 15px">{{ $errors->first('name') }}</span>
-                                @endif
+                                    <input type="text" class="form-control" name="name" value="{{ old('name', $user->name) }}" autofocus minlength="4" maxlength="20"
+                                    onkeypress="return blockSpecialChar(event)">
+                                    @if ($errors->has('name'))
+                                        <span class="error text-danger" for="input-name" style="font-size: 15px">{{ $errors->first('name') }}</span>
+                                    @endif
                                 </div>
                             </div>
 
@@ -43,92 +39,92 @@ use Illuminate\Support\Arr;
                                 </div>
                             </div>
 
+
                             <div class="row">
                                 <label for="email" class="col-sm-2 col-form-label">Correo</label>
                                 <div class="col-sm-7">
-                                <input type="email" class="form-control" name="email" autocomplete="current-email" value="{{ old('email', $user->email) }}" minlength="10" maxlength="25"  >
-                                        @if ($errors->has('email'))
-                                            <span class="error text-danger" for="input-email" style="font-size: 15px">{{ $errors->first('email') }}</span>
-                                        @endif
+                                    <input type="email" class="form-control" name="email" value="{{ old('email', $user->email) }}" minlength="10" maxlength="25"  >
+                                    @if ($errors->has('email'))
+                                        <span class="error text-danger" for="input-email" style="font-size: 15px">{{ $errors->first('email') }}</span>
+                                    @endif
                                 </div>
                             </div>
 
                             <div class="row">
                                 <label for="password" class="col-sm-2 col-form-label">Contraseña</label>
                                 <div class="col-sm-7">
-                                <input type="password" class="form-control" name="password" autocomplete="current-password" placeholder="Ingrese la contraseña sólo en caso de modificarla" minlength="5" maxlength="15" >
-                                @if ($errors->has('password'))
-                                    <span class="error text-danger" for="input-password" style="font-size: 15px">{{ $errors->first('password') }}</span>
-                                @endif
+                                    <input type="password" class="form-control" name="password" placeholder="Ingrese la contraseña sólo en caso de modificarla" minlength="5" maxlength="15" >
+                                    @if ($errors->has('password'))
+                                        <span class="error text-danger" for="input-password" style="font-size: 15px">{{ $errors->first('password') }}</span>
+                                    @endif
                                 </div>
                             </div>
 
                             <div class="row">
-                                <label for="cargo" class="col-sm-2 col-form-label">Cargo</label>
+                                    <label for="departamento" class="col-sm-2 col-form-label">Cago-Responsable</label>
                                     <div class="col-sm-7">
-                                        <select name="cargo" id="cargo" class="form-control" value="{{old('cargo')}}" required>
-                                            <option value="">-- Selecciona el cargo--</option>
-                                            <option value="Slim" @if(old('users') == 'Slim') selected @endif>Dep. Slim</option>
-                                            <option value="Discapacidad" @if(old('users') == 'Discapacidad') selected @endif>Dep. Discapacidad</option>
-                                            <option value="AdultoMayor" @if(old('users') == 'Adulto-Mayor') selected @endif>Dep. Adulto-Mayor</option>
+                                        <select name="departamento" id="departamento" class="form-control" value="{{old('departamento')}}" required>
+                                        <option value="">-- Selecciona el Cago-Responsable--</option>
+                                        <option value="Sistemas" @if(old('carrera') == 'Sistemas') selected @endif>Dep. Slim</option>
+                                        <option value="Informatica" @if(old('carrera') == 'Informatica') selected @endif>Dep. Discapacidad</option>
+                                        <option value="Electromecanica" @if(old('carrera') == 'Electromecanica') selected @endif>Dep. Adulto-Mayor</option>
                                         </select>
                                     </div>
-                            </div>
-
-                            <div class="row" >
-                                <label for="estadoCuenta"  class="col-sm-2 col-form-label">Estado de cuenta</label>
-                                <div class="col-sm-7">
-                                <select name="estadoCuenta" id="estadoCuenta" class="form-control"  required>
-                                    @foreach($estado as $es)
-                                    <option value="{{$es}}">{{$es}}</option>
-                                    @endforeach
-                                </select>
                                 </div>
-                            </div>
 
-                            <div class="row">
-                                <label for="name" class="col-sm-2 col-form-label">Roles</label>
-                                <div class="col-sm-7">
-                                    <div class="form-group">
-                                        <div class="tab-content">
-                                            <div class="tab-pane active" id="profile">
-                                                <table class="table">
-                                                    <tbody>
-                                                        @foreach ($roles as $id => $role)
-                                                        <tr>
-                                                            <td>
-                                                                <div class="form-check">
-                                                                    <label class="form-check-label" style="margin-bottom: 10%">
-                                                                        <input class="form-check-input" type="checkbox"
-                                                                            name="roles[]"
-                                                                            value="{{ $id }}" {{ $user->roles->contains($id) ? 'checked' : ''}}
-                                                                        >
-                                                                        <span class="form-check-sign">
-                                                                            <span class="check" value=""></span>
-                                                                        </span>
-                                                                    </label>
-                                                                </div>
-                                                            </td>
-                                                            <td>
-                                                                {{ $role }}
-                                                            </td>
-                                                        </tr>
-                                                        @endforeach
-                                                    </tbody>
-                                                </table>
+                                    <div class="row" >
+                                        <label for="estadoCuenta"  class="col-sm-2 col-form-label">Estado de cuenta</label>
+                                        <div class="col-sm-7">
+                                            <select name="estadoCuenta" id="estadoCuenta" class="form-control"  required>
+                                                @foreach($estado as $es)
+                                                <option value="{{$es}}">{{$es}}</option>
+                                                @endforeach
+                                            </select>
+                                        </div>
+                                    </div>
+
+                                    <div class="row">
+                                        <label for="name" class="col-sm-2 col-form-label">Roles</label>
+                                            <div class="col-sm-7">
+                                                <div class="form-group">
+                                                    <div class="tab-content">
+                                                        <div class="tab-pane active" id="profile">
+                                                            <table class="table">
+                                                                <tbody>
+                                                                    @foreach ($roles as $id => $role)
+                                                                    <tr>
+                                                                        <td>
+                                                                            <div class="form-check">
+                                                                                <label class="form-check-label" style="margin-bottom: 10%">
+                                                                                    <input class="form-check-input" type="checkbox"
+                                                                                        name="roles[]"
+                                                                                        value="{{ $id }}" {{ $user->roles->contains($id) ? 'checked' : ''}}
+                                                                                    >
+                                                                                    <span class="form-check-sign">
+                                                                                        <span class="check" value=""></span>
+                                                                                    </span>
+                                                                                </label>
+                                                                            </div>
+                                                                        </td>
+                                                                        <td>
+                                                                            {{ $role }}
+                                                                        </td>
+                                                                    </tr>
+                                                                    @endforeach
+                                                                </tbody>
+                                                            </table>
+                                                        </div>
+                                                    </div>
+                                                </div>
                                             </div>
                                         </div>
                                     </div>
+                                            <!-- Boton de Actualizar  -->
+                                        <div class="card-footer ml-auto mr-auto">
+                                        <button type="submit" class="btn btn-primary">Actualizar</button>
+                                        </div>
                                 </div>
-                            </div>
-                        </div>
-                            <!--Footer-->
-                            <div class="card-footer ml-auto mr-auto">
-                                <button type="submit" class="btn btn-primary">Actualizar</button>
-                            </div>
-                            <!--End footer-->
-                    </div>
-                </form>
+                            </form>
             </div>
         </div>
     </div>

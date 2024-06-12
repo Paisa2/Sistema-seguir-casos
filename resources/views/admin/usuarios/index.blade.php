@@ -15,6 +15,13 @@
     <div class="container-fluid">
         <div class="row">
             <div class="col-md-12">
+                    <div class="card-body">
+                        @if(session('success'))
+                        <div class="alert alert-success" role="success">
+                            {{ session('success') }}
+                        </div>
+                        @endif
+                    </div>
                     @can('user_buscar')
                     <span class="input-group" style="width: 60%; margin-right:auto; margin-left:auto">
                         <img src="{{asset('images/search.svg')}}" alt="" style="border-radius: 10px; position: relative; width:100%; max-width:30px; right:8px;">

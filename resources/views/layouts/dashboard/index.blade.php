@@ -45,9 +45,8 @@
             <!-- Ruta los Usuarios -->
             @can('user_index')
             <li class="nav-item active {{ request()->is('usuarios')  ? 'active' : ''}}">
-                <a class="nav-link" href="{{route('admin.usuarios.index')}}" >
-                    <span>{{ __('Usuarios') }}</span>
-                </a>
+                <a class="nav-link" href="{{route('admin.usuarios.index')}}">
+                    <span>{{ __('Usuarios') }}</span></a>
             </li>
             @endcan
 
