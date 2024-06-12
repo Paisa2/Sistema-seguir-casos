@@ -29,7 +29,8 @@ class UnidadController extends Controller
      */
     public function create()
     {
-        //
+        $unidades = Unidad::all();
+        return view('admin.unidades.create', compact('unidades'));
     }
 
     /**

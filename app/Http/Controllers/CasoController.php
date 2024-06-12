@@ -13,10 +13,10 @@ class CasoController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index( Request $request)
     {
         // abort_if(Gate::denies('caso_index'), 403);
-        $casos = Caso::all();
+        $casos = Caso::orderBy('id', 'asc')->get();
         // dd($casos);
         return view('admin.casos.index', compact('casos'));
     }
@@ -28,7 +28,9 @@ class CasoController extends Controller
      */
     public function create()
     {
-        //
+
+        $casos = Caso::all();
+        return view('admin.casos.create', compact('casos'));
     }
 
     /**

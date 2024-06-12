@@ -28,7 +28,8 @@ class DenunciaController extends Controller
      */
     public function create()
     {
-        abort_if(Gate::denies('denuncia_create'),403);
+        $denuncias = Denuncia::all();
+        return view('admin.denuncias.create', compact('denuncias'));
     }
 
     /**

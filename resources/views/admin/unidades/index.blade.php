@@ -6,8 +6,8 @@
         INFORMACIÓN DE UNIDADES
     </h2>
 
-        <a type="button" class="btn btn-dark" style="background-color: #1D3354; padding-top: 0.8%" href="#">
-            Registrar Denuncias
+        <a type="button" class="btn btn-dark" style="background-color: #1D3354; padding-top: 0.8%" href="{{route('admin.unidades.create')}}">
+            Crear Unidades
         </a>
 </div>
 

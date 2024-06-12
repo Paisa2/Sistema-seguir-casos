@@ -1,1 +1,1 @@
-<h1>denuncias create</h1>
+<h1>crear denuncias</h1>
