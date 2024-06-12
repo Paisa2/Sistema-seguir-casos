@@ -15,9 +15,16 @@ class CreateCasosTable extends Migration
     {
         Schema::create('casos', function (Blueprint $table) {
             $table->id();
+            $table->integer('num_caso')->unique();
             $table->string('tipologia')->unique();
             $table->string('descripcion');
+            $table->date('fecha_registro');
+            $table->string('nom_demandante');
+            $table->string('nom_demandado');
             $table->string('estado');
+
+            $table->unsignedBigInteger('unidad');
+            $table->foreign('unidad')->references('id')->on('unidades')->onUpdate('cascade')->onDelete('cascade');
             $table->timestamps();
         });
     }

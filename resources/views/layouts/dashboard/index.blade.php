@@ -72,32 +72,6 @@
             </li>
             @endcan
 
-            <!-- Divider -->
-            <hr class="sidebar-divider my-0">
-            <!-- Ruta de Denuncias -->
-            <li class="nav-item active {{ request()->is('denuncias') ? 'active' : ''}}">
-                <a class="nav-link" href="{{route('admin.denuncias.index')}}">
-                    <span>{{__('Denuncias') }}</span>
-                </a>
-            </li>
-
-            <!-- Divider -->
-            <hr class="sidebar-divider my-0">
-            <!-- Ruta de Denuncias -->
-            <li class="nav-item active {{ request()->is('denuncias') ? 'active' : ''}}">
-                <a class="nav-link" href="{{route('admin.denuncias.create')}}">
-                    <span>{{__('Nuevas Denuncias') }}</span>
-                </a>
-            </li>
-
-            <!-- Divider -->
-            <hr class="sidebar-divider my-0">
-            <!-- Ruta de Denuncias -->
-            <li class="nav-item active {{ request()->is('casos') ? 'active' : '' }}">
-                <a class="nav-link" href="{{route('admin.casos.index')}}">
-                    <span>{{__('Casos')}}</span>
-                </a>
-            </li>
 
                 <!-- Divider -->
             <hr class="sidebar-divider my-0">
