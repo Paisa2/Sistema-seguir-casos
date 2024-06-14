@@ -51,7 +51,7 @@
                                         </label>
                                         <div class="input-group">
                                             <span class="input-group">
-                                            <button class="btn btn-primary" type="button"></button>
+
                                                 <input type="text">
                                             </span>
                                         </div>
@@ -66,7 +66,7 @@
                                             </label>
                                             <div class="input-group">
                                                 <span class="input-group">
-                                                    <button class="btn btn-secondary" type="button" ></button>
+
                                                     {{-- <input name="grupo_id" type="name" class="form-control" placeholder="Grupo">
                                                     <select name="grupo" id="grupo" class="custom-select" >
                                                         <option selected>Seleccione N° grupo..</option>
@@ -89,7 +89,7 @@
                                             </label>
                                                 <div class="input-group">
                                                     <span class="input-group">
-                                                    <button class="btn btn-primary" type="button"></button>
+
                                                     {{-- <input type="date" id="birthday" name="hora_ini" type="date" class="form-control"> --}}
                                                     <select class="form-select @error('hora_ini') is-invalid @enderror" id="hora_ini" name="hora_ini">
                                                     </span>
@@ -124,15 +124,11 @@
                                                     </label>
                                                     <div class="input-group">
                                                         <span class="input-group">
-                                                        <button class="btn btn-primary" type="button"></button>
                                                             <input type="text">
                                                         </span>
                                                     </div>
                                                 </div>
                                             </div>
-
-
-
 
 
                                     <div class="col-6">
@@ -142,7 +138,7 @@
                                             </label>
                                                 <div class="input-group">
                                                     <span class="input-group">
-                                                    <button class="btn btn-primary" type="button"></button>
+
                                                     {{-- <input type="date" id="birthday" name="hora_ini" type="date" class="form-control"> --}}
                                                     <select class="form-select @error('hora_ini') is-invalid @enderror" id="hora_ini" name="hora_ini">
                                                     </span>
@@ -169,6 +165,8 @@
                                             </div>
                                         </div>
 
+
+
                                     <div class="col-6">
                                             <div class="form-group">
                                                 <label for="name" class="form-control-label">
@@ -176,7 +174,7 @@
                                                 </label>
                                                     <div class="input-group">
                                                 <span class="input-group">
-                                                    <button class="btn btn-primary" type="button"></button>
+
                                                     {{-- <input name="ambiente" type="name" class="form-control" placeholder="Ambiente"> --}}
                                                     <select name="ambiente" id="ambiente" class="custom-select" value="{{old('ambiente')}}" required >
                                                         <option value="{{old('ambiente')}}" selected  >Seleccione al Responsable... {{old('ambiente')}}</option>
@@ -196,7 +194,7 @@
                                                 </label>
                                                 <div class="input-group">
                                                     <span class="input-group">
-                                                    <button class="btn btn-primary" type="button"></button>
+
                                                     <input name="dia" type="date" id="fechaReserva" class="form-control" placeholder="Dia Reserva" value="{{old('dia')}}" required>
                                                     </span>
                                                     <br>
@@ -214,7 +212,7 @@
                                                 </label>
                                                 <div class="input-group">
                                                     <span class="input-group">
-                                                    <button class="btn btn-primary" type="button"></button>
+
                                                     {{-- <input name="motivo" type="text" class="form-control" aria-label="With textarea"> --}}
                                                     <textarea name="motivo" type="text" class="form-control" id=""  placeholder="Descripcion" required>{{old('motivo')}}</textarea>
                                                     </span>
@@ -226,24 +224,6 @@
                                             </div>
                                         </div>
 
-                                        <div class="col-6">
-                                            <div class="form-group">
-                                                <label for="name" class="form-control-label">
-                                                    Cantidad Estudiantes:
-                                                </label>
-                                                <div class="input-group">
-                                                    <span class="input-group">
-                                                        <button class="btn btn-secondary" type="button"></button>
-                                                        <input name="cantidad" id="cantidad" type="name" class="form-control" placeholder="Cantidad-Estudiantes" value="{{old('cantidad')}}" required minlength="1" maxlength="3"
-                                                        onkeypress="return blockNoNumber(event)">
-                                                    </span>
-                                                    <br>
-                                                        @if($errors -> has('cantidad'))
-                                                            <span class="error-danger" for="input-name">{{$errors->first('cantidad')}}</span>
-                                                        @endif
-                                                </div>
-                                            </div>
-                                        </div>
 
                                             <div class="col-md-offset-4 col-md-10 text-center mt-3">
                                                 <button type="submit" class="btn btn-primary">enviar</button>
