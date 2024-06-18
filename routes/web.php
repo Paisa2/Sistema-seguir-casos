@@ -120,6 +120,25 @@ Route::delete('/unidadesA/{unidadId}/delete', [App\Http\Controllers\UnidadAdulto
 Route::post('/unidadesA/{unidadId}/update', [\App\Http\Controllers\UnidadAdultoMController::class, 'update'])
 ->name('admin.unidadesA.update');
 
+//Rutas Unidades Slim
+Route::get('/unidad/index', [App\Http\Controllers\UnidadSlimController::class, 'index'])
+->name('admin.unidad.index');
+
+Route::get('/unidad/create', [App\Http\Controllers\UnidadSlimController::class, 'create'])
+->name('admin.unidad.create');
+
+Route::post('/unidad/store', [App\Http\Controllers\UnidadSlimController::class, 'store'])
+->name('admin.unidad.store');
+
+Route::get('/unidad/edit', [App\Http\Controllers\UnidadSlimController::class, 'edit'])
+->name('admin.unidad.edit');
+
+Route::delete('/unidad/{unidadId}/delete', [App\Http\Controllers\UnidadSlimController::class, 'delete'])
+->name('admin.unidad.delete');
+
+Route::post('/unidad/{unidadId}/update', [\App\Http\Controllers\UnidadSlimController::class, 'update'])
+->name('admin.unidad.update');
+
 //Rutas denuncias
 Route::get('/denuncias/index', [App\Http\Controllers\DenunciaController::class, 'index'])
 ->name('admin.denuncias.index');
