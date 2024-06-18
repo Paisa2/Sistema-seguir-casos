@@ -66,17 +66,66 @@
             <!-- Ruta de las Unidades -->
             @can('unidad_index')
             <li class="nav-item active {{ request()->is('unidades')  ? 'active' : ''}}">
-                <a class="nav-link collapsed" href="{{route('admin.unidades.index')}}" data-bs-toggle="collapse" data-bs-target="#collapseLayouts" aria-expanded="false" aria-controls="collapseLayouts"><i class="fas fa-columns"></i>
-                    <span>{{ __('Unidades') }}</span>
+                <a class="nav-link collapsed" href="{{route('admin.unidadesA.index')}}" data-bs-toggle="collapse" data-bs-target="#collapseLayouts" aria-expanded="false" aria-controls="collapseLayouts"><i class="fas fa-columns"></i>
+                    <span>{{ __('Unidad Adulto Mayor') }}</span>
                 </a>
                     <div class="collapse" id="collapseLayouts" aria-labelledby="headingOne" data-bs-parent="#sidenavAccordion">
                         <nav class="sb-sidenav-menu-nested nav">
                             <a class="nav-link" href="#">Agregar Casos</a>
-
-                            <a class="nav-link" href="{{route('admin.unidades.index')}}">Ver Casos</a>
+                            <a class="nav-link" href="{{route('admin.unidadesA.index')}}">Ver Casos</a>
                         </nav>
                     </div>
+            </li>
+            @endcan
 
+            <!-- Divider -->
+            <hr class="sidebar-divider my-0">
+            <!-- Ruta de las Unidades -->
+            @can('unidad_index')
+            <li class="nav-item active {{ request()->is('unidades')  ? 'active' : ''}}">
+                <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#collapseLayouts" aria-expanded="false" aria-controls="collapseLayouts"><i class="fas fa-columns"></i>
+                    <span>{{ __('Unidad Slim') }}</span>
+                </a>
+                    <div class="collapse" id="collapseLayouts" aria-labelledby="headingOne" data-bs-parent="#sidenavAccordion">
+                        <nav class="sb-sidenav-menu-nested nav">
+                            <a class="nav-link" href="#">Agregar Casos</a>
+                            <a class="nav-link" href="#">Ver Casos</a>
+                        </nav>
+                    </div>
+            </li>
+            @endcan
+
+            <!-- Divider -->
+            <hr class="sidebar-divider my-0">
+            <!-- Ruta de las Unidades -->
+            @can('unidad_index')
+            <li class="nav-item active {{ request()->is('unidades')  ? 'active' : ''}}">
+                <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#collapseLayouts" aria-expanded="false" aria-controls="collapseLayouts"><i class="fas fa-columns"></i>
+                    <span>{{ __('Unidad Dicapacidad') }}</span>
+                </a>
+                    <div class="collapse" id="collapseLayouts" aria-labelledby="headingOne" data-bs-parent="#sidenavAccordion">
+                        <nav class="sb-sidenav-menu-nested nav">
+                            <a class="nav-link" href="#">Agregar Casos</a>
+                            <a class="nav-link" href="#">Ver Casos</a>
+                        </nav>
+                    </div>
+            </li>
+            @endcan
+
+            <!-- Divider -->
+            <hr class="sidebar-divider my-0">
+            <!-- Ruta de las Unidades -->
+            @can('unidad_index')
+            <li class="nav-item active {{ request()->is('unidades')  ? 'active' : ''}}">
+                <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#collapseLayouts" aria-expanded="false" aria-controls="collapseLayouts"><i class="fas fa-columns"></i>
+                    <span>{{ __('Unidad Defensoria') }}</span>
+                </a>
+                    <div class="collapse" id="collapseLayouts" aria-labelledby="headingOne" data-bs-parent="#sidenavAccordion">
+                        <nav class="sb-sidenav-menu-nested nav">
+                            <a class="nav-link" href="#">Agregar Casos</a>
+                            <a class="nav-link" href="#">Ver Casos</a>
+                        </nav>
+                    </div>
             </li>
             @endcan
 

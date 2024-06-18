@@ -3,10 +3,10 @@
 
 <div class="d-flex justify-content-between">
     <h2>
-        INFORMACIÓN DE UNIDADES
+        INFORMACIÓN DE UNIDAD ADULTO MAYOR
     </h2>
 
-        <a type="button" class="btn btn-dark" style="background-color: #1D3354; padding-top: 0.8%" href="{{route('admin.unidades.create')}}">
+        <a type="button" class="btn btn-dark" style="background-color: #1D3354; padding-top: 0.8%" href="{{route('admin.unidadesA.create')}}">
             Crear Unidades
         </a>
 </div>

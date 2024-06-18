@@ -7,7 +7,7 @@ use App\Http\Requests\StoreUnidadRequest;
 use App\Http\Requests\UpdateUnidadRequest;
 use Illuminate\Support\Facades\Gate;
 
-class UnidadController extends Controller
+class UnidadAdultoMController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -19,7 +19,7 @@ class UnidadController extends Controller
         abort_if(Gate::denies('unidad_index'), 403);
         $unidades = Unidad::all();
         // dd($unidades);
-        return view('admin.unidades.index', compact('unidades'));
+        return view('admin.unidadesA.index', compact('unidades'));
     }
 
     /**
@@ -30,7 +30,7 @@ class UnidadController extends Controller
     public function create()
     {
         $unidades = Unidad::all();
-        return view('admin.unidades.create', compact('unidades'));
+        return view('admin.unidadesA.create', compact('unidades'));
     }
 
     /**
