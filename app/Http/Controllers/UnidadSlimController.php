@@ -28,7 +28,8 @@ class UnidadSlimController extends Controller
      */
     public function create()
     {
-        //
+        $unidades = Unidad::all();
+        return view('admin.unidad.create', compact('unidades'));
     }
 
     /**

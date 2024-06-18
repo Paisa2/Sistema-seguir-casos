@@ -88,7 +88,7 @@
                 </a>
                     <div class="collapse" id="collapseLayouts" aria-labelledby="headingOne" data-bs-parent="#sidenavAccordion">
                         <nav class="sb-sidenav-menu-nested nav">
-                            <a class="nav-link" href="#">Agregar Casos</a>
+                            <a class="nav-link" href="{{route('admin.unidad.create')}}">Agregar Casos</a>
                             <a class="nav-link" href="{{route('admin.unidad.index')}}">Ver Casos</a>
                         </nav>
                     </div>
