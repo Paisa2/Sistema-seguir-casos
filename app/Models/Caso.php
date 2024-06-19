@@ -23,7 +23,19 @@ class Caso extends Model
         return $this->hasMany(Denuncia::class);
     }
 
-    public function unidad() {
-        return $this->belongsTo(Unidad::class);
+    public function unidadiscapacidad() {
+        return $this->belongsTo(UnidadDiscapacidad::class);
+    }
+
+    public function unidadefensoria() {
+        return $this->belongsTo(UnidadDefensoria::class);
+    }
+
+    public function unidadadulto() {
+        return $this->belongsTo(UnidadAdultoM::class);
+    }
+
+    public function unidadslim() {
+        return $this->belongsTo(UnidadSlim::class);
     }
 }

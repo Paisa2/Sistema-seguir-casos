@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Unidad;
+use App\Models\UnidadSlim;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Gate;
 
@@ -16,7 +17,7 @@ class UnidadSlimController extends Controller
     public function index()
     {
         abort_if(Gate::denies('unidad_index'), 403);
-        $unidades = Unidad::all();
+        $unidades = UnidadSlim::all();
         // dd($unidades);
         return view('admin.unidad.index', compact('unidades'));
     }
@@ -28,7 +29,7 @@ class UnidadSlimController extends Controller
      */
     public function create()
     {
-        $unidades = Unidad::all();
+        $unidades = UnidadSlim::all();
         return view('admin.unidad.create', compact('unidades'));
     }
 

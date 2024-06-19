@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Unidad;
+use App\Models\UnidadDiscapacidad;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Gate;
 
@@ -16,7 +17,7 @@ class UnidadDiscapacidadController extends Controller
     public function index()
     {
         abort_if(Gate::denies('unidad_index'), 403);
-        $unidades = Unidad::all();
+        $unidades = UnidadDiscapacidad::all();
         // dd($unidades);
         return view('admin.unidadesDis.index', compact('unidades'));
     }
@@ -28,7 +29,7 @@ class UnidadDiscapacidadController extends Controller
      */
     public function create()
     {
-        $unidades = Unidad::all();
+        $unidades = UnidadDiscapacidad::all();
         return view('admin.unidadesDis.create', compact('unidades'));
     }
 

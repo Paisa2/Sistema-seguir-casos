@@ -3,9 +3,8 @@
 namespace Database\Seeders;
 
 use Illuminate\Database\Seeder;
-use Illuminate\Support\Facades\DB;
 
-class UnidadSeeder extends Seeder
+class UnidadDiscapacidadSeeder extends Seeder
 {
     /**
      * Run the database seeds.
@@ -14,6 +13,6 @@ class UnidadSeeder extends Seeder
      */
     public function run()
     {
-
+        //
     }
 }

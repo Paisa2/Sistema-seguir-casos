@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Unidad;
+use App\Models\UnidadDefensoria;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Gate;
 
@@ -16,7 +17,7 @@ class UnidadDefensoriaController extends Controller
     public function index()
     {
         abort_if(Gate::denies('unidad_index'), 403);
-        $unidades = Unidad::all();
+        $unidades = UnidadDefensoria::all();
         // dd($unidades);
         return view('admin.unidadesDef.index', compact('unidades'));
     }
@@ -28,7 +29,7 @@ class UnidadDefensoriaController extends Controller
      */
     public function create()
     {
-        $unidades = Unidad::all();
+        $unidades = UnidadDefensoria::all();
         return view('admin.unidadesDef.create', compact('unidades'));
     }
 

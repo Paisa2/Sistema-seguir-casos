@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Unidad;
 use App\Http\Requests\StoreUnidadRequest;
 use App\Http\Requests\UpdateUnidadRequest;
+use App\Models\UnidadAdultoM;
 use Illuminate\Support\Facades\Gate;
 
 class UnidadAdultoMController extends Controller
@@ -17,7 +18,7 @@ class UnidadAdultoMController extends Controller
     public function index()
     {
         abort_if(Gate::denies('unidad_index'), 403);
-        $unidades = Unidad::all();
+        $unidades = UnidadAdultoM::all();
         // dd($unidades);
         return view('admin.unidadesA.index', compact('unidades'));
     }
@@ -29,7 +30,7 @@ class UnidadAdultoMController extends Controller
      */
     public function create()
     {
-        $unidades = Unidad::all();
+        $unidades = UnidadAdultoM::all();
         return view('admin.unidadesA.create', compact('unidades'));
     }
 
@@ -50,7 +51,7 @@ class UnidadAdultoMController extends Controller
      * @param  \App\Models\Unidad  $unidad
      * @return \Illuminate\Http\Response
      */
-    public function show(Unidad $unidad)
+    public function show( $unidad)
     {
         //
     }
@@ -61,7 +62,7 @@ class UnidadAdultoMController extends Controller
      * @param  \App\Models\Unidad  $unidad
      * @return \Illuminate\Http\Response
      */
-    public function edit(Unidad $unidad)
+    public function edit( $unidad)
     {
         //
     }
@@ -73,7 +74,7 @@ class UnidadAdultoMController extends Controller
      * @param  \App\Models\Unidad  $unidad
      * @return \Illuminate\Http\Response
      */
-    public function update(UpdateUnidadRequest $request, Unidad $unidad)
+    public function update(UpdateUnidadRequest $request,  $unidad)
     {
         //
     }
@@ -84,7 +85,7 @@ class UnidadAdultoMController extends Controller
      * @param  \App\Models\Unidad  $unidad
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Unidad $unidad)
+    public function destroy( $unidad)
     {
         //
     }
