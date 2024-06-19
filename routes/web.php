@@ -139,6 +139,44 @@ Route::delete('/unidad/{unidadId}/delete', [App\Http\Controllers\UnidadSlimContr
 Route::post('/unidad/{unidadId}/update', [\App\Http\Controllers\UnidadSlimController::class, 'update'])
 ->name('admin.unidad.update');
 
+//Rutas Unidades Defensoria
+Route::get('/unidadesDef/index', [App\Http\Controllers\UnidadDefensoriaController::class, 'index'])
+->name('admin.unidadesDef.index');
+
+Route::get('/unidadesDef/create', [App\Http\Controllers\UnidadDefensoriaController::class, 'create'])
+->name('admin.unidadesDef.create');
+
+Route::post('/unidadesDef/store', [App\Http\Controllers\UnidadDefensoriaController::class, 'store'])
+->name('admin.unidadesDef.store');
+
+Route::get('/unidadesDef/edit', [App\Http\Controllers\UnidadDefensoriaController::class, 'edit'])
+->name('admin.unidadesDef.edit');
+
+Route::delete('/unidadesDef/{unidadId}/delete', [App\Http\Controllers\UnidadDefensoriaController::class, 'delete'])
+->name('admin.unidadesDef.delete');
+
+Route::post('/unidadesDef/{unidadId}/update', [\App\Http\Controllers\UnidadDefensoriaController::class, 'update'])
+->name('admin.unidadesDef.update');
+
+//Rutas Unidades Discapacidad
+Route::get('/unidadesDis/index', [App\Http\Controllers\UnidadDefensoriaController::class, 'index'])
+->name('admin.unidadesD.index');
+
+Route::get('/unidadesDis/create', [App\Http\Controllers\UnidadDefensoriaController::class, 'create'])
+->name('admin.unidadesD.create');
+
+Route::post('/unidadesDis/store', [App\Http\Controllers\UnidadDefensoriaController::class, 'store'])
+->name('admin.unidadesD.store');
+
+Route::get('/unidadesDis/edit', [App\Http\Controllers\UnidadDefensoriaController::class, 'edit'])
+->name('admin.unidadesD.edit');
+
+Route::delete('/unidadesDis/{unidadId}/delete', [App\Http\Controllers\UnidadDefensoriaController::class, 'delete'])
+->name('admin.unidadesD.delete');
+
+Route::post('/unidadesDis/{unidadId}/update', [\App\Http\Controllers\UnidadDefensoriaController::class, 'update'])
+->name('admin.unidadesD.update');
+
 //Rutas denuncias
 Route::get('/denuncias/index', [App\Http\Controllers\DenunciaController::class, 'index'])
 ->name('admin.denuncias.index');

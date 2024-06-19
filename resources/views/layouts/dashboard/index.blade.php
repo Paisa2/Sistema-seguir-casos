@@ -97,16 +97,16 @@
 
             <!-- Divider -->
             <hr class="sidebar-divider my-0">
-            <!-- Ruta de las Unidades -->
+            <!-- Ruta de las Unidades Discapacidad -->
             @can('unidad_index')
             <li class="nav-item active {{ request()->is('unidades')  ? 'active' : ''}}">
-                <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#collapseLayouts" aria-expanded="false" aria-controls="collapseLayouts"><i class="fas fa-columns"></i>
+                <a class="nav-link collapsed" href="{{route('admin.unidadesD.index') }}" data-bs-toggle="collapse" data-bs-target="#collapseLayouts" aria-expanded="false" aria-controls="collapseLayouts"><i class="fas fa-columns"></i>
                     <span>{{ __('Unidad Dicapacidad') }}</span>
                 </a>
                     <div class="collapse" id="collapseLayouts" aria-labelledby="headingOne" data-bs-parent="#sidenavAccordion">
                         <nav class="sb-sidenav-menu-nested nav">
-                            <a class="nav-link" href="#">Agregar Casos</a>
-                            <a class="nav-link" href="#">Ver Casos</a>
+                            <a class="nav-link" href="{{route('admin.unidadesD.create') }}">Agregar Casos</a>
+                            <a class="nav-link" href="{{route('admin.unidadesD.index') }}">Ver Casos</a>
                         </nav>
                     </div>
             </li>
@@ -114,16 +114,16 @@
 
             <!-- Divider -->
             <hr class="sidebar-divider my-0">
-            <!-- Ruta de las Unidades -->
+            <!-- Ruta de las Unidades Defensoria -->
             @can('unidad_index')
             <li class="nav-item active {{ request()->is('unidades')  ? 'active' : ''}}">
-                <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#collapseLayouts" aria-expanded="false" aria-controls="collapseLayouts"><i class="fas fa-columns"></i>
+                <a class="nav-link collapsed" href="{{route('admin.unidadesDef.index')}}" data-bs-toggle="collapse" data-bs-target="#collapseLayouts" aria-expanded="false" aria-controls="collapseLayouts"><i class="fas fa-columns"></i>
                     <span>{{ __('Unidad Defensoria') }}</span>
                 </a>
                     <div class="collapse" id="collapseLayouts" aria-labelledby="headingOne" data-bs-parent="#sidenavAccordion">
                         <nav class="sb-sidenav-menu-nested nav">
-                            <a class="nav-link" href="#">Agregar Casos</a>
-                            <a class="nav-link" href="#">Ver Casos</a>
+                            <a class="nav-link" href="{{route('admin.unidadesDef.create')}}">Agregar Casos</a>
+                            <a class="nav-link" href="{{route('admin.unidadesDef.index')}}">Ver Casos</a>
                         </nav>
                     </div>
             </li>
