@@ -7,7 +7,7 @@
     </h2>
 
         <a type="button" class="btn btn-dark" style="background-color: #1D3354; padding-top: 0.8%" href="{{route('admin.unidad.create')}}">
-            Crear Unidades
+            Crear Casos
         </a>
 </div>
 
@@ -33,9 +33,14 @@
             <thead>
                 <tr>
                     <th scope="col">#</th>
-                    <th scope="col">Nombre Unidad</th>
-                    <th scope="col">Descripcion</th>
+                    <th scope="col">Numero Caso</th>
+                    <th scope="col">Demandado</th>
+                    <th scope="col">Demandante</th>
+                    <th scope="col">Tipologia</th>
                     <th scope="col">Responsable</th>
+                    <th scope="col">Fecha</th>
+                    <th scope="col">Etapa Procesos</th>
+                    <th scope="col">Descripcion</th>
                     <th scope="col">Acciones</th>
                 </tr>
             </thead>

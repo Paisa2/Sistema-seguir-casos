@@ -48,17 +48,17 @@ class PermissionSeeder extends Seeder
             'unidadA_destroy',
             'unidadA_buscar',
 
-            'unidadS_index',
-            'unidadS_create',
-            'unidadS_edit',
-            'unidadS_destroy',
-            'unidadS_buscar',
+            'unidadDef_index',
+            'unidadDef_create',
+            'unidadDef_edit',
+            'unidadDef_destroy',
+            'unidadDef_buscar',
 
-            'unidadEf_index',
-            'unidadEf_create',
-            'unidadEf_edit',
-            'unidadEf_destroy',
-            'unidadEf_buscar',
+            'unidadDis_index',
+            'unidadDis_create',
+            'unidadDis_edit',
+            'unidadDis_destroy',
+            'unidadDis_buscar',
 
             'denuncia_index',
             'denuncia_create',
@@ -71,8 +71,6 @@ class PermissionSeeder extends Seeder
             'caso_edit',
             'caso_destroy',
             'caso_buscar',
-
-
 
         ];
 

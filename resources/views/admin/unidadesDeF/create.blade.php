@@ -1,181 +1,105 @@
 
-@extends('layouts.dashboard.index', ['activePage' => 'nueva solicitud defensoria', 'titlePage' => 'Nueva solicitud defensoria'])
+@extends('layouts.dashboard.index', ['activePage' => 'nueva solicitud', 'titlePage' => 'Nueva solicitud'])
 @section('main-content')
 
-<div class="container">
-        <div class="my-6">
-            <div class="card">
-                <div class="card-header">
-                <h1> Registrar Caso de Denuncia Defensoria</h1>
-                </div>
-                <div style="margin-top: 1%; display: flex; justify-content: center;">
-                        @if ($errors->any())
-                        <div class="alert alert-danger">
-                        <button type="button" class="close" data-dismiss="alert">&times;</button>
-                        <strong>Por favor corrige los siguentes errores:</strong>
-                        <ul>
-                        @foreach ($errors->all() as $error)
-                            <li>{{ $error }}</li>
-                        @endforeach
-                        </ul>
-                        </div>
-                    @endif
-
-            <div class="card-body">
+<div class="content">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-12">
                 <form action="#" method="POST">
                     @csrf
-                        <div class="card-bady">
-                            {{-- @if($errors->any())
-                                <div class="alert alert-primary">
-                                    <ul>
-                                        @foreach ($errors->all() as $error)
-                                            <li>{{$error}}</li>
-                                        @endforeach
-                                    </ul>
-                                </div>
-                            @endif--}}
-                            <div class="row">
-                                <div class="col-6">
-                                    <div class="form-group">
-                                        <label for="name" class="form-control-label">
-                                            Numero de casos:
-                                        </label>
-                                        <div class="input-group">
-                                            <span class="input-group">
-                                                <input type="text">
-                                            </span>
-                                        </div>
-                                    </div>
-                                </div>
-
-
-                                        <div class="row">
-                                            <div class="col-6">
-                                                <div class="form-group">
-                                                    <label for="name" class="form-control-label">
-                                                        Demandado:
-                                                    </label>
-                                                    <div class="input-group">
-                                                        <span class="input-group">
-                                                            <input type="text">
-                                                        </span>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-
-                                        <div class="row">
-                                            <div class="col-6">
-                                                <div class="form-group">
-                                                    <label for="name" class="form-control-label">
-                                                        Demandante:
-                                                    </label>
-                                                    <div class="input-group">
-                                                        <span class="input-group">
-                                                            <input type="text">
-                                                        </span>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-
-                                        <div class="row">
-                                            <div class="col-6">
-                                                <div class="form-group">
-                                                    <label for="" class="form-control-label">
-                                                        Tipologia:
-                                                    </label>
-                                                    <div class="input-group">
-                                                        <span class="input-group">
-                                                            <input type="text">
-                                                        </span>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-
-                                        <div class="row">
-                                            <label for="" class="col-sm-2 col-form-label">Responsable del Caso</label>
-                                            <div class="col-sm-7">
-                                                <select name="cargo" id="cargo" class="form-control" value="{{old('cargo')}}" required>
-                                                <option value="">-- Selecciona el responsable--</option>
-                                                <option value="">Trabajador Social</option>
-                                                <option value="">Psicologo</option>
-                                                <option value="">Abogado</option>
-                                                </select>
-                                            </div>
-                                        </div>
-
-                                        <div class="col-6">
-                                            <div class="form-group">
-                                                <label for="" class="form-control-label">
-                                                    Descripcion del caso:
-                                                </label>
-                                                <div class="input-group">
-                                                    <span class="input-group">
-                                                    {{-- <input name="motivo" type="text" class="form-control" aria-label="With textarea"> --}}
-                                                    <textarea name="motivo" type="text" class="form-control" id=""  placeholder="Descripcion" required>{{old('motivo')}}</textarea>
-                                                    </span>
-                                                    <br>
-                                                    @if ($errors->has('motivo'))
-                                                        <span class="error text-danger" for="input-motivo" style="font-size: 15px">{{ $errors->first('motivo') }}</span>
-                                                    @endif
-                                                </div>
-                                            </div>
-                                        </div>
-
-                                        <div class="row">
-                                            <label for="" class="col-sm-2 col-form-label">Etapas del Proceso</label>
-                                            <div class="col-sm-7">
-                                                <select name="cargo" id="cargo" class="form-control" value="{{old('cargo')}}" required>
-                                                <option value="">-- Selecciona la Etapa--</option>
-                                                <option value="">Preliminar</option>
-                                                <option value="">Preparatoria</option>
-                                                <option value="">Inicio-Oral</option>
-                                                </select>
-                                            </div>
-                                        </div>
-
-                                        <div class="col-6">
-                                            <div class="form-group">
-                                                <label for="name" class="form-control-label">
-                                                    Fecha de Registro del Caso:
-                                                </label>
-                                                <div class="input-group">
-                                                    <span class="input-group">
-                                                    <input name="dia" type="date" id="fechaReserva" class="form-control" placeholder="Dia Reserva" value="{{old('dia')}}" required>
-                                                    </span>
-                                                    <br>
-                                                    @if($errors -> has('dia'))
-                                                        <span class="error-danger" for="input-name">{{$errors->first('dia')}}</span>
-                                                    @endif
-                                                </div>
-                                            </div>
-                                        </div>
-
-                                        <div class="row">
-                                            <div class="col-6">
-                                                <div class="form-group">
-                                                    <label for="" class="form-control-label">
-                                                        Subir Achivo de Demanda:
-                                                    </label>
-                                                    <div class="input-group">
-                                                        <span class="input-group">
-                                                            <input type="text">
-                                                        </span>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-
-                                            <div class="col-md-offset-4 col-md-10 text-center mt-3">
-                                                <button type="submit" class="btn btn-primary">enviar</button>
-                                                <a href="{{ URL::previous() }}" class="btn btn-secondary">Cancelar</a>
-                                            </div>
-                            </div>
+                    <div class="card">
+                        <div class="card-header card-header-primary">
+                            <h3> Registrar Caso de Denuncia Defensoria</h3>
+                            <p class="card-category">Ingresar datos</p>
                         </div>
-                    </form>
-                </div>
+                        <div class="card-body">
+                            <div class="row">
+                                <label for="" class="col-sm-2 col-form-label">Numero de Caso</label>
+                                <div class="col-sm-7">
+                                    <input type="text" class="form-control" name="" placeholder="Ingrese Nª de caso" value="" autofocus minlength="1" maxlength="3">
+                                </div>
+                            </div>
+
+                            <div class="row">
+                                <label for="" class="col-sm-2 col-form-label">Damandado</label>
+                                <div class="col-sm-7">
+                                    <input type="text" class="form-control" name="" placeholder="Ingrese el nombre del damandado" value="" autofocus minlength="1" maxlength="50">
+                                </div>
+                            </div>
+
+                            <div class="row">
+                                <label for="" class="col-sm-2 col-form-label">Damandante</label>
+                                <div class="col-sm-7">
+                                    <input type="text" class="form-control" name="" placeholder="Ingrese el nombre del damandante" value="" autofocus minlength="1" maxlength="50">
+                                </div>
+                            </div>
+
+                            <div class="row">
+                                <label for="" class="col-sm-2 col-form-label">Tipologia del caso</label>
+                                <div class="col-sm-7">
+                                    <input type="text" class="form-control" name="" placeholder="Ingrese la tipologia del caso" value="" autofocus minlength="1" maxlength="50">
+                                </div>
+                            </div>
+
+                            <div class="row">
+                                <label for="" class="col-sm-2 col-form-label">Responsable del Caso</label>
+                                <div class="col-sm-7">
+                                    <select name="" id="" class="form-control" value="" required>
+                                    <option value="">-- Selecciona el Responsable--</option>
+                                    <option value="TrabasjadorSocial" @if(old('') == 'TrabasjadorSocial') selected @endif>Trabajador Social</option>
+                                    <option value="Psicologo" @if(old('') == 'Psicologo') selected @endif>Psicologo</option>
+                                    <option value="Abogado" @if(old('') == 'Abogado') selected @endif>Abogado</option>
+                                    </select>
+                                </div>
+                            </div>
+
+                            <div class="row">
+                                <label for="" class="col-sm-2 col-form-label">Fecha de Registro</label>
+                                <div class="col-sm-7">
+                                    <input name="dia" type="date" id="fechaReserva" class="form-control" placeholder="Dia Reserva" value="{{old('dia')}}" required>
+                                </div>
+                            </div>
+
+                            <div class="row">
+                                <label for="" class="col-sm-2 col-form-label">Etapas de Procesos</label>
+                                <div class="col-sm-7">
+                                    <select name="" id="" class="form-control" value="" required>
+                                    <option value="">-- Selecciona el Proceso--</option>
+                                    <option value="Premilinar" @if(old('') == 'Premilinar') selected @endif>Premilinar</option>
+                                    <option value="EtapaPreparatoria" @if(old('') == 'EtapaPreparatoria') selected @endif>Etapa-Preparatoria</option>
+                                    <option value="JucioOral" @if(old('') == 'JucioOral') selected @endif>Jucio-Oral</option>
+                                    </select>
+                                </div>
+                            </div>
+
+                            <div class="row">
+                                <label for="" class="col-sm-2 col-form-label">Derivar Unidades</label>
+                                <div class="col-sm-7">
+                                    <select name="" id="" class="form-control" value="" required>
+                                    <option value="">-- Selecciona la Unidad--</option>
+                                    <option value="AdultoMayor" @if(old('') == 'AdultoMayor') selected @endif>Adulto-Mayor</option>
+                                    <option value="Slim" @if(old('') == 'Slin') selected @endif>Slim</option>
+                                    <option value="Defensoria" @if(old('') == 'Defensoria') selected @endif>Defensoria</option>
+                                    <option value="Discapacidad" @if(old('') == 'Discapacidad') selected @endif>Discapacidad</option>
+                                    </select>
+                                </div>
+                            </div>
+
+                            <div class="row">
+                                <label for="" class="col-sm-2 col-form-label">Archivos</label>
+                                <div class="col-sm-7">
+                                    <input type="text" class="form-control" name="" placeholder="Subir Archivos" value="" autofocus minlength="1" maxlength="50">
+                                </div>
+                            </div>
+
+                                    <div class="col-md-offset-4 col-md-10 text-center mt-3">
+                                        <button type="submit" class="btn btn-primary">enviar</button>
+                                        <a href="{{ URL::previous() }}" class="btn btn-secondary">Cancelar</a>
+                                    </div>
+                        </div>
+                    </div>
+                </form>
             </div>
         </div>
     </div>

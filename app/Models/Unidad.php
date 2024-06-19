@@ -9,7 +9,7 @@ class Unidad extends Model
 {
     use HasFactory;
     protected $table = 'unidades';
-    protected $fillable = ['nombre', 'descripcion' ];
+    protected $fillable = ['nombre', 'derivar_unidad' ];
 
     public function user() {
         return $this->belongsTo(User::class);

@@ -18,7 +18,7 @@ class UnidadDiscapacidadController extends Controller
         abort_if(Gate::denies('unidad_index'), 403);
         $unidades = Unidad::all();
         // dd($unidades);
-        return view('admin.unidadesD.index', compact('unidades'));
+        return view('admin.unidadesDis.index', compact('unidades'));
     }
 
     /**
@@ -29,7 +29,7 @@ class UnidadDiscapacidadController extends Controller
     public function create()
     {
         $unidades = Unidad::all();
-        return view('admin.unidadesD.create', compact('unidades'));
+        return view('admin.unidadesDis.create', compact('unidades'));
     }
 
     /**

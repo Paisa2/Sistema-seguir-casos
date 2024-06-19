@@ -8,7 +8,7 @@
                     @csrf
                     <div class="card">
                         <div class="card-header card-header-primary">
-                            <h4 class="card-title">Usuario</h4>
+                            <h3 class="card-title">Usuario</h3>
                             <p class="card-category">Ingresar datos</p>
                         </div>
                         <div class="card-body">
@@ -109,6 +109,7 @@
                     </div>
                 </div>
             </div>
+        </div>
 
 <script type="text/javascript">
     function blockSpecialChar(e){

@@ -17,7 +17,6 @@ class CreateUnidadesTable extends Migration
             $table->id();
             $table->string('nombre');
             $table->string('derivar_unidad');
-            $table->string('descripcion');
 
             $table->unsignedBigInteger('user');
             $table->foreign('user')->references('id')->on('users')->onUpdate('cascade')->onDelete('cascade');
