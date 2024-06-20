@@ -101,42 +101,99 @@ Route::resource('roles', App\Http\Controllers\RoleController::class);
 });
 
 
-//Rutas Unidades
-Route::get('/unidades/index', [App\Http\Controllers\UnidadController::class, 'index'])
-->name('admin.unidades.index');
+//Rutas Unidades Adulto Mayor
+Route::get('/unidadesA/index', [App\Http\Controllers\UnidadAdultoMController::class, 'index'])
+->name('admin.unidadesA.index');
 
-Route::get('/unidades/create', [App\Http\Controllers\UnidadController::class, 'create'])
-->name('admin.unidades.create');
+Route::get('/unidadesA/create', [App\Http\Controllers\UnidadAdultoMController::class, 'create'])
+->name('admin.unidadesA.create');
 
-Route::post('/unidades/store', [App\Http\Controllers\UnidadController::class, 'store'])
-->name('admin.unidades.store');
+Route::post('/unidadesA/store', [App\Http\Controllers\UnidadAdultoMController::class, 'store'])
+->name('admin.unidadesA.store');
 
-Route::get('/unidades/edit', [App\Http\Controllers\UnidadController::class, 'edit'])
-->name('admin.unidades.edit');
+Route::get('/unidadesA/edit', [App\Http\Controllers\UnidadAdultoMController::class, 'edit'])
+->name('admin.unidadesA.edit');
 
-Route::delete('/unidades/{unidadId}/delete', [App\Http\Controllers\UnidadController::class, 'delete'])
-->name('admin.unidades.delete');
+Route::delete('/unidadesA/{unidadId}/delete', [App\Http\Controllers\UnidadAdultoMController::class, 'delete'])
+->name('admin.unidadesA.delete');
 
-Route::post('/unidades/{unidadId}/update', [\App\Http\Controllers\UnidadController::class, 'update'])
-->name('admin.unidades.update');
+Route::post('/unidadesA/{unidadId}/update', [\App\Http\Controllers\UnidadAdultoMController::class, 'update'])
+->name('admin.unidadesA.update');
+
+//Rutas Unidades Slim
+Route::get('/unidad/index', [App\Http\Controllers\UnidadSlimController::class, 'index'])
+->name('admin.unidad.index');
+
+Route::get('/unidad/create', [App\Http\Controllers\UnidadSlimController::class, 'create'])
+->name('admin.unidad.create');
+
+Route::post('/unidad/store', [App\Http\Controllers\UnidadSlimController::class, 'store'])
+->name('admin.unidad.store');
+
+Route::get('/unidad/edit', [App\Http\Controllers\UnidadSlimController::class, 'edit'])
+->name('admin.unidad.edit');
+
+Route::delete('/unidad/{unidadId}/delete', [App\Http\Controllers\UnidadSlimController::class, 'delete'])
+->name('admin.unidad.delete');
+
+Route::post('/unidad/{unidadId}/update', [\App\Http\Controllers\UnidadSlimController::class, 'update'])
+->name('admin.unidad.update');
+
+//Rutas Unidades Defensoria
+Route::get('/unidadesDef/index', [App\Http\Controllers\UnidadDefensoriaController::class, 'index'])
+->name('admin.unidadesDef.index');
+
+Route::get('/unidadesDef/create', [App\Http\Controllers\UnidadDefensoriaController::class, 'create'])
+->name('admin.unidadesDef.create');
+
+Route::post('/unidadesDef/store', [App\Http\Controllers\UnidadDefensoriaController::class, 'store'])
+->name('admin.unidadesDef.store');
+
+Route::get('/unidadesDef/edit', [App\Http\Controllers\UnidadDefensoriaController::class, 'edit'])
+->name('admin.unidadesDef.edit');
+
+Route::delete('/unidadesDef/{unidadId}/delete', [App\Http\Controllers\UnidadDefensoriaController::class, 'delete'])
+->name('admin.unidadesDef.delete');
+
+Route::post('/unidadesDef/{unidadId}/update', [\App\Http\Controllers\UnidadDefensoriaController::class, 'update'])
+->name('admin.unidadesDef.update');
+
+//Rutas Unidades Discapacidad
+Route::get('/unidadesDis/index', [App\Http\Controllers\UnidadDiscapacidadController::class, 'index'])
+->name('admin.unidadesDis.index');
+
+Route::get('/unidadesDis/create', [App\Http\Controllers\UnidadDiscapacidadController::class, 'create'])
+->name('admin.unidadesDis.create');
+
+Route::post('/unidadesDis/store', [App\Http\Controllers\UnidadDiscapacidadController::class, 'store'])
+->name('admin.unidadesDis.store');
+
+Route::get('/unidadesDis/edit', [App\Http\Controllers\UnidadDiscapacidadController::class, 'edit'])
+->name('admin.unidadesDis.edit');
+
+Route::delete('/unidadesDis/{unidadId}/delete', [App\Http\Controllers\UnidadDiscapacidadController::class, 'delete'])
+->name('admin.unidadesDis.delete');
+
+Route::post('/unidadesDis/{unidadId}/update', [\App\Http\Controllers\UnidadDiscapacidadController::class, 'update'])
+->name('admin.unidadesDis.update');
 
 //Rutas denuncias
 Route::get('/denuncias/index', [App\Http\Controllers\DenunciaController::class, 'index'])
 ->name('admin.denuncias.index');
 
-Route::get('/denuncias/create', [App\Http\Controllers\UnidadController::class, 'create'])
+Route::get('/denuncias/create', [App\Http\Controllers\DenunciaController::class, 'create'])
 ->name('admin.denuncias.create');
 
-Route::post('/denuncias/store', [App\Http\Controllers\UnidadController::class, 'store'])
+Route::post('/denuncias/store', [App\Http\Controllers\DenunciaController::class, 'store'])
 ->name('admin.denuncias.store');
 
-Route::get('/denuncias/edit', [App\Http\Controllers\UnidadController::class, 'edit'])
+Route::get('/denuncias/edit', [App\Http\Controllers\DenunciaController::class, 'edit'])
 ->name('admin.denuncias.edit');
 
-Route::delete('/denuncias/{unidadId}/delete', [App\Http\Controllers\UnidadController::class, 'delete'])
+Route::delete('/denuncias/{unidadId}/delete', [App\Http\Controllers\DenunciaController::class, 'delete'])
 ->name('admin.denuncias.delete');
 
-Route::post('/denuncias/{unidadId}/update', [\App\Http\Controllers\UnidadController::class, 'update'])
+Route::post('/denuncias/{unidadId}/update', [\App\Http\Controllers\DenunciaController::class, 'update'])
 ->name('admin.denuncias.update');
 
 //Ruta Casos

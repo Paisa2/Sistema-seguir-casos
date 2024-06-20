@@ -2,6 +2,7 @@
 
 namespace Database\Seeders;
 
+use App\Models\UnidadDefensoria;
 use Illuminate\Database\Seeder;
 
 class DatabaseSeeder extends Seeder
@@ -19,9 +20,12 @@ class DatabaseSeeder extends Seeder
             RoleSeeder::class,
             RoleHashPermissionSeeder::class,
             UserSeeder::class,
-            UnidadSeeder::class,
             CasoSeeder::class,
             DenunciaSeeder::class,
+            UnidadAdultoSeeder::class,
+            UnidadDefensoriaSeeder::class,
+            UnidadDiscapacidadSeeder::class,
+            UnidadSlimSeeder::class,
         ]);
 
     }

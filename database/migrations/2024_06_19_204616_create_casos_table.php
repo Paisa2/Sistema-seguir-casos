@@ -23,8 +23,18 @@ class CreateCasosTable extends Migration
             $table->string('nom_demandado');
             $table->string('estado');
 
-            $table->unsignedBigInteger('unidad');
-            $table->foreign('unidad')->references('id')->on('unidades')->onUpdate('cascade')->onDelete('cascade');
+            $table->unsignedBigInteger('unidades_adultos');
+            $table->foreign('unidades_adultos')->references('id')->on('unidades_adultos')->onUpdate('cascade')->onDelete('cascade');
+
+            $table->unsignedBigInteger('unidades_defensorias');
+            $table->foreign('unidades_defensorias')->references('id')->on('unidades_defensorias')->onUpdate('cascade')->onDelete('cascade');
+
+            $table->unsignedBigInteger('unidades_discapacidades');
+            $table->foreign('unidades_discapacidades')->references('id')->on('unidades_discapacidades')->onUpdate('cascade')->onDelete('cascade');
+
+            $table->unsignedBigInteger('unidades_slims');
+            $table->foreign('unidades_slims')->references('id')->on('unidades_slims')->onUpdate('cascade')->onDelete('cascade');
+
             $table->timestamps();
         });
     }

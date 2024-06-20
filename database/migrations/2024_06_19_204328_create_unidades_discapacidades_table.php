@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateUnidadesTable extends Migration
+class CreateUnidadesDiscapacidadesTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,11 +13,10 @@ class CreateUnidadesTable extends Migration
      */
     public function up()
     {
-        Schema::create('unidades', function (Blueprint $table) {
+        Schema::create('unidades_discapacidades', function (Blueprint $table) {
             $table->id();
             $table->string('nombre');
             $table->string('derivar_unidad');
-            $table->string('descripcion');
 
             $table->unsignedBigInteger('user');
             $table->foreign('user')->references('id')->on('users')->onUpdate('cascade')->onDelete('cascade');
@@ -32,6 +31,6 @@ class CreateUnidadesTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('unidades');
+        Schema::dropIfExists('unidades_discapacidades');
     }
 }

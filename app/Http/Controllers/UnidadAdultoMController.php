@@ -2,12 +2,11 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Unidad;
-use App\Http\Requests\StoreUnidadRequest;
-use App\Http\Requests\UpdateUnidadRequest;
+use App\Models\UnidadAdultoM;
+use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Gate;
 
-class UnidadController extends Controller
+class UnidadAdultoMController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -17,9 +16,9 @@ class UnidadController extends Controller
     public function index()
     {
         abort_if(Gate::denies('unidad_index'), 403);
-        $unidades = Unidad::all();
+        $unidades = UnidadAdultoM::all();
         // dd($unidades);
-        return view('admin.unidades.index', compact('unidades'));
+        return view('admin.unidadesA.index', compact('unidades'));
     }
 
     /**
@@ -29,17 +28,17 @@ class UnidadController extends Controller
      */
     public function create()
     {
-        $unidades = Unidad::all();
-        return view('admin.unidades.create', compact('unidades'));
+        $unidades = UnidadAdultoM::all();
+        return view('admin.unidadesA.create', compact('unidades'));
     }
 
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \App\Http\Requests\StoreUnidadRequest  $request
+     * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(StoreUnidadRequest $request)
+    public function store(Request $request)
     {
         //
     }
@@ -47,10 +46,10 @@ class UnidadController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\Unidad  $unidad
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show(Unidad $unidad)
+    public function show($id)
     {
         //
     }
@@ -58,10 +57,10 @@ class UnidadController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\Unidad  $unidad
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit(Unidad $unidad)
+    public function edit($id)
     {
         //
     }
@@ -69,11 +68,11 @@ class UnidadController extends Controller
     /**
      * Update the specified resource in storage.
      *
-     * @param  \App\Http\Requests\UpdateUnidadRequest  $request
-     * @param  \App\Models\Unidad  $unidad
+     * @param  \Illuminate\Http\Request  $request
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(UpdateUnidadRequest $request, Unidad $unidad)
+    public function update(Request $request, $id)
     {
         //
     }
@@ -81,10 +80,10 @@ class UnidadController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\Unidad  $unidad
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Unidad $unidad)
+    public function destroy($id)
     {
         //
     }
