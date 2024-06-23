@@ -49,7 +49,7 @@ align-items: center;">
         </div>
 
         <div style="padding-top: 8%">
-            <a href="/" style=" text-decoration:none;font-family: 'Times New Roman'; text-align: center;">
+            <a style=" text-decoration:none;font-family: 'Times New Roman'; text-align: center;">
                 <p  style="color:black;">&copy;Municipio Colcapirhua </p>
             </a>
         </div>
