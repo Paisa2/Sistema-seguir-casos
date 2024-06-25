@@ -26,6 +26,7 @@ class DatabaseSeeder extends Seeder
             UnidadDefensoriaSeeder::class,
             UnidadDiscapacidadSeeder::class,
             UnidadSlimSeeder::class,
+            MunicipioSeeder::class,
         ]);
 
     }

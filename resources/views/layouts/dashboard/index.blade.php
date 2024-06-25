@@ -63,6 +63,15 @@
 
             <!-- Divider -->
             <hr class="sidebar-divider my-0">
+            <!-- Ruta los Municipios -->
+
+            <li class="nav-item active {{ request()->is('municipios')  ? 'active' : ''}}">
+                <a class="nav-link" href="{{route('admin.municipios.index')}}">
+                    <span>{{ __('Municipios') }}</span></a>
+            </li>
+
+            <!-- Divider -->
+            <hr class="sidebar-divider my-0">
             <!-- Ruta de las Unidad Adulto Mayor -->
             @can('unidad_index')
             <li class="nav-item active {{ request()->is('unidades')  ? 'active' : ''}}">

@@ -39,7 +39,6 @@ align-items: center;">
 
             <input style="font-family: 'Times New Roman';" type="password" id="password" name="password" class="form-control" autocomplete="current-password" placeholder="Contraseña" required minlength="5" maxlength="15">
 
-
         </div>
         <div style="padding-top: 16%" >
 
@@ -49,7 +48,7 @@ align-items: center;">
         </div>
 
         <div style="padding-top: 8%">
-            <a href="/" style=" text-decoration:none;font-family: 'Times New Roman'; text-align: center;">
+            <a style=" text-decoration:none;font-family: 'Times New Roman'; text-align: center;">
                 <p  style="color:black;">&copy;Municipio Colcapirhua </p>
             </a>
         </div>

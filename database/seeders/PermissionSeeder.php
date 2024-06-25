@@ -36,6 +36,12 @@ class PermissionSeeder extends Seeder
             'user_destroy',
             'user_buscar',
 
+            'municipio_index',
+            'municipio_create',
+            'municipio_edit',
+            'municipio_destroy',
+            'municipio_buscar',
+
             'unidad_index',
             'unidad_create',
             'unidad_edit',

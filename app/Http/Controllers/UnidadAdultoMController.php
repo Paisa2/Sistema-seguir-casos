@@ -2,13 +2,13 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Unidad;
-use App\Http\Requests\StoreUnidadRequest;
-use App\Http\Requests\UpdateUnidadRequest;
+
 use App\Models\UnidadAdultoM;
+use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Gate;
 
 class UnidadAdultoMController extends Controller
+
 {
     /**
      * Display a listing of the resource.
@@ -40,7 +40,7 @@ class UnidadAdultoMController extends Controller
      * @param  \App\Http\Requests\StoreUnidadRequest  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(StoreUnidadRequest $request)
+    public function store( $request)
     {
         //
     }
@@ -51,7 +51,9 @@ class UnidadAdultoMController extends Controller
      * @param  \App\Models\Unidad  $unidad
      * @return \Illuminate\Http\Response
      */
-    public function show( $unidad)
+
+    public function show($id)
+
     {
         //
     }
@@ -62,7 +64,9 @@ class UnidadAdultoMController extends Controller
      * @param  \App\Models\Unidad  $unidad
      * @return \Illuminate\Http\Response
      */
-    public function edit( $unidad)
+
+    public function edit($id)
+
     {
         //
     }
@@ -74,7 +78,8 @@ class UnidadAdultoMController extends Controller
      * @param  \App\Models\Unidad  $unidad
      * @return \Illuminate\Http\Response
      */
-    public function update(UpdateUnidadRequest $request,  $unidad)
+
+    public function update(Request $request, $id)
     {
         //
     }
@@ -85,7 +90,8 @@ class UnidadAdultoMController extends Controller
      * @param  \App\Models\Unidad  $unidad
      * @return \Illuminate\Http\Response
      */
-    public function destroy( $unidad)
+
+    public function destroy($id)
     {
         //
     }

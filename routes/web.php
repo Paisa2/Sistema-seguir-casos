@@ -214,3 +214,22 @@ Route::delete('/casos/{casosId}/delete', [\App\Http\Controllers\CasoController::
 
 Route::post('/casos/{casosId}update', [\App\Http\Controllers\CasoController::class, 'update'])
 ->name('admin.casos.update');
+
+//Ruta Municipio
+Route::get('/municipios/index', [\App\Http\Controllers\MunicipioController::class, 'index'])
+->name('admin.municipios.index');
+
+Route::get('/municipios/create', [\App\Http\Controllers\MunicipioController::class, 'create'])
+->name('admin.municipios.create');
+
+Route::post('/municipios/store', [App\Http\Controllers\MunicipioController::class, 'store'])
+->name('admin.municipios.store');
+
+Route::get('/municipios/{municipio}/edit', [App\Http\Controllers\MunicipioController::class, 'edit'])
+->name('admin.municipios.edit');
+
+Route::put('/municipios/{municipio}', [App\Http\Controllers\MunicipioController::class, 'update'])
+->name('admin.municipios.update');
+
+Route::delete('/municipios/{municipio}', [App\Http\Controllers\MunicipioController::class, 'destroy'])
+->name('admin.municipios.delete');
