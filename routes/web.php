@@ -237,3 +237,22 @@ Route::put('/municipios/{municipio}', [App\Http\Controllers\MunicipioController:
 
 Route::delete('/municipios/{municipio}', [App\Http\Controllers\MunicipioController::class, 'destroy'])
 ->name('admin.municipios.delete');
+
+//Ruta Provincia
+Route::get('/provincias/index', [\App\Http\Controllers\ProvinciaController::class, 'index'])
+->name('admin.provincias.index');
+
+Route::get('/provincias/create', [\App\Http\Controllers\ProvinciaController::class, 'create'])
+->name('admin.provincias.create');
+
+Route::post('/provincias/store', [App\Http\Controllers\ProvinciaController::class, 'store'])
+->name('admin.provincias.store');
+
+Route::get('/provincias/{provincia}/edit', [App\Http\Controllers\ProvinciaController::class, 'edit'])
+->name('admin.provincias.edit');
+
+Route::put('/provincias/{provincia}', [App\Http\Controllers\ProvinciaController::class, 'update'])
+->name('admin.provincias.update');
+
+Route::delete('/provincias/{provincia}', [App\Http\Controllers\ProvinciaController::class, 'destroy'])
+->name('admin.provincias.delete');

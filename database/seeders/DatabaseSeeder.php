@@ -27,7 +27,9 @@ class DatabaseSeeder extends Seeder
             UnidadDiscapacidadSeeder::class,
             UnidadSlimSeeder::class,
             MunicipioSeeder::class,
-            UnidadSeeder::class
+            UnidadSeeder::class,
+            Departamentoeeder::class,
+            ProvinciaSeeder::class
         ]);
 
     }

@@ -54,8 +54,6 @@
                                 <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#modalEliminar-{{$municipio->id}}">
                                     Eliminar
                                 </button>
-
-                            </td>
                             </td>
                         </tr>
                         @include('admin.municipios.modalEliminar')
