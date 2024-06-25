@@ -39,7 +39,6 @@ align-items: center;">
 
             <input style="font-family: 'Times New Roman';" type="password" id="password" name="password" class="form-control" autocomplete="current-password" placeholder="Contraseña" required minlength="5" maxlength="15">
 
-
         </div>
         <div style="padding-top: 16%" >
 
