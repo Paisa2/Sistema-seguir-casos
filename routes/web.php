@@ -197,11 +197,15 @@ Route::post('/denuncias/{unidadId}/update', [\App\Http\Controllers\DenunciaContr
 ->name('admin.denuncias.update');
 
 //Ruta Casos
+Route::get('/unidad/{id_unidad}/casos', [\App\Http\Controllers\CasoController::class, 'index'])
+->name('admin.unidad.casos');
+
+
 Route::get('/casos/index', [\App\Http\Controllers\CasoController::class, 'index'])
 ->name('admin.casos.index');
 
-Route::get('/casos/create', [\App\Http\Controllers\CasoController::class, 'create'])
-->name('admin.casos.create');
+Route::get('/unidad/{id_unidad}/casos/create', [\App\Http\Controllers\CasoController::class, 'create'])
+->name('admin.unidad.casos.create');
 
 Route::post('/casos.store', [\App\Http\Controllers\CasoController::class,'store'])
 ->name('admin.casos.store');

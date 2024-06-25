@@ -37,8 +37,9 @@
                 <div class="sidebar-brand-icon rotate-n-15">
                     <i class="fas fa-laugh-wink"></i>
                 </div>
-                <div class="sidebar-brand-text mx-3" >Colcapirhua</div>
+                <div class="sidebar-brand-text mx-3">Colcapirhua</div>
             </a>
+
 
             <!-- Divider -->
             <hr class="sidebar-divider my-0">
@@ -50,12 +51,12 @@
             </li>
             @endcan
 
-                <!-- Divider -->
+            <!-- Divider -->
             <hr class="sidebar-divider my-0">
             <!-- Ruta los Roles -->
             @can('role_index')
             <li class="nav-item active {{ request()->is('roles') ? 'active' : '' }}">
-                <a class="nav-link" href="{{ route('roles.index') }}" >
+                <a class="nav-link" href="{{ route('roles.index') }}">
                     <span>{{ __('Roles') }}</span>
                 </a>
             </li>
@@ -70,73 +71,23 @@
                     <span>{{ __('Municipios') }}</span></a>
             </li>
 
-            <!-- Divider -->
+            @foreach ($unidades as $unidad)
             <hr class="sidebar-divider my-0">
-            <!-- Ruta de las Unidad Adulto Mayor -->
             @can('unidad_index')
             <li class="nav-item active {{ request()->is('unidades')  ? 'active' : ''}}">
-                <a class="nav-link collapsed" href="{{route('admin.unidadesA.index')}}" data-bs-toggle="collapse" data-bs-target="#collapseLayouts" aria-expanded="false" aria-controls="collapseLayouts"><i class="fas fa-columns"></i>
-                    <span>{{ __('Unidad Adulto Mayor') }}</span>
+                <a class="nav-link collapsed" href="{{route('admin.unidadesA.index')}}" data-bs-toggle="collapse" data-bs-target="#collapse{{$unidad->id}}" aria-expanded="false" aria-controls="collapse{{$unidad->id}}"><i class="fas fa-columns"></i>
+                    <span>{{ $unidad->nombre }}</span>
                 </a>
-                    <div class="collapse" id="collapseLayouts" aria-labelledby="headingOne" data-bs-parent="#sidenavAccordion">
-                        <nav class="sb-sidenav-menu-nested nav">
-                            <a class="nav-link" href="{{route('admin.unidadesA.create')}}">Agregar Casos</a>
-                            <a class="nav-link" href="{{route('admin.unidadesA.index')}}">Ver Casos</a>
-                        </nav>
-                    </div>
+                <div class="collapse" id="collapse{{$unidad->id}}" aria-labelledby="headingOne" data-bs-parent="#sidenavAccordion">
+                    <nav class="sb-sidenav-menu-nested nav">
+                        <a class="nav-link" href="{{route('admin.unidad.casos.create', ['id_unidad' => $unidad->id])}}">Agregar Casos</a>
+                        <a class="nav-link" href="{{route('admin.unidad.casos',['id_unidad' => $unidad->id])}}">Ver Casos</a>
+                    </nav>
+                </div>
             </li>
             @endcan
+            @endforeach
 
-            <!-- Divider -->
-            <hr class="sidebar-divider my-0">
-            <!-- Ruta de las Unidad Slim -->
-            @can('unidad_index')
-            <li class="nav-item active {{ request()->is('unidades')  ? 'active' : ''}}">
-                <a class="nav-link collapsed" href="{{route('admin.unidad.index')}}" data-bs-toggle="collapse" data-bs-target="#collapseLayouts" aria-expanded="false" aria-controls="collapseLayouts"><i class="fas fa-columns"></i>
-                    <span>{{ __('Unidad Slim') }}</span>
-                </a>
-                    <div class="collapse" id="collapseLayouts" aria-labelledby="headingOne" data-bs-parent="#sidenavAccordion">
-                        <nav class="sb-sidenav-menu-nested nav">
-                            <a class="nav-link" href="{{route('admin.unidad.create')}}">Agregar Casos</a>
-                            <a class="nav-link" href="{{route('admin.unidad.index')}}">Ver Casos</a>
-                        </nav>
-                    </div>
-            </li>
-            @endcan
-
-            <!-- Divider -->
-            <hr class="sidebar-divider my-0">
-            <!-- Ruta de las Unidades Defensoria -->
-            @can('unidad_index')
-            <li class="nav-item active {{ request()->is('unidades')  ? 'active' : ''}}">
-                <a class="nav-link collapsed" href="{{route('admin.unidadesDef.index')}}" data-bs-toggle="collapse" data-bs-target="#collapseLayouts" aria-expanded="false" aria-controls="collapseLayouts"><i class="fas fa-columns"></i>
-                    <span>{{ __('Unidad Defensoria') }}</span>
-                </a>
-                    <div class="collapse" id="collapseLayouts" aria-labelledby="headingOne" data-bs-parent="#sidenavAccordion">
-                        <nav class="sb-sidenav-menu-nested nav">
-                            <a class="nav-link" href="{{route('admin.unidadesDef.create')}}">Agregar Casos</a>
-                            <a class="nav-link" href="{{route('admin.unidadesDef.index')}}">Ver Casos</a>
-                        </nav>
-                    </div>
-            </li>
-            @endcan
-
-            <!-- Divider -->
-            <hr class="sidebar-divider my-0">
-            <!-- Ruta de las unidade Discapacidad -->
-            @can('unidad_index')
-            <li class="nav-item active {{ request()->is('unidades') ? 'active' : '' }}">
-                <a class="nav-link collapsed" href="{{route('admin.unidadesDis.index')}}" data-bs-toggle="collapse" data-bs-target="#collapseLayouts" aria-expanded="false" aria-controls="collapseLayouts"><i class="fas fa-columns"></i>
-                    <span>{{__('Unidad Discapacidad')}}</span>
-                </a>
-                    <div class="collapse" id="collapseLayouts" aria-labelledby="headingOne" data-bs-parent="#sidenavAccordion">
-                        <nav class="sb-sidenav-menu-nested nav">
-                            <a class="nav-link" href="{{route('admin.unidadesDis.index')}}">Ver Casos</a>
-                            <a class="nav-link" href="{{route('admin.unidadesDis.create')}}">Agregar Casos</a>
-                        </nav>
-                    </div>
-            </li>
-            @endcan
             <!-- Divider -->
             <hr class="sidebar-divider my-0">
 

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Caso;
+use App\Models\Unidad;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Gate;
 
@@ -13,10 +14,11 @@ class CasoController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index( Request $request)
+    public function index(Request $request)
     {
         // abort_if(Gate::denies('caso_index'), 403);
         $casos = Caso::orderBy('id', 'asc')->get();
+
         // dd($casos);
         return view('admin.casos.index', compact('casos'));
     }
@@ -26,11 +28,12 @@ class CasoController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function create(Request $request)
     {
 
         $casos = Caso::all();
-        return view('admin.casos.create', compact('casos'));
+        $unidad = Unidad::findOrFail($request->id_unidad);
+        return view('admin.casos.create', compact(['casos', 'unidad']));
     }
 
     /**
