@@ -24,9 +24,9 @@ class CreateCasosTable extends Migration
             $table->string('estado');
 
             $table->unsignedBigInteger('unidad');
-            $table->foreign('unidad')->references('id')->on('unidad')->onUpdate('cascade')->onDelete('cascade');
+            $table->foreign('unidad')->references('id')->on('unidades')->onUpdate('cascade')->onDelete('cascade');
             $table->unsignedBigInteger('municipio');
-            $table->foreign('municipio')->references('id')->on('municipio')->onUpdate('cascade')->onDelete('cascade');
+            $table->foreign('municipio')->references('id')->on('municipios')->onUpdate('cascade')->onDelete('cascade');
             $table->timestamps();
         });
     }
