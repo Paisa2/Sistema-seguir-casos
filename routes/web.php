@@ -275,3 +275,8 @@ Route::put('/departamentos/{departamento}', [App\Http\Controllers\DepartementoCo
 
 Route::delete('/departamentos/{departamento}', [App\Http\Controllers\DepartementoController::class, 'destroy'])
 ->name('admin.departamentos.delete');
+
+// Ruta de fallback para redirigir a /auth
+Route::fallback(function () {
+    return redirect('/auth');
+});
