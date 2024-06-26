@@ -82,6 +82,15 @@
                 </a>
             </li>
 
+            <!-- Divider -->
+            <hr class="sidebar-divider my-0">
+            <!-- Ruta los Provincias -->
+            <li class="nav-item active {{request()->is('departamentos') ? 'active' : ''}}">
+                <a class="nav-link" href="{{route('admin.departamentos.index')}}">
+                    <span>{{ __('Departamentos') }}</span>
+                </a>
+            </li>
+
             @foreach ($unidades as $unidad)
             <hr class="sidebar-divider my-0">
             @can('unidad_index')

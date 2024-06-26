@@ -1,22 +1,22 @@
-@extends('layouts.dashboard.index', ['activePage' => 'users', 'titlePage' => 'Usuarios'])
+@extends('layouts.dashboard.index', ['activePage' => 'departamentos', 'titlePage' => 'Departamemntos'])
 @section('main-content')
 
 <div class="d-flex justify-content-between">
     <h2>
-        INFORMACIÓN DE PROVINCIAS
+        INFORMACIÓN DE DEPARTAMENTOS
     </h2>
 
-    <a type="button" class="btn btn-dark" style="background-color: #1D3354; padding-top: 0.8%" href="{{route('admin.provincias.create')}}">
-        Nuevo Provincia
+    <a type="button" class="btn btn-dark" style="background-color:#1D3354; padding-top: 0.8%;" href="{{route('admin.departamentos.create')}}">
+        Nuevo departamento
     </a>
 </div>
 
     <div class="content">
         <div class="row">
-            <div class="col-nd-12">
+            <div class="col-md-12">
                 <div class="card-body">
                     @if(session('success'))
-                    <div class="alert alert-success" provincias="success">
+                    <div class="alert alert-success" departamento="success">
                         {{session('success')}}
                     </div>
                     @endif
@@ -30,8 +30,8 @@
                     @endcan
                 </div>
             </div>
-            <div style="margin-top:0%" class="table-responsive">
-                <table class="table" id="provincias">
+            <div style="margin-top: 0%" class="table-responsive">
+                <table class="table" id="departamento">
                     <thead>
                         <tr>
                             <th scope="col">#</th>
@@ -41,24 +41,24 @@
                         </tr>
                     </thead>
                     <tbody>
-                        @foreach($provincias as $provincia)
-                            <tr scope="row">
-                                <td>{{ @$provincia->id }}</td>
-                                <td>{{ @$provincia->nombre }}</td>
-                                <td>{{ @$provincia->direccion }}</td>
-                                <td>
-                                    <!-- @can('user_edit')
-                                    <a type="button" class="btn btn-primary" href="{{route('admin.provincias.edit', $provincia->id) }}">
-                                        Editar
-                                    </a>
-                                    @endcan -->
+                        @foreach($departamentos as $departamento)
+                        <tr scope="row">
+                            <td>{{ @$departamento->id }}</td>
+                            <td>{{ @$departamento->nombre }}</td>
+                            <td>{{ @$departamento->direccion }}</td>
+                            <td>
+                                <!-- @can('user_edit')
+                                <a type="button" class="btn btn-primary" href="{{ route('admin.departamentos.edit', $departamento->id) }}">
+                                    Editar
+                                </a>
+                                @endcan -->
 
-                                    <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#modalEliminar-{{$provincia->id}}">
-                                        Eliminar
-                                    </button>
-                                </td>
-                            </tr>
-                            @include('admin.provincias.modalEliminar')
+                                <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#modalEliminar-{{$departamento->id}}">
+                                    Eliminar
+                                </button>
+                            </td>
+                        </tr>
+                        @include('admin.departamentos.modalEliminar')
                         @endforeach
                     </tbody>
                 </table>
@@ -66,13 +66,14 @@
         </div>
     </div>
 
+
 <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet"/>
 <link href="https://getbootstrap.com/docs/4.0/dist/css/bootstrap.min.css" rel="stylesheet"/>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 
 <script language="javascript">
     function doSearch() {
-        var tableReg = document.getElementById('provincias');
+        var tableReg = document.getElementById('municipios');
         var searchText = document.getElementById('searchTerm').value.toLowerCase();
         for (var i = 1; i < tableReg.rows.length; i++) {
             var cellsOfRow = tableReg.rows[i].getElementsByTagName('td');
@@ -91,5 +92,4 @@
         }
     }
 </script>
-
 @endsection

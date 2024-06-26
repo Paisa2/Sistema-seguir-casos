@@ -256,3 +256,22 @@ Route::put('/provincias/{provincia}', [App\Http\Controllers\ProvinciaController:
 
 Route::delete('/provincias/{provincia}', [App\Http\Controllers\ProvinciaController::class, 'destroy'])
 ->name('admin.provincias.delete');
+
+//Ruta Departamento
+Route::get('/departamentos/index', [App\Http\Controllers\DepartementoController::class, 'index'])
+->name('admin.departamentos.index');
+
+Route::get('/departamentos/create', [App\Http\Controllers\DepartementoController::class, 'create'])
+->name('admin.departamentos.create');
+
+Route::post('/departamento/store', [App\Http\Controllers\DepartementoController::class, 'store'])
+->name('admin.departamentos.store');
+
+Route::get('/departamentos/{departamento}/edit', [App\Http\Controllers\DepartementoController::class, 'edit'])
+->name('admin.departamentos.edit');
+
+Route::put('/departamentos/{departamento}', [App\Http\Controllers\DepartementoController::class, 'update'])
+->name('admin.departamentos.update');
+
+Route::delete('/departamentos/{departamento}', [App\Http\Controllers\DepartementoController::class, 'destroy'])
+->name('admin.departamentos.delete');

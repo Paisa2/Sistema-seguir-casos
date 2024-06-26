@@ -21,12 +21,14 @@
                     </div>
                     @endif
                 </div>
-                @can('user_buscar')
-                <span class="input-group" style="width: 60%; margin-right:auto; margin-left:auto">
-                    <img src="{{asset('images/search.svg')}}" alt="" style="border-radius: 10px; position: relative; width:100%; max-width:30px; right:8px;">
-                    <input id="searchTerm" type="text" onkeyup="doSearch()" class="form-control pull-right"  placeholder="Escribe para buscar en la tabla..." />
-                </span>
-                @endcan
+                <div class="form-group">
+                    @can('user_buscar')
+                    <span class="input-group" style="width: 60%; margin-right:auto; margin-left:auto">
+                        <img src="{{asset('images/search.svg')}}" alt="" style="border-radius: 10px; position: relative; width:100%; max-width:30px; right:8px;">
+                        <input id="searchTerm" type="text" onkeyup="doSearch()" class="form-control pull-right"  placeholder="Escribe para buscar en la tabla..." />
+                    </span>
+                    @endcan
+                </div>
             </div>
             <div style="margin-top: 0%" class="table-responsive">
                 <table class="table" id="municipios">
