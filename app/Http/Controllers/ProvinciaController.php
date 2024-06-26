@@ -5,7 +5,6 @@ namespace App\Http\Controllers;
 use App\Http\Requests\ProvinciaCreateRequest;
 use App\Http\Requests\ProvinciaEditRequest;
 use App\Models\Provincia;
-use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Gate;
 
 class ProvinciaController extends Controller
@@ -101,7 +100,7 @@ class ProvinciaController extends Controller
      */
     public function destroy(Provincia $provincia)
     {
-        abort_if(Gate::denies('user_destoy'), 403);
+        // abort_if(Gate::denies('user_destoy'), 403);
 
         $provincia->delete();
         return back()->with('success', 'Provincia eliminado correctamente');

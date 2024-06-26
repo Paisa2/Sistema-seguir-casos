@@ -5,7 +5,6 @@ namespace App\Http\Controllers;
 use App\Http\Requests\MunicipioCreateRequest;
 use App\Http\Requests\MunicipioEditRequest;
 use App\Models\Municipio;
-use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Gate;
 
 class MunicipioController extends Controller
