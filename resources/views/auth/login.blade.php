@@ -1,65 +1,52 @@
-
 <!DOCTYPE html>
 <html lang="en">
-<head>
+    <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>@yield('title') - Sistema de Siguimiento App</title>
-    <link rel="stylesheet"
-    href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css">
-</head>
-
-
-<body class="text-center" style="background-image: url();
-
-background-size:cover;
-background-position: center center;
-background-attachment: fixed;
-background-repeat: no-repeat;
-display: flex;
-justify-content: center;
-align-items: center;">
-    <div style=" width: 100%;
-    max-width: 800px;
-    margin: 0 auto;
-    display: flex;
-    position: absolute;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    top: 30%;">
-    <form class="form-signin" method="POST" >
-        @csrf
-        <div>
-            <h1 class="h3 mb-3 font-weight-normal" style="font-family: 'Times New Roman'; text-align: center; font-size: 40px;">Inicia sesión</h1>
+        <link
+        href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css"
+        rel="stylesheet"
+        integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx"
+        crossorigin="anonymous"
+        />
+    </head>
+    <body class="bg-info d-flex justify-content-center align-items-center vh-100">
+        <div
+        class="bg-white p-5 rounded-5 text-secondary shadow"
+        style="width: 25rem"
+        >
+        <div class="d-flex justify-content-center">
+            <img src="/assets/login-icon.svg" alt="login-icon" style="height: 7rem" />
         </div>
-        <div style="padding-top: 8%; width: 300px">
-            <input style="font-family: 'Times New Roman';" type="email" id="email" name="email" class="form-control" autocomplete="current-email" placeholder="Correo electronico" required autofocus maxlength="255">
+        <div class="text-center fs-1 fw-bold">Inicia sesión</div>
+            <form class="form-signin" method="POST" >
+            @csrf
+                <div class="input-group mt-4">
+                    <div class="input-group-text bg-info">
+                        <img src="/assets/username-icon.svg" alt="username-icon" style="height: 1rem" />
+                    </div>
+                    <input class="form-control bg-light" type="email" id="email" name="email" autocomplete="current-email" placeholder="Correo electronico" required autofocus maxlength="255" />
+                </div>
 
-            <input style="font-family: 'Times New Roman';" type="password" id="password" name="password" class="form-control" autocomplete="current-password" placeholder="Contraseña" required minlength="5" maxlength="15">
+                <div class="input-group mt-1">
+                    <div class="input-group-text bg-info">
+                        <img src="/assets/password-icon.svg" alt="password-icon" style="height: 1rem" />
+                    </div>
+                        <input class="form-control bg-light" type="password" id="password" name="password" autocomplete="current-password" placeholder="Contraseña" required minlength="5" maxlength="15"/>
+                </div>
 
+                <div style="padding-top: 16%" >
+                    <input type="submit" value="Ingresar" class="btn btn-info"
+                            style="font-family: 'Times New Roman'; width: 100%; font-size: 20px; "/>
+                </div>
+
+                <div class="btn d-flex gap-2 justify-content-center border mt-3 shadow-sm" >
+                    <img src="/assets/google-icon.svg" alt="google-icon" style="height: 1.6rem" />
+                    <div class="fw-semibold text-secondary">Continue con Google</div>
+                </div>
+            </form>
         </div>
-        <div style="padding-top: 16%" >
-
-            <input type="submit" value="Ingresar" class="btn btn-dark"
-            style="font-family: 'Times New Roman'; background-color: #1D3354; width: 100%; font-size: 20px; "/>
-
-        </div>
-
-        <div style="padding-top: 8%">
-            <a style=" text-decoration:none;font-family: 'Times New Roman'; text-align: center;">
-                <p  style="color:black;">&copy;Municipio Colcapirhua </p>
-            </a>
-        </div>
-
-        <div>
-            @error('message')
-
-                <p class="alert alert-danger ">{{$message}}</p>
-
-            @enderror
-            </div>
-    </form>
-    </div>
-  </body>
+    </body>
+</html>
