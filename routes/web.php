@@ -2,6 +2,7 @@
 
 
 use Illuminate\Support\Facades\Route;
+use Illuminate\Support\Facades\Auth;
 
 /*
 |--------------------------------------------------------------------------
@@ -278,5 +279,9 @@ Route::delete('/departamentos/{departamento}', [App\Http\Controllers\Departement
 
 // Ruta de fallback para redirigir a /auth
 Route::fallback(function () {
-    return redirect('/auth');
+    if (Auth::check()) {
+        return redirect('/auth');
+    } else {
+        return redirect('/login');
+    }
 });
