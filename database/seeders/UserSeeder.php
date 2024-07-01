@@ -42,7 +42,7 @@ class UserSeeder extends Seeder
             'email' => 'usuario2@gmail.com',
             'estadoCuenta' => 'Habilitado',
             'password' => 'usuario2',
-            'cargo' => 'Slam',
+            'cargo' => 'Slim',
         ]);
 
         $user3->assignRole('User');

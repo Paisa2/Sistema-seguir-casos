@@ -1,4 +1,9 @@
 @extends('layouts.dashboard.index', ['activePage' => 'users', 'titlePage' => 'Usuarios'])
+@section('css')
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.3.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdn.datatables.net/2.0.8/css/dataTables.bootstrap5.css">
+    <link rel="stylesheet" href="https://cdn.datatables.net/responsive/3.0.2/css/responsive.bootstrap5.css">
+@endsection
 @section('main-content')
 
 <div class="d-flex justify-content-between">
@@ -22,92 +27,98 @@
                         </div>
                         @endif
                     </div>
-                    <div class="form-group">
-                        @can('user_buscar')
-                        <span class="input-group" style="width: 60%; margin-right:auto; margin-left:auto">
-                            <img src="{{asset('images/search.svg')}}" alt="" style="border-radius: 10px; position: relative; width:100%; max-width:30px; right:8px;">
-                            <input id="searchTerm" type="text" onkeyup="doSearch()" class="form-control pull-right"  placeholder="Escribe para buscar en la tabla..." />
-                        </span>
-                        @endcan
-                    </div>
             </div>
-            <div style="margin-top: 0%" class="table-responsive" >
-                <table class="table" id="usuarios" >
-                    <thead>
-                        <tr>
-                            <th scope="col">#</th>
-                            <th scope="col">Nombre</th>
-                            <th scope="col">Apellidos</th>
-                            <th scope="col">Cargo</th>
-                            <th scope="col">Correo Electronico</th>
-                            <th scope="col">Estado</th>
-                            <th scope="col">Rol</th>
-                            <th scope="col">Acciones</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        @foreach ($users as $user)
-                        <tr scope="row">
-                            <td>{{ @$user->id}}</td>
-                            <td>{{ @$user->name }}</td>
-                            <td>{{ @$user->apellido }}</td>
-                            <td>{{ @$user-> cargo }}</td>
-                            <td>{{ @$user->email }}</td>
-                            <td>{{ @$user->estadoCuenta }}</td>
-                            <td>
-                                @forelse ($user->roles as $role)
-                                <span class="badge badge-info">{{ $role->name }}</span>
-                                @empty
-                                <span class="badge badge-danger">No roles</span>
-                                @endforelse
-                            </td>
+    <!-- Tabla de los Usuarios -->
+            <div class="card">
+                <div class="card-body">
+                    <div style="margin-top: 0%" class="table-responsive" >
+                        <table class="table" id="usuarios" >
+                            <thead>
+                                <tr>
+                                    <th scope="col">#</th>
+                                    <th scope="col">Nombre</th>
+                                    <th scope="col">Apellidos</th>
+                                    <th scope="col">Cargo</th>
+                                    <th scope="col">Correo Electronico</th>
+                                    <th scope="col">Estado</th>
+                                    <th scope="col">Rol</th>
+                                    <th scope="col">Acciones</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @foreach ($users as $user)
+                                <tr scope="row">
+                                    <td>{{ @$user->id}}</td>
+                                    <td>{{ @$user->name }}</td>
+                                    <td>{{ @$user->apellido }}</td>
+                                    <td>{{ @$user-> cargo }}</td>
+                                    <td>{{ @$user->email }}</td>
+                                    <td>{{ @$user->estadoCuenta }}</td>
+                                    <td>
+                                        @forelse ($user->roles as $role)
+                                        <span class="badge badge-info">{{ $role->name }}</span>
+                                        @empty
+                                        <span class="badge badge-danger">No roles</span>
+                                        @endforelse
+                                    </td>
 
-                            <td>
-                                @can('user_edit')
-                                <a type="button" class="btn btn-primary" href="{{ route('admin.usuarios.edit', $user->id) }}">
-                                    Editar
-                                </a>
-                                @endcan
-                                @can('user_destroy')
-                                <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#modalEliminar-{{$user->id}}">
-                                    Eliminar
-                                </button>
-                                @endcan
-                            </td>
-                        </tr>
-                        @include('admin.usuarios.modalEliminar')
-                        @endforeach
-                    </tbody>
-                </table>
+                                    <td>
+                                        @can('user_edit')
+                                        <a type="button" class="btn btn-primary" href="{{ route('admin.usuarios.edit', $user->id) }}">
+                                            Editar
+                                        </a>
+                                        @endcan
+                                        @can('user_destroy')
+                                        <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#modalEliminar-{{$user->id}}">
+                                            Eliminar
+                                        </button>
+                                        @endcan
+                                    </td>
+                                </tr>
+                                @include('admin.usuarios.modalEliminar')
+                                @endforeach
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
 </div>
 
+@section('script')
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdn.datatables.net/2.0.8/js/dataTables.js"></script>
+    <script src="https://cdn.datatables.net/2.0.8/js/dataTables.bootstrap5.js"></script>
+    <script src="https://cdn.datatables.net/responsive/3.0.2/js/dataTables.responsive.js"></script>
+    <script src="https://cdn.datatables.net/responsive/3.0.2/js/responsive.bootstrap5.js"></script>
 
-<link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet"/>
-<link href="https://getbootstrap.com/docs/4.0/dist/css/bootstrap.min.css" rel="stylesheet"/>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-
-<script language="javascript">
-    function doSearch() {
-        var tableReg = document.getElementById('usuarios');
-        var searchText = document.getElementById('searchTerm').value.toLowerCase();
-        for (var i = 1; i < tableReg.rows.length; i++) {
-            var cellsOfRow = tableReg.rows[i].getElementsByTagName('td');
-            var found = false;
-            for (var j = 0; j < cellsOfRow.length && !found; j++) {
-                var compareWith = cellsOfRow[j].innerHTML.toLowerCase();
-                if (searchText.length == 0 || (compareWith.indexOf(searchText) > -1)) {
-                    found = true;
+    <script>
+        $('#usuarios').DataTable({
+            responsive: true,
+            autoWidt: false,
+            "language" : {
+                "info" : "Mostrando la pagina _PAGE_ de _PAGES_",
+                "infoEmpty" : "No records available",
+                "infoFiltered" : "(filtrado de _MAX_ registros totales)",
+                "lengthMenu" : "Mostrar " +
+                                `<select >
+                                    <option value="10">10</option>
+                                    <option value="25">25</option>
+                                    <option value="50">50</option>
+                                    <option value="100">100</option>
+                                    <option value="-1">Todos</option>
+                                </select>` +
+                                " registros por pagina",
+                "zeroRecords" : "Nada encontrado - disculpa",
+                "search" : 'Buscar:',
+                "paginate" : {
+                    'next' : 'siguiente',
+                    'previous' : 'anterior',
                 }
             }
-            if (found) {
-                tableReg.rows[i].style.display = '';
-            } else {
-                tableReg.rows[i].style.display = 'none';
-            }
-        }
-    }
-</script>
+        });
+    </script>
+@endsection
+
 @endsection

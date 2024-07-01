@@ -34,5 +34,8 @@
 <script src="{{ asset('js/core/bootstrap-material-design.min.js') }}"></script>
 {{-- <script src="{{ asset('js/plugins/perfect-scrollbar.jquery.min.js') }}"></script> --}}
 @stack('js')
+<!-- Scripts -->
+@yield('script')
+@yield('css')
 </body>
 </html>
