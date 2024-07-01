@@ -10,32 +10,52 @@ class Caso extends Model
     use HasFactory;
     protected $table = 'casos';
     protected $fillable = [
-                'num_caso',
-                'tipologia',
-                'descripcion',
-                'fecha_registro',
-                'nom_demandante',
-                'nom_demandado',
-                'estado',
-            ];
+        'numero_caso',
+        'tipologia_caso',
+        'responsable_caso',
+        'etapa_caso',
+        'fecha_registro',
+        'derivar_casos',
+        'image',
+        'denunciante_nombre',
+        'denunciante_apellido',
+        'denunciante_ci',
+        'denunciante_sexo',
+        'denunciante_edad',
+        'denunciante_ocupacion',
+        'denunciante_estado_civil',
+        'denunciante_telefono',
+        'denunciado_nombre',
+        'denunciado_apellido',
+        'denunciado_ci',
+        'denunciado_sexo',
+        'denunciado_edad',
+        'denunciado_telefono',
+        'unidad'
+    ];
 
-    public function denuncias() {
+    public function denuncias()
+    {
         return $this->hasMany(Denuncia::class);
     }
 
-    public function unidadiscapacidad() {
+    public function unidadiscapacidad()
+    {
         return $this->belongsTo(UnidadDiscapacidad::class);
     }
 
-    public function unidadefensoria() {
+    public function unidadefensoria()
+    {
         return $this->belongsTo(UnidadDefensoria::class);
     }
 
-    public function unidadadulto() {
+    public function unidadadulto()
+    {
         return $this->belongsTo(UnidadAdultoM::class);
     }
 
-    public function unidadslim() {
+    public function unidadslim()
+    {
         return $this->belongsTo(UnidadSlim::class);
     }
 }

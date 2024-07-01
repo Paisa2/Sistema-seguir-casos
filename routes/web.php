@@ -1,6 +1,6 @@
 <?php
 
-
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Auth;
 
@@ -22,260 +22,260 @@ Route::get('/login', function () {
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
 Route::post('/register', [App\Http\Controllers\RegisterController::class, 'store'])
-->name('register.store');
+    ->name('register.store');
 
 Route::get('/register', [App\Http\Controllers\RegisterController::class, 'create'])
-->middleware('guest')
-->name('register.index');
+    ->middleware('guest')
+    ->name('register.index');
 
 
 Route::post('/registerAdmin', [App\Http\Controllers\RegisterAdminController::class, 'store'])
-->name('admin.registerAdminStore');
+    ->name('admin.registerAdminStore');
 
 Route::get('/registerAdmin', [App\Http\Controllers\RegisterAdminController::class, 'create'])
-->middleware('guest')
-->name('admin.registerAdmin');
+    ->middleware('guest')
+    ->name('admin.registerAdmin');
 
 
 Route::get('/login', [App\Http\Controllers\SessionsController::class, 'create'])
-->middleware('guest')
-->name('login.index');
+    ->middleware('guest')
+    ->name('login.index');
 
 Route::post('/login', [App\Http\Controllers\SessionsController::class, 'store'])
-->name('login.store');
+    ->name('login.store');
 
 Route::get('/logout', [App\Http\Controllers\SessionsController::class, 'destroy'])
-->middleware('auth')
-->name('login.destroy');
+    ->middleware('auth')
+    ->name('login.destroy');
 
 Route::get('/admin', [App\Http\Controllers\AdminController::class, 'index'])
-->middleware('auth.admin')
-->name('admin.index');
+    ->middleware('auth.admin')
+    ->name('admin.index');
 
 Route::get('/usuario', [App\Http\Controllers\UserController::class, 'index'])
-->middleware('auth.user')
-->name('user.index');
+    ->middleware('auth.user')
+    ->name('user.index');
 
 Route::get('/auth', function () {
     return view('index');
 })->middleware('auth.user')
-->name('auth.user');
+    ->name('auth.user');
 
 //Usuarios
 Route::get('/usuarios/index', [App\Http\Controllers\UsuariosRController::class, 'index'])
-->name('admin.usuarios.index');
+    ->name('admin.usuarios.index');
 
 Route::get('/usuarios/create', [App\Http\Controllers\UsuariosRController::class, 'create'])
-->name('admin.usuarios.create');
+    ->name('admin.usuarios.create');
 
 Route::post('/usuarios/store', [App\Http\Controllers\UsuariosRController::class, 'store'])
-->name('admin.usuarios.store');
+    ->name('admin.usuarios.store');
 
 Route::delete('/usuarios/{user}', [App\Http\Controllers\UsuariosRController::class, 'destroy'])
-->name('admin.usuarios.delete');
+    ->name('admin.usuarios.delete');
 
 Route::get('/usuarios/{user}/edit', [App\Http\Controllers\UsuariosRController::class, 'edit'])
-->name('admin.usuarios.edit');
+    ->name('admin.usuarios.edit');
 
 Route::put('/usuarios/{user}', [App\Http\Controllers\UsuariosRController::class, 'update'])
-->name('admin.usuarios.update');
+    ->name('admin.usuarios.update');
 
 
 
 //Roles
 Route::get('/roles/index', [App\Http\Controllers\RoleController::class, 'index'])
-->name('roles.index');
+    ->name('roles.index');
 
 Route::post('/roles/store', [App\Http\Controllers\RoleController::class, 'store'])
-->name('roles.store');
+    ->name('roles.store');
 
 Route::delete('/roles/{roleId}/delete', [App\Http\Controllers\RoleController::class, 'delete'])
-->name('roles.delete');
+    ->name('roles.delete');
 
 Route::post('/roles/{roleId}/update', [App\Http\Controllers\RoleController::class, 'update'])
-->name('roles.update');
+    ->name('roles.update');
 
 //permisos
-Route::group(['middleware' => 'auth'], function() {
-Route::resource('permissions', App\Http\Controllers\PermissionController::class);
-Route::resource('roles', App\Http\Controllers\RoleController::class);
+Route::group(['middleware' => 'auth'], function () {
+    Route::resource('permissions', App\Http\Controllers\PermissionController::class);
+    Route::resource('roles', App\Http\Controllers\RoleController::class);
 });
 
 
 //Rutas Unidades Adulto Mayor
 Route::get('/unidadesA/index', [App\Http\Controllers\UnidadAdultoMController::class, 'index'])
-->name('admin.unidadesA.index');
+    ->name('admin.unidadesA.index');
 
 Route::get('/unidadesA/create', [App\Http\Controllers\UnidadAdultoMController::class, 'create'])
-->name('admin.unidadesA.create');
+    ->name('admin.unidadesA.create');
 
 Route::post('/unidadesA/store', [App\Http\Controllers\UnidadAdultoMController::class, 'store'])
-->name('admin.unidadesA.store');
+    ->name('admin.unidadesA.store');
 
 Route::get('/unidadesA/edit', [App\Http\Controllers\UnidadAdultoMController::class, 'edit'])
-->name('admin.unidadesA.edit');
+    ->name('admin.unidadesA.edit');
 
 Route::delete('/unidadesA/{unidadId}/delete', [App\Http\Controllers\UnidadAdultoMController::class, 'delete'])
-->name('admin.unidadesA.delete');
+    ->name('admin.unidadesA.delete');
 
 Route::post('/unidadesA/{unidadId}/update', [\App\Http\Controllers\UnidadAdultoMController::class, 'update'])
-->name('admin.unidadesA.update');
+    ->name('admin.unidadesA.update');
 
 //Rutas Unidades Slim
 Route::get('/unidad/index', [App\Http\Controllers\UnidadSlimController::class, 'index'])
-->name('admin.unidad.index');
+    ->name('admin.unidad.index');
 
 Route::get('/unidad/create', [App\Http\Controllers\UnidadSlimController::class, 'create'])
-->name('admin.unidad.create');
+    ->name('admin.unidad.create');
 
 Route::post('/unidad/store', [App\Http\Controllers\UnidadSlimController::class, 'store'])
-->name('admin.unidad.store');
+    ->name('admin.unidad.store');
 
 Route::get('/unidad/edit', [App\Http\Controllers\UnidadSlimController::class, 'edit'])
-->name('admin.unidad.edit');
+    ->name('admin.unidad.edit');
 
 Route::delete('/unidad/{unidadId}/delete', [App\Http\Controllers\UnidadSlimController::class, 'delete'])
-->name('admin.unidad.delete');
+    ->name('admin.unidad.delete');
 
 Route::post('/unidad/{unidadId}/update', [\App\Http\Controllers\UnidadSlimController::class, 'update'])
-->name('admin.unidad.update');
+    ->name('admin.unidad.update');
 
 //Rutas Unidades Defensoria
 Route::get('/unidadesDef/index', [App\Http\Controllers\UnidadDefensoriaController::class, 'index'])
-->name('admin.unidadesDef.index');
+    ->name('admin.unidadesDef.index');
 
 Route::get('/unidadesDef/create', [App\Http\Controllers\UnidadDefensoriaController::class, 'create'])
-->name('admin.unidadesDef.create');
+    ->name('admin.unidadesDef.create');
 
 Route::post('/unidadesDef/store', [App\Http\Controllers\UnidadDefensoriaController::class, 'store'])
-->name('admin.unidadesDef.store');
+    ->name('admin.unidadesDef.store');
 
 Route::get('/unidadesDef/edit', [App\Http\Controllers\UnidadDefensoriaController::class, 'edit'])
-->name('admin.unidadesDef.edit');
+    ->name('admin.unidadesDef.edit');
 
 Route::delete('/unidadesDef/{unidadId}/delete', [App\Http\Controllers\UnidadDefensoriaController::class, 'delete'])
-->name('admin.unidadesDef.delete');
+    ->name('admin.unidadesDef.delete');
 
 Route::post('/unidadesDef/{unidadId}/update', [\App\Http\Controllers\UnidadDefensoriaController::class, 'update'])
-->name('admin.unidadesDef.update');
+    ->name('admin.unidadesDef.update');
 
 //Rutas Unidades Discapacidad
 Route::get('/unidadesDis/index', [App\Http\Controllers\UnidadDiscapacidadController::class, 'index'])
-->name('admin.unidadesDis.index');
+    ->name('admin.unidadesDis.index');
 
 Route::get('/unidadesDis/create', [App\Http\Controllers\UnidadDiscapacidadController::class, 'create'])
-->name('admin.unidadesDis.create');
+    ->name('admin.unidadesDis.create');
 
 Route::post('/unidadesDis/store', [App\Http\Controllers\UnidadDiscapacidadController::class, 'store'])
-->name('admin.unidadesDis.store');
+    ->name('admin.unidadesDis.store');
 
 Route::get('/unidadesDis/edit', [App\Http\Controllers\UnidadDiscapacidadController::class, 'edit'])
-->name('admin.unidadesDis.edit');
+    ->name('admin.unidadesDis.edit');
 
 Route::delete('/unidadesDis/{unidadId}/delete', [App\Http\Controllers\UnidadDiscapacidadController::class, 'delete'])
-->name('admin.unidadesDis.delete');
+    ->name('admin.unidadesDis.delete');
 
 Route::post('/unidadesDis/{unidadId}/update', [\App\Http\Controllers\UnidadDiscapacidadController::class, 'update'])
-->name('admin.unidadesDis.update');
+    ->name('admin.unidadesDis.update');
 
 //Rutas denuncias
 Route::get('/denuncias/index', [App\Http\Controllers\DenunciaController::class, 'index'])
-->name('admin.denuncias.index');
+    ->name('admin.denuncias.index');
 
 Route::get('/denuncias/create', [App\Http\Controllers\DenunciaController::class, 'create'])
-->name('admin.denuncias.create');
+    ->name('admin.denuncias.create');
 
 Route::post('/denuncias/store', [App\Http\Controllers\DenunciaController::class, 'store'])
-->name('admin.denuncias.store');
+    ->name('admin.denuncias.store');
 
 Route::get('/denuncias/edit', [App\Http\Controllers\DenunciaController::class, 'edit'])
-->name('admin.denuncias.edit');
+    ->name('admin.denuncias.edit');
 
 Route::delete('/denuncias/{unidadId}/delete', [App\Http\Controllers\DenunciaController::class, 'delete'])
-->name('admin.denuncias.delete');
+    ->name('admin.denuncias.delete');
 
 Route::post('/denuncias/{unidadId}/update', [\App\Http\Controllers\DenunciaController::class, 'update'])
-->name('admin.denuncias.update');
+    ->name('admin.denuncias.update');
 
 //Ruta Casos
 Route::get('/unidad/{id_unidad}/casos', [\App\Http\Controllers\CasoController::class, 'index'])
-->name('admin.unidad.casos');
+    ->name('admin.unidad.casos');
 
 
 Route::get('/casos/index', [\App\Http\Controllers\CasoController::class, 'index'])
-->name('admin.casos.index');
+    ->name('admin.casos.index');
 
 Route::get('/unidad/{id_unidad}/casos/create', [\App\Http\Controllers\CasoController::class, 'create'])
-->name('admin.unidad.casos.create');
+    ->name('admin.unidad.casos.create');
 
-Route::post('/casos.store', [\App\Http\Controllers\CasoController::class,'store'])
-->name('admin.casos.store');
+Route::post('/casos.store', [\App\Http\Controllers\CasoController::class, 'store'])
+    ->name('admin.casos.store');
 
 Route::get('/casos/edit', [\App\Http\Controllers\CasoController::class, 'edit'])
-->name('admin.casos.edit');
+    ->name('admin.casos.edit');
 
 Route::delete('/casos/{casosId}/delete', [\App\Http\Controllers\CasoController::class, 'delete'])
-->name('admin.casos.delete');
+    ->name('admin.casos.delete');
 
 Route::post('/casos/{casosId}update', [\App\Http\Controllers\CasoController::class, 'update'])
-->name('admin.casos.update');
+    ->name('admin.casos.update');
 
 //Ruta Municipio
 Route::get('/municipios/index', [\App\Http\Controllers\MunicipioController::class, 'index'])
-->name('admin.municipios.index');
+    ->name('admin.municipios.index');
 
 Route::get('/municipios/create', [\App\Http\Controllers\MunicipioController::class, 'create'])
-->name('admin.municipios.create');
+    ->name('admin.municipios.create');
 
 Route::post('/municipios/store', [App\Http\Controllers\MunicipioController::class, 'store'])
-->name('admin.municipios.store');
+    ->name('admin.municipios.store');
 
 Route::get('/municipios/{municipio}/edit', [App\Http\Controllers\MunicipioController::class, 'edit'])
-->name('admin.municipios.edit');
+    ->name('admin.municipios.edit');
 
 Route::put('/municipios/{municipio}', [App\Http\Controllers\MunicipioController::class, 'update'])
-->name('admin.municipios.update');
+    ->name('admin.municipios.update');
 
 Route::delete('/municipios/{municipio}', [App\Http\Controllers\MunicipioController::class, 'destroy'])
-->name('admin.municipios.delete');
+    ->name('admin.municipios.delete');
 
 //Ruta Provincia
 Route::get('/provincias/index', [\App\Http\Controllers\ProvinciaController::class, 'index'])
-->name('admin.provincias.index');
+    ->name('admin.provincias.index');
 
 Route::get('/provincias/create', [\App\Http\Controllers\ProvinciaController::class, 'create'])
-->name('admin.provincias.create');
+    ->name('admin.provincias.create');
 
 Route::post('/provincias/store', [App\Http\Controllers\ProvinciaController::class, 'store'])
-->name('admin.provincias.store');
+    ->name('admin.provincias.store');
 
 Route::get('/provincias/{provincia}/edit', [App\Http\Controllers\ProvinciaController::class, 'edit'])
-->name('admin.provincias.edit');
+    ->name('admin.provincias.edit');
 
 Route::put('/provincias/{provincia}', [App\Http\Controllers\ProvinciaController::class, 'update'])
-->name('admin.provincias.update');
+    ->name('admin.provincias.update');
 
 Route::delete('/provincias/{provincia}', [App\Http\Controllers\ProvinciaController::class, 'destroy'])
-->name('admin.provincias.delete');
+    ->name('admin.provincias.delete');
 
 //Ruta Departamento
 Route::get('/departamentos/index', [App\Http\Controllers\DepartementoController::class, 'index'])
-->name('admin.departamentos.index');
+    ->name('admin.departamentos.index');
 
 Route::get('/departamentos/create', [App\Http\Controllers\DepartementoController::class, 'create'])
-->name('admin.departamentos.create');
+    ->name('admin.departamentos.create');
 
 Route::post('/departamento/store', [App\Http\Controllers\DepartementoController::class, 'store'])
-->name('admin.departamentos.store');
+    ->name('admin.departamentos.store');
 
 Route::get('/departamentos/{departamento}/edit', [App\Http\Controllers\DepartementoController::class, 'edit'])
-->name('admin.departamentos.edit');
+    ->name('admin.departamentos.edit');
 
 Route::put('/departamentos/{departamento}', [App\Http\Controllers\DepartementoController::class, 'update'])
-->name('admin.departamentos.update');
+    ->name('admin.departamentos.update');
 
 Route::delete('/departamentos/{departamento}', [App\Http\Controllers\DepartementoController::class, 'destroy'])
-->name('admin.departamentos.delete');
+    ->name('admin.departamentos.delete');
 
 // Ruta de fallback para redirigir a /auth
 Route::fallback(function () {
