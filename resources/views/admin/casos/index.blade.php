@@ -32,11 +32,14 @@
         <table class="table" id="casos">
             <thead>
                 <tr>
-                    <th scope='col'>#</th>
+                    <th scope="col">#</th>
+                    <th scope="col">Numero Caso</th>
+                    <th scope="col">Demandado</th>
+                    <th scope="col">Demandante</th>
+                    <th scope="col">Tipologia</th>
                     <th scope="col">Responsable</th>
-                    <th scope='col'>Tipologia</th>
-                    <th scope='col'>Descripcion</th>
-                    <th scope='col'>Estado</th>
+                    <th scope="col">Fecha</th>
+                    <th scope="col">Etapa Procesos</th>
                     <th scope="col">Acciones</th>
                 </tr>
             </thead>

@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\CasoCreateRequest;
 use App\Models\Caso;
 use App\Models\Unidad;
 use Illuminate\Http\Request;
@@ -42,7 +43,7 @@ class CasoController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(CasoCreateRequest $request)
     {
         // Validate the request data
         $validatedData =$request->validate([

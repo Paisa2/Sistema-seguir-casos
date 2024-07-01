@@ -34,7 +34,12 @@
 
             <div class="col-sm-3">
                 <label for="etapa_caso" class="form-label">Etapa del caso</label>
-                <input type="text" class="form-control" name="etapa_caso" placeholder="Ingrese la Etapa" value="{{ old('etapa_caso') }}" autofocus minlength="1" maxlength="50">
+                <select name="" id="" class="form-control" value="" required>
+                        <option value="">-- Selecciona el Etapa--</option>
+                        <option value="Premilinar" @if(old('') == 'Premilinar') selected @endif>Premilinar</option>
+                        <option value="EtapaPreparatoria" @if(old('') == 'EtapaPreparatoria') selected @endif>Etapa-Preparatoria</option>
+                        <option value="JucioOral" @if(old('') == 'JucioOral') selected @endif>Jucio-Oral</option>
+                </select>
             </div>
 
             <div class="col-sm-3">
@@ -72,8 +77,12 @@
             </div>
 
             <div class="col-sm-3">
-                <label for="denunciante_sexo" class="form-label">Sexo</label>
-                <input type="text" class="form-control" name="denunciante_sexo" placeholder="Ingrese el sexo" value="{{ old('denunciante_sexo') }}" autofocus minlength="1" maxlength="1">
+                <label for="responsable_caso" class="form-label">Sexo</label>
+                <select name="responsable_caso" id="responsable_caso" class="form-control" required>
+                    <option value="">--Selecciona el Sexo--</option>
+                    <option value="Masculino" @if(old('masculino')=='Masculino' ) selected @endif>Masculino</option>
+                    <option value="Femenino" @if(old('femenino')=='Femenino' ) selected @endif>Femenino</option>
+                </select>
             </div>
 
             <div class="col-sm-3">
@@ -81,17 +90,17 @@
                 <input type="number" class="form-control" name="denunciante_edad" placeholder="Ingrese la edad" value="{{ old('denunciante_edad') }}" autofocus minlength="1" maxlength="10">
             </div>
 
-            <div class="col-sm-4">
+            <div class="col-sm-3">
                 <label for="denunciante_ocupacion" class="form-label">Ocupacion</label>
                 <input type="text" class="form-control" name="denunciante_ocupacion" placeholder="Ingrese la ocupacion" value="{{ old('denunciante_ocupacion') }}" autofocus minlength="1" maxlength="50">
             </div>
 
-            <div class="col-sm-4">
+            <div class="col-sm-3">
                 <label for="denunciante_estado_civil" class="form-label">Estado Civil</label>
                 <input type="text" class="form-control" name="denunciante_estado_civil" placeholder="Ingrese el E. Civil" value="{{ old('denunciante_estado_civil') }}" autofocus minlength="1" maxlength="50">
             </div>
 
-            <div class="col-sm-4">
+            <div class="col-sm-3">
                 <label for="denunciante_telefono" class="form-label">Telefono</label>
                 <input type="number" class="form-control" name="denunciante_telefono" placeholder="Ingrese el telefono" value="{{ old('denunciante_telefono') }}" autofocus minlength="1" maxlength="8">
             </div>
@@ -116,8 +125,12 @@
             </div>
 
             <div class="col-sm-3">
-                <label for="denunciado_sexo" class="form-label">Sexo</label>
-                <input type="text" class="form-control" name="denunciado_sexo" placeholder="Ingrese el sexo" value="{{ old('denunciado_sexo') }}" autofocus minlength="1" maxlength="1">
+                <label for="responsable_caso" class="form-label">Sexo</label>
+                <select name="responsable_caso" id="responsable_caso" class="form-control" required>
+                    <option value="">--Selecciona el Sexo--</option>
+                    <option value="Masculino" @if(old('masculino')=='Masculino' ) selected @endif>Masculino</option>
+                    <option value="Femenino" @if(old('femenino')=='Femenino' ) selected @endif>Femenino</option>
+                </select>
             </div>
 
             <div class="col-sm-3">

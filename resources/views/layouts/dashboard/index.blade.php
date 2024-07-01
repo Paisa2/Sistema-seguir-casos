@@ -62,35 +62,6 @@
             </li>
             @endcan
 
-            <!-- Divider -->
-            <hr class="sidebar-divider my-0">
-            <!-- Ruta los Municipios -->
-
-            <li class="nav-item active {{ request()->is('municipios')  ? 'active' : ''}}">
-                <a class="nav-link" href="{{route('admin.municipios.index')}}">
-                    <span>{{ __('Municipios') }}</span>
-                </a>
-            </li>
-
-            <!-- Divider -->
-            <hr class="sidebar-divider my-0">
-            <!-- Ruta los Provincias -->
-
-            <li class="nav-item active {{request()->is('provincias') ? 'active' : ''}}">
-                <a class="nav-link" href="{{route('admin.provincias.index')}}">
-                    <span>{{ __('Provincias') }}</span>
-                </a>
-            </li>
-
-            <!-- Divider -->
-            <hr class="sidebar-divider my-0">
-            <!-- Ruta los Provincias -->
-            <li class="nav-item active {{request()->is('departamentos') ? 'active' : ''}}">
-                <a class="nav-link" href="{{route('admin.departamentos.index')}}">
-                    <span>{{ __('Departamentos') }}</span>
-                </a>
-            </li>
-
             @foreach ($unidades as $unidad)
             <hr class="sidebar-divider my-0">
             @can('unidad_index')

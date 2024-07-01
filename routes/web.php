@@ -2,7 +2,7 @@
 
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
-use Illuminate\Support\Facades\Auth;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -219,63 +219,6 @@ Route::delete('/casos/{casosId}/delete', [\App\Http\Controllers\CasoController::
 
 Route::post('/casos/{casosId}update', [\App\Http\Controllers\CasoController::class, 'update'])
     ->name('admin.casos.update');
-
-//Ruta Municipio
-Route::get('/municipios/index', [\App\Http\Controllers\MunicipioController::class, 'index'])
-    ->name('admin.municipios.index');
-
-Route::get('/municipios/create', [\App\Http\Controllers\MunicipioController::class, 'create'])
-    ->name('admin.municipios.create');
-
-Route::post('/municipios/store', [App\Http\Controllers\MunicipioController::class, 'store'])
-    ->name('admin.municipios.store');
-
-Route::get('/municipios/{municipio}/edit', [App\Http\Controllers\MunicipioController::class, 'edit'])
-    ->name('admin.municipios.edit');
-
-Route::put('/municipios/{municipio}', [App\Http\Controllers\MunicipioController::class, 'update'])
-    ->name('admin.municipios.update');
-
-Route::delete('/municipios/{municipio}', [App\Http\Controllers\MunicipioController::class, 'destroy'])
-    ->name('admin.municipios.delete');
-
-//Ruta Provincia
-Route::get('/provincias/index', [\App\Http\Controllers\ProvinciaController::class, 'index'])
-    ->name('admin.provincias.index');
-
-Route::get('/provincias/create', [\App\Http\Controllers\ProvinciaController::class, 'create'])
-    ->name('admin.provincias.create');
-
-Route::post('/provincias/store', [App\Http\Controllers\ProvinciaController::class, 'store'])
-    ->name('admin.provincias.store');
-
-Route::get('/provincias/{provincia}/edit', [App\Http\Controllers\ProvinciaController::class, 'edit'])
-    ->name('admin.provincias.edit');
-
-Route::put('/provincias/{provincia}', [App\Http\Controllers\ProvinciaController::class, 'update'])
-    ->name('admin.provincias.update');
-
-Route::delete('/provincias/{provincia}', [App\Http\Controllers\ProvinciaController::class, 'destroy'])
-    ->name('admin.provincias.delete');
-
-//Ruta Departamento
-Route::get('/departamentos/index', [App\Http\Controllers\DepartementoController::class, 'index'])
-    ->name('admin.departamentos.index');
-
-Route::get('/departamentos/create', [App\Http\Controllers\DepartementoController::class, 'create'])
-    ->name('admin.departamentos.create');
-
-Route::post('/departamento/store', [App\Http\Controllers\DepartementoController::class, 'store'])
-    ->name('admin.departamentos.store');
-
-Route::get('/departamentos/{departamento}/edit', [App\Http\Controllers\DepartementoController::class, 'edit'])
-    ->name('admin.departamentos.edit');
-
-Route::put('/departamentos/{departamento}', [App\Http\Controllers\DepartementoController::class, 'update'])
-    ->name('admin.departamentos.update');
-
-Route::delete('/departamentos/{departamento}', [App\Http\Controllers\DepartementoController::class, 'destroy'])
-    ->name('admin.departamentos.delete');
 
 // Ruta de fallback para redirigir a /auth
 Route::fallback(function () {
