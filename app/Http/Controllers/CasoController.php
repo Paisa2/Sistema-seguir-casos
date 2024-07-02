@@ -18,10 +18,9 @@ class CasoController extends Controller
     public function index(Request $request)
     {
         // abort_if(Gate::denies('caso_index'), 403);
-        $casos = Caso::orderBy('id', 'asc')->get();
-
-        // dd($casos);
-        return view('admin.casos.index', compact('casos'));
+        $casos = Caso::where('unidad', $request->id_unidad)->orderBy('id', 'asc')->get();
+        $unidad = Unidad::findOrFail($request->id_unidad);
+        return view('admin.casos.index', compact(['casos', 'unidad']));
     }
 
     /**
@@ -43,45 +42,41 @@ class CasoController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(CasoCreateRequest $request)
+    public function store(Request $request)
     {
         // Validate the request data
-        $validatedData =$request->validate([
-            'numero_caso' => 'required|min:1|max:3',
-            'tipologia_caso' => 'required|min:1|max:50',
+        // dd($request->all());
+        $validatedData = $request->validate([
+            'numero_caso' => 'required',
+            'tipologia_caso' => 'required',
             'responsable_caso' => 'required',
-            'etapa_caso' => 'required|min:1|max:50',
+            'etapa_caso' => 'required',
             'fecha_registro' => 'required|date',
-            'derivar_casos' => 'required|min:1|max:255',
-            'image' => 'required|file',
-            'denunciante_nombre' => 'required|min:1|max:50',
-            'denunciante_apellido' => 'required|min:1|max:50',
-            'denunciante_ci' => 'required|min:1|max:7',
-            'denunciante_sexo' => 'required|min:1|max:1',
-            'denunciante_edad' => 'required|numeric|min:1|max:100',
-            'denunciante_ocupacion' => 'required|min:1|max:50',
-            'denunciante_estado_civil' => 'required|min:1|max:50',
-            'denunciante_telefono' => 'required|min:1|max:8',
-            'denunciado_nombre' => 'required|min:1|max:50',
-            'denunciado_apellido' => 'required|min:1|max:50',
-            'denunciado_ci' => 'required|min:1|max:7',
-            'denunciado_sexo' => 'required|min:1|max:1',
-            'denunciado_edad' => 'required|numeric|min:1|max:100',
-            'denunciado_telefono' => 'required|min:1|max:8',
+            'derivar_casos' => 'required',
+            //'image' => 'required|file',
+            'denunciante_nombre' => 'required',
+            'denunciante_apellido' => 'required',
+            'denunciante_ci' => 'required',
+            'denunciante_sexo' => 'required',
+            'denunciante_edad' => 'required|numeric',
+            'denunciante_ocupacion' => 'required',
+            'denunciante_estado_civil' => 'required',
+            'denunciante_telefono' => 'required',
+            'denunciado_nombre' => 'required',
+            'denunciado_apellido' => 'required',
+            'denunciado_ci' => 'required',
+            'denunciado_sexo' => 'required',
+            'denunciado_edad' => 'required|numeric',
+            'denunciado_telefono' => 'required',
             'unidad' => 'required',
         ]);
-
-        // Store the case data
-        // Add your storing logic here
         // Handle file upload
         if ($request->hasFile('image')) {
             $validatedData['image'] = $request->file('image')->store('uploads', 'public');
         }
-//dd($validatedData);
         // Save the new case
         Caso::create($validatedData);
-
-        return redirect()->route('admin.casos.index')->with('success', 'Case registered successfully!');
+        return redirect()->route('admin.unidad.casos', ['id_unidad' => $request->unidad])->with('success', 'Case registered successfully!');
     }
 
     /**
@@ -124,8 +119,12 @@ class CasoController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function delete($id)
     {
-        //
+        //abort_if(Gate::denies('user_destroy'), 403);
+
+        $caso = Caso::findOrFail($id);
+        $caso->delete();
+        return back()->with('succes', 'Caso eliminado correctamente');
     }
 }

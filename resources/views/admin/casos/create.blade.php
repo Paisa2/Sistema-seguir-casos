@@ -34,11 +34,11 @@
 
             <div class="col-sm-3">
                 <label for="etapa_caso" class="form-label">Etapa del caso</label>
-                <select name="" id="" class="form-control" value="" required>
-                        <option value="">-- Selecciona el Etapa--</option>
-                        <option value="Premilinar" @if(old('') == 'Premilinar') selected @endif>Premilinar</option>
-                        <option value="EtapaPreparatoria" @if(old('') == 'EtapaPreparatoria') selected @endif>Etapa-Preparatoria</option>
-                        <option value="JucioOral" @if(old('') == 'JucioOral') selected @endif>Jucio-Oral</option>
+                <select name="etapa_caso" id="etapa_caso" class="form-control" value="" required>
+                    <option value="">-- Selecciona el Etapa--</option>
+                    <option value="Premilinar" @if(old('')=='Premilinar' ) selected @endif>Premilinar</option>
+                    <option value="EtapaPreparatoria" @if(old('')=='EtapaPreparatoria' ) selected @endif>Etapa-Preparatoria</option>
+                    <option value="JucioOral" @if(old('')=='JucioOral' ) selected @endif>Jucio-Oral</option>
                 </select>
             </div>
 
@@ -54,7 +54,7 @@
 
             <div class="col-sm-6">
                 <label for="image" class="form-label">Archivos</label>
-                <input type="file" class="form-control" name="image" placeholder="Subir Archivos" value="{{ old('image') }}" autofocus minlength="1" maxlength="50">
+                <input type="file" accept="application/pdf,application/msword" class="form-control" name="image" placeholder="Subir Archivos" value="{{ old('image') }}" autofocus minlength="1" maxlength="50">
             </div>
             <br>
 
@@ -77,8 +77,8 @@
             </div>
 
             <div class="col-sm-3">
-                <label for="responsable_caso" class="form-label">Sexo</label>
-                <select name="responsable_caso" id="responsable_caso" class="form-control" required>
+                <label for="denunciante_sexo" class="form-label">Sexo</label>
+                <select name="denunciante_sexo" id="responsable_caso" class="form-control" required>
                     <option value="">--Selecciona el Sexo--</option>
                     <option value="Masculino" @if(old('masculino')=='Masculino' ) selected @endif>Masculino</option>
                     <option value="Femenino" @if(old('femenino')=='Femenino' ) selected @endif>Femenino</option>
@@ -125,8 +125,8 @@
             </div>
 
             <div class="col-sm-3">
-                <label for="responsable_caso" class="form-label">Sexo</label>
-                <select name="responsable_caso" id="responsable_caso" class="form-control" required>
+                <label for="denunciado_sexo" class="form-label">Sexo</label>
+                <select name="denunciado_sexo" id="responsable_caso" class="form-control" required>
                     <option value="">--Selecciona el Sexo--</option>
                     <option value="Masculino" @if(old('masculino')=='Masculino' ) selected @endif>Masculino</option>
                     <option value="Femenino" @if(old('femenino')=='Femenino' ) selected @endif>Femenino</option>
