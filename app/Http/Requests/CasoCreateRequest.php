@@ -24,12 +24,11 @@ class CasoCreateRequest extends FormRequest
     public function rules()
     {
         return [
-            'numero_caso' => 'required',
+            /* 'numero_caso' => 'required',
             'tipologia_caso' => 'required',
             'fecha_registro' => 'required|date',
-            'derivar_casos' => 'required',
+            // 'derivar_casos' => 'required',
             'image' => 'required|file',
-
             'denunciante_nombre' => 'required',
             'denunciante_apellido' => 'required',
             'denunciante_ci' => 'required',
@@ -42,7 +41,7 @@ class CasoCreateRequest extends FormRequest
             'denunciado_ci' => 'required',
             'denunciado_edad' => 'required',
             'denunciado_telefono' => 'required',
-            'unidad' => 'required',
+            'unidad' => 'required', */
         ];
     }
 

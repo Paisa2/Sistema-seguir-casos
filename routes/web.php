@@ -221,10 +221,10 @@ Route::post('/casos/{casosId}update', [\App\Http\Controllers\CasoController::cla
     ->name('admin.casos.update');
 
 // Ruta de fallback para redirigir a /auth
-Route::fallback(function () {
+/* Route::fallback(function () {
     if (Auth::check()) {
         return redirect('/auth');
     } else {
         return redirect('/login');
     }
-});
+}); */
