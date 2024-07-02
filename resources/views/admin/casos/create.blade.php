@@ -14,12 +14,20 @@
 
             <div class="col-sm-3">
                 <label for="numero_caso" class="form-label">Numero de Caso</label>
-                <input type="text" class="form-control" name="numero_caso" placeholder="Ingrese Nª de caso" value="{{ old('numero_caso') }}" autofocus minlength="1" maxlength="3">
+                <input type="text" class="form-control" name="numero_caso" placeholder="Ingrese Nª de caso" value="{{ old('numero_caso') }}" autofocus minlength="1" maxlength="3"
+                onkeypress="return blckSpecialChar(event)">
+                @if ($errors->has('numero_caso'))
+                    <span class="error text-danger" for="input-numero_caso" style="font-size: 15px">{{ $errors->first('numero_caso')}}</span>
+                @endif
             </div>
 
             <div class="col-sm-3">
                 <label for="tipologia_caso" class="form-label">Tipologia del caso</label>
-                <input type="text" class="form-control" name="tipologia_caso" placeholder="Ingrese la tipologia" value="{{ old('tipologia_caso') }}" autofocus minlength="1" maxlength="50">
+                <input type="text" class="form-control" name="tipologia_caso" placeholder="Ingrese la tipologia" value="{{ old('tipologia_caso') }}" autofocus minlength="1" maxlength="50"
+                onkeypress="return blckSpecialChar(event)">
+                @if ($errors->has('tipologia_caso'))
+                    <span class="error text-danger" for="input-tipologia_caso" style="font-size: 15px">{{ $errors->first('tipologia_caso')}}</span>
+                @endif
             </div>
 
             <div class="col-sm-4">
@@ -49,12 +57,20 @@
 
             <div class="col-sm-4">
                 <label for="derivar_casos" class="form-label">Derivar Casos</label>
-                <input type="text" class="form-control" name="derivar_casos" placeholder="Ingrese la derivacion" value="{{ old('derivar_casos') }}" autofocus minlength="1" maxlength="50">
+                <input type="text" class="form-control" name="derivar_casos" placeholder="Ingrese la derivacion" value="{{ old('derivar_casos') }}" autofocus minlength="1" maxlength="50"
+                onkeypress="return blckSpecialChar(event)">
+                @if ($errors->has('derivar_casos'))
+                    <span class="error text-danger" for="input-derivar_casos" style="font-size: 15px">{{ $errors->first('derivar_casos')}}</span>
+                @endif
             </div>
 
             <div class="col-sm-6">
                 <label for="image" class="form-label">Archivos</label>
-                <input type="file" class="form-control" name="image" placeholder="Subir Archivos" value="{{ old('image') }}" autofocus minlength="1" maxlength="50">
+                <input type="file" class="form-control" name="image" placeholder="Subir Archivos" value="{{ old('image') }}" autofocus minlength="1" maxlength="50"
+                onkeypress="return blckSpecialChar(event)">
+                @if ($errors->has('image'))
+                    <span class="error text-danger" for="input-image" style="font-size: 15px">{{ $errors->first('image')}}</span>
+                @endif
             </div>
             <br>
 
@@ -63,17 +79,29 @@
             <br>
             <div class="col-sm-3">
                 <label for="denunciante_nombre" class="form-label">Nombre</label>
-                <input type="text" class="form-control" name="denunciante_nombre" placeholder="Ingrese el nombre" value="{{ old('denunciante_nombre') }}" autofocus minlength="1" maxlength="50">
+                <input type="text" class="form-control" name="denunciante_nombre" placeholder="Ingrese el nombre" value="{{ old('denunciante_nombre') }}" autofocus minlength="1" maxlength="50"
+                onkeypress="return blckSpecialChar(event)">
+                @if ($errors->has('denunciante_nombre'))
+                    <span class="error text-danger" for="input-denunciante_nombre" style="font-size: 15px">{{ $errors->first('denunciante_nombre')}}</span>
+                @endif
             </div>
 
             <div class="col-sm-3">
                 <label for="denunciante_apellido" class="form-label">Apellido</label>
-                <input type="text" class="form-control" name="denunciante_apellido" placeholder="Ingrese el apellido" value="{{ old('denunciante_apellido') }}" autofocus minlength="1" maxlength="50">
+                <input type="text" class="form-control" name="denunciante_apellido" placeholder="Ingrese el apellido" value="{{ old('denunciante_apellido') }}" autofocus minlength="1" maxlength="50"
+                onkeypress="return blckSpecialChar(event)">
+                @if ($errors->has('denunciante_apellido'))
+                    <span class="error text-danger" for="input-denunciante_apellido" style="font-size: 15px">{{ $errors->first('denunciante_apellido')}}</span>
+                @endif
             </div>
 
             <div class="col-sm-3">
                 <label for="denunciante_ci" class="form-label">CI</label>
-                <input type="number" class="form-control" name="denunciante_ci" placeholder="Ingrese el CI" value="{{ old('denunciante_ci') }}" autofocus minlength="1" maxlength="7">
+                <input type="number" class="form-control" name="denunciante_ci" placeholder="Ingrese el CI" value="{{ old('denunciante_ci') }}" autofocus minlength="1" maxlength="7"
+                onkeypress="return blckSpecialChar(event)">
+                @if ($errors->has('denunciante_ci'))
+                    <span class="error text-danger" for="input-denunciante_ci" style="font-size: 15px">{{ $errors->first('denunciante_ci')}}</span>
+                @endif
             </div>
 
             <div class="col-sm-3">
@@ -87,22 +115,38 @@
 
             <div class="col-sm-3">
                 <label for="denunciante_edad" class="form-label">Edad</label>
-                <input type="number" class="form-control" name="denunciante_edad" placeholder="Ingrese la edad" value="{{ old('denunciante_edad') }}" autofocus minlength="1" maxlength="10">
+                <input type="number" class="form-control" name="denunciante_edad" placeholder="Ingrese la edad" value="{{ old('denunciante_edad') }}" autofocus minlength="1" maxlength="10"
+                onkeypress="return blckSpecialChar(event)">
+                @if ($errors->has('denunciante_edad'))
+                    <span class="error text-danger" for="input-denunciante_edad" style="font-size: 15px">{{ $errors->first('denunciante_edad')}}</span>
+                @endif
             </div>
 
             <div class="col-sm-3">
                 <label for="denunciante_ocupacion" class="form-label">Ocupacion</label>
-                <input type="text" class="form-control" name="denunciante_ocupacion" placeholder="Ingrese la ocupacion" value="{{ old('denunciante_ocupacion') }}" autofocus minlength="1" maxlength="50">
+                <input type="text" class="form-control" name="denunciante_ocupacion" placeholder="Ingrese la ocupacion" value="{{ old('denunciante_ocupacion') }}" autofocus minlength="1" maxlength="50"
+                onkeypress="return blckSpecialChar(event)">
+                @if ($errors->has('denunciante_ocupacion'))
+                    <span class="error text-danger" for="input-denunciante_ocupacion" style="font-size: 15px">{{ $errors->first('denunciante_ocupacion')}}</span>
+                @endif
             </div>
 
             <div class="col-sm-3">
                 <label for="denunciante_estado_civil" class="form-label">Estado Civil</label>
-                <input type="text" class="form-control" name="denunciante_estado_civil" placeholder="Ingrese el E. Civil" value="{{ old('denunciante_estado_civil') }}" autofocus minlength="1" maxlength="50">
+                <input type="text" class="form-control" name="denunciante_estado_civil" placeholder="Ingrese el E. Civil" value="{{ old('denunciante_estado_civil') }}" autofocus minlength="1" maxlength="50"
+                onkeypress="return blckSpecialChar(event)">
+                @if ($errors->has('denunciante_estado_civil'))
+                    <span class="error text-danger" for="input-denunciante_estado_civil" style="font-size: 15px">{{ $errors->first('denunciante_estado_civil')}}</span>
+                @endif
             </div>
 
             <div class="col-sm-3">
                 <label for="denunciante_telefono" class="form-label">Telefono</label>
-                <input type="number" class="form-control" name="denunciante_telefono" placeholder="Ingrese el telefono" value="{{ old('denunciante_telefono') }}" autofocus minlength="1" maxlength="8">
+                <input type="number" class="form-control" name="denunciante_telefono" placeholder="Ingrese el telefono" value="{{ old('denunciante_telefono') }}" autofocus minlength="1" maxlength="8"
+                onkeypress="return blckSpecialChar(event)">
+                @if ($errors->has('denunciante_telefono'))
+                    <span class="error text-danger" for="input-denunciante_telefono" style="font-size: 15px">{{ $errors->first('denunciante_telefono')}}</span>
+                @endif
             </div>
             <br>
             <p class="card-category">Ingresar datos Generales del caso Denunciado</p>
@@ -111,17 +155,29 @@
 
             <div class="col-sm-3">
                 <label for="denunciado_nombre" class="form-label">Nombre</label>
-                <input type="text" class="form-control" name="denunciado_nombre" placeholder="Ingrese el nombre" value="{{ old('denunciado_nombre') }}" autofocus minlength="1" maxlength="50">
+                <input type="text" class="form-control" name="denunciado_nombre" placeholder="Ingrese el nombre" value="{{ old('denunciado_nombre') }}" autofocus minlength="1" maxlength="50"
+                onkeypress="return blckSpecialChar(event)">
+                @if ($errors->has('denunciado_nombre'))
+                    <span class="error text-danger" for="input-denunciado_nombre" style="font-size: 15px">{{ $errors->first('denunciado_nombre')}}</span>
+                @endif
             </div>
 
             <div class="col-sm-3">
                 <label for="denunciado_apellido" class="form-label">Apellido</label>
-                <input type="text" class="form-control" name="denunciado_apellido" placeholder="Ingrese el apellido" value="{{ old('denunciado_apellido') }}" autofocus minlength="1" maxlength="50">
+                <input type="text" class="form-control" name="denunciado_apellido" placeholder="Ingrese el apellido" value="{{ old('denunciado_apellido') }}" autofocus minlength="1" maxlength="50"
+                onkeypress="return blckSpecialChar(event)">
+                @if ($errors->has('denunciado_apellido'))
+                    <span class="error text-danger" for="input-denunciado_apellido" style="font-size: 15px">{{ $errors->first('denunciado_apellido')}}</span>
+                @endif
             </div>
 
             <div class="col-sm-3">
                 <label for="denunciado_ci" class="form-label">CI</label>
-                <input type="number" class="form-control" name="denunciado_ci" placeholder="Ingrese el CI" value="{{ old('denunciado_ci') }}" autofocus minlength="1" maxlength="7">
+                <input type="number" class="form-control" name="denunciado_ci" placeholder="Ingrese el CI" value="{{ old('denunciado_ci') }}" autofocus minlength="1" maxlength="7"
+                onkeypress="return blckSpecialChar(event)">
+                @if ($errors->has('denunciante_ci'))
+                    <span class="error text-danger" for="input-denunciante_ci" style="font-size: 15px">{{ $errors->first('denunciante_ci')}}</span>
+                @endif
             </div>
 
             <div class="col-sm-3">
@@ -135,12 +191,20 @@
 
             <div class="col-sm-3">
                 <label for="denunciado_edad" class="form-label">Edad</label>
-                <input type="number" class="form-control" name="denunciado_edad" placeholder="Ingrese la edad" value="{{ old('denunciado_edad') }}" autofocus minlength="1" maxlength="10">
+                <input type="number" class="form-control" name="denunciado_edad" placeholder="Ingrese la edad" value="{{ old('denunciado_edad') }}" autofocus minlength="1" maxlength="10"
+                onkeypress="return blckSpecialChar(event)">
+                @if ($errors->has('denunciado_edad'))
+                    <span class="error text-danger" for="input-denunciado_edad" style="font-size: 15px">{{ $errors->first('denunciado_edad')}}</span>
+                @endif
             </div>
 
             <div class="col-sm-3">
                 <label for="denunciado_telefono" class="form-label">Telefono</label>
-                <input type="number" class="form-control" name="denunciado_telefono" placeholder="Ingrese el telefono" value="{{ old('denunciado_telefono') }}" autofocus minlength="1" maxlength="8">
+                <input type="number" class="form-control" name="denunciado_telefono" placeholder="Ingrese el telefono" value="{{ old('denunciado_telefono') }}" autofocus minlength="1" maxlength="8"
+                onkeypress="return blckSpecialChar(event)">
+                @if ($errors->has('denunciado_telefono'))
+                    <span class="error text-danger" for="input-denunciado_telefono" style="font-size: 15px">{{ $errors->first('denunciado_telefono')}}</span>
+                @endif
             </div>
 
             <div class="col-md-offset-4 col-md-10 text-center mt-3">
