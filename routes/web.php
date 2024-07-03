@@ -201,7 +201,6 @@ Route::post('/denuncias/{unidadId}/update', [\App\Http\Controllers\DenunciaContr
 Route::get('/unidad/{id_unidad}/casos', [\App\Http\Controllers\CasoController::class, 'index'])
     ->name('admin.unidad.casos');
 
-
 Route::get('/casos/index', [\App\Http\Controllers\CasoController::class, 'index'])
     ->name('admin.casos.index');
 

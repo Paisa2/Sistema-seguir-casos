@@ -97,9 +97,12 @@ class CasoController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(Request $request)
     {
-        //
+        $caso = Caso::all();
+        // $unidad = Unidad::findOrFail($request->id_unidad);
+        // dd($caso);
+        return view('admin.casos.edit', compact(['caso']));
     }
 
     /**
@@ -109,9 +112,16 @@ class CasoController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, $casoId)
     {
-        //
+        abort_if(Gate::denies('casos_edit'), 403);
+        $caso = Caso::find($casoId);
+
+        $caso->numero_caso = $request->numero_caso;
+        dd($caso);
+        $caso->save();
+
+        return redirect()->back();
     }
 
     /**

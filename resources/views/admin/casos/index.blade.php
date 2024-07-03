@@ -36,7 +36,7 @@
                         <table class="table" id="casos">
                             <thead>
                                 <tr>
-                                    <th scope="col">#</th>
+                                    <!-- <th scope="col">#</th> -->
                                     <th scope="col">Numero Caso</th>
                                     <th scope="col">Demandado</th>
                                     <th scope="col">Demandante</th>
@@ -51,7 +51,7 @@
                             <tbody>
                                 @foreach ($casos as $caso)
                                 <tr>
-                                    <td>{{ $caso->id }}</td>
+                                    <!-- <td>{{ $caso->id }}</td> -->
                                     <td>{{ $caso->numero_caso }}</td>
                                     <td>{{ $caso->denunciado_nombre }}</td>
                                     <td>{{ $caso->denunciante_nombre }}</td>
