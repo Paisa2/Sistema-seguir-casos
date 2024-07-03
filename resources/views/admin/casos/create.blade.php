@@ -12,7 +12,7 @@
             @csrf
             <input type="hidden" name="unidad" value="{{ $unidad->id }}">
 
-            <div class="col-sm-3">
+            <div class="col-sm-2">
                 <label for="numero_caso" class="form-label">Numero de Caso</label>
                 <input type="text" class="form-control" name="numero_caso" placeholder="Ingrese Nª de caso" value="{{ old('numero_caso') }}" autofocus minlength="1" maxlength="3"
                 onkeypress="return blckSpecialChar(event)">
@@ -30,7 +30,7 @@
                 @endif
             </div>
 
-            <div class="col-sm-4">
+            <div class="col-sm-3">
                 <label for="responsable_caso" class="form-label">Responsable Caso</label>
                 <select name="responsable_caso" id="responsable_caso" class="form-control" required>
                     <option value="">-- Selecciona el Responsable--</option>
@@ -43,14 +43,14 @@
             <div class="col-sm-3">
                 <label for="etapa_caso" class="form-label">Etapa del caso</label>
                 <select name="etapa_caso" id="etapa_caso" class="form-control" value="" required>
-                    <option value="">-- Selecciona el Etapa--</option>
+                    <option value="">-- Selecciona la Etapa--</option>
                     <option value="Premilinar" @if(old('')=='Premilinar' ) selected @endif>Premilinar</option>
                     <option value="EtapaPreparatoria" @if(old('')=='EtapaPreparatoria' ) selected @endif>Etapa-Preparatoria</option>
                     <option value="JucioOral" @if(old('')=='JucioOral' ) selected @endif>Jucio-Oral</option>
                 </select>
             </div>
 
-            <div class="col-sm-3">
+            <div class="col-sm-2">
                 <label for="fecha_registro" class="form-label">Fecha de Registro</label>
                 <input name="fecha_registro" type="date" id="fechaReserva" class="form-control" placeholder="Dia Reserva" value="{{ old('fecha_registro') }}" required
                 onkeypress="return blckSpecialChar(event)">
@@ -68,7 +68,7 @@
                 @endif
             </div>
 
-            <div class="col-sm-6">
+            <div class="col-sm-5">
                 <label for="image" class="form-label">Archivos</label>
                 <input type="file" accept="application/pdf,application/msword" class="form-control" name="image" placeholder="Subir Archivos" value="{{ old('image') }}" autofocus minlength="1" maxlength="50"
                 onkeypress="return blckSpecialChar(event)">
@@ -117,7 +117,7 @@
                 </select>
             </div>
 
-            <div class="col-sm-3">
+            <div class="col-sm-2">
                 <label for="denunciante_edad" class="form-label">Edad</label>
                 <input type="number" class="form-control" name="denunciante_edad" placeholder="Ingrese la edad" value="{{ old('denunciante_edad') }}" autofocus minlength="1" maxlength="10"
                 onkeypress="return blckSpecialChar(event)">
@@ -193,7 +193,7 @@
                 </select>
             </div>
 
-            <div class="col-sm-3">
+            <div class="col-sm-2">
                 <label for="denunciado_edad" class="form-label">Edad</label>
                 <input type="number" class="form-control" name="denunciado_edad" placeholder="Ingrese la edad" value="{{ old('denunciado_edad') }}" autofocus minlength="1" maxlength="10"
                 onkeypress="return blckSpecialChar(event)">
