@@ -9,11 +9,11 @@
 @section('main-content')
 <div class="d-flex justify-content-between">
     <h2 class="text-uppercase">
-        INFORMACIÓN DE CASO DE {{$unidad->nombre}}
+        INFORMACIÓN DE CASO {{$unidad->nombre}}
     </h2>
 
     <a type="button" class="btn btn-dark" style="background-color: #1D3354; padding-top: 0.8%" href="{{route('admin.unidad.casos.create',['id_unidad' => $unidad->id])}}">
-        Registrar Casos
+        Nuevo Casos
     </a>
 </div>
 

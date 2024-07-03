@@ -76,7 +76,8 @@ class CasoController extends Controller
         }
         // Save the new case
         Caso::create($validatedData);
-        return redirect()->route('admin.unidad.casos', ['id_unidad' => $request->unidad])->with('success', 'Case registered successfully!');
+
+        return redirect()->route('admin.unidad.casos', ['id_unidad' => $request->unidad])->with('success', 'Caso registrado exitosamente!');
     }
 
     /**

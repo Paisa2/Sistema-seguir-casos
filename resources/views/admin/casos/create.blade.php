@@ -52,7 +52,11 @@
 
             <div class="col-sm-3">
                 <label for="fecha_registro" class="form-label">Fecha de Registro</label>
-                <input name="fecha_registro" type="date" id="fechaReserva" class="form-control" placeholder="Dia Reserva" value="{{ old('fecha_registro') }}" required>
+                <input name="fecha_registro" type="date" id="fechaReserva" class="form-control" placeholder="Dia Reserva" value="{{ old('fecha_registro') }}" required
+                onkeypress="return blckSpecialChar(event)">
+                @if ($errors->has('fecha_registro'))
+                    <span class="error text-danger" for="input-fecha_registro" style="font-size: 15px">{{ $errors->first('fecha_registro')}}</span>
+                @endif
             </div>
 
             <div class="col-sm-4">
@@ -175,8 +179,8 @@
                 <label for="denunciado_ci" class="form-label">CI</label>
                 <input type="number" class="form-control" name="denunciado_ci" placeholder="Ingrese el CI" value="{{ old('denunciado_ci') }}" autofocus minlength="1" maxlength="7"
                 onkeypress="return blckSpecialChar(event)">
-                @if ($errors->has('denunciante_ci'))
-                    <span class="error text-danger" for="input-denunciante_ci" style="font-size: 15px">{{ $errors->first('denunciante_ci')}}</span>
+                @if ($errors->has('denunciado_ci'))
+                    <span class="error text-danger" for="input-denunciado_ci" style="font-size: 15px">{{ $errors->first('denunciado_ci')}}</span>
                 @endif
             </div>
 
