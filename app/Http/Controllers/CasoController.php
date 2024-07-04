@@ -71,10 +71,9 @@ class CasoController extends Controller
      */
     public function edit(Request $request)
     {
-        $caso = Caso::all();
-        // $unidad = Unidad::findOrFail($request->id_unidad);
-        // dd($caso);
-        return view('admin.casos.edit', compact(['caso']));
+        $caso = Caso::findOrFail($request->id)->first();
+        $unidad = Unidad::findOrFail($request->id_unidad);
+        return view('admin.casos.edit', compact(['caso','unidad']));
     }
 
     /**

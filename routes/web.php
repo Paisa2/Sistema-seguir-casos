@@ -206,6 +206,8 @@ Route::get('/casos/index', [\App\Http\Controllers\CasoController::class, 'index'
 
 Route::get('/unidad/{id_unidad}/casos/create', [\App\Http\Controllers\CasoController::class, 'create'])
     ->name('admin.unidad.casos.create');
+Route::get('/unidad/{id_unidad}/casos/edit/{id}', [\App\Http\Controllers\CasoController::class, 'edit'])
+    ->name('admin.unidad.casos.edit');
 
 Route::post('/casos.store', [\App\Http\Controllers\CasoController::class, 'store'])
     ->name('admin.casos.store');

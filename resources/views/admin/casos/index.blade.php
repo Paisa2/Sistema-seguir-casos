@@ -59,7 +59,7 @@
                                     <td>{{ $caso->etapa_caso }}</td>
                                     <td><a href="{{ url('/storage/'.$caso->image) }}" target="_blank">Ver Archivo</a></td>
                                     <td>
-                                        <a type="button" class="btn btn-primary" href="{{ route('admin.casos.edit', $caso->id) }}">
+                                        <a type="button" class="btn btn-primary" href="{{ route('admin.unidad.casos.edit', ['id_unidad' => $unidad->id, 'id' => $caso->id]) }}">
                                             Editar
                                         </a>
                                         <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#modalEliminar-{{$caso->id}}">
