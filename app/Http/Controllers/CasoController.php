@@ -17,7 +17,6 @@ class CasoController extends Controller
      */
     public function index(Request $request)
     {
-        // abort_if(Gate::denies('caso_index'), 403);
         $casos = Caso::where('unidad', $request->id_unidad)->orderBy('id', 'asc')->get();
         $unidad = Unidad::findOrFail($request->id_unidad);
         return view('admin.casos.index', compact(['casos', 'unidad']));
@@ -42,11 +41,11 @@ class CasoController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(CasoCreateRequest $request)
     {
         // Validate the request data
         // dd($request->all());
-        $validatedData = $request->validate([
+        /* $validatedData = $request->validate([
             'numero_caso' => 'required',
             'tipologia_caso' => 'required',
             'responsable_caso' => 'required',
@@ -69,15 +68,16 @@ class CasoController extends Controller
             'denunciado_edad' => 'required|numeric',
             'denunciado_telefono' => 'required',
             'unidad' => 'required',
-        ]);
+        ]); */
         // Handle file upload
+        $data_all = $request->all();
         if ($request->hasFile('image')) {
-            $validatedData['image'] = $request->file('image')->store('uploads', 'public');
+            $data_all['image'] = $request->file('image')->store('uploads', 'public');
         }
         // Save the new case
-        Caso::create($validatedData);
 
-        return redirect()->route('admin.unidad.casos', ['id_unidad' => $request->unidad])->with('success', 'Caso registrado exitosamente!');
+        Caso::create($data_all);
+        return redirect()->route('admin.unidad.casos', ['id_unidad' => $request->unidad])->with('success', 'Case registered successfully!');
     }
 
     /**
