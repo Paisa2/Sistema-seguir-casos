@@ -21,10 +21,17 @@
         <div class="row">
             <div class="col-md-12">
                     <div class="card-body">
-                        @if(session('success'))
-                        <div class="alert alert-success" role="success">
-                            {{ session('success') }}
-                        </div>
+                     <!-- Alerta sweetalert -->
+                        @if( ($message = session('message')) )
+                        <script>
+                            Swal.fire({
+                            position: "center",
+                            icon: "success",
+                            title: "{{$message}}",
+                            showConfirmButton: false,
+                            timer: 1500
+                            });
+                        </script>
                         @endif
                     </div>
             </div>
@@ -92,7 +99,8 @@
     <script src="https://cdn.datatables.net/2.0.8/js/dataTables.bootstrap5.js"></script>
     <script src="https://cdn.datatables.net/responsive/3.0.2/js/dataTables.responsive.js"></script>
     <script src="https://cdn.datatables.net/responsive/3.0.2/js/responsive.bootstrap5.js"></script>
-
+    <!-- alert sweetalert -->
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <script>
         $('#usuarios').DataTable({
             responsive: true,
@@ -102,7 +110,8 @@
                 "infoEmpty" : "No records available",
                 "infoFiltered" : "(filtrado de _MAX_ registros totales)",
                 "lengthMenu" : "Mostrar " +
-                                `<select >
+                                `<select>
+                                    <option value="5">5</option>
                                     <option value="10">10</option>
                                     <option value="25">25</option>
                                     <option value="50">50</option>
@@ -119,6 +128,7 @@
             }
         });
     </script>
+
 @endsection
 
 @endsection

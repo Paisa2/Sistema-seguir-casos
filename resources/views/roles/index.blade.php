@@ -21,10 +21,17 @@
         <div class="row">
             <div class="col-md-12">
                     <div class="card-body">
-                        @if(session('success'))
-                        <div class="alert alert-success" role="success">
-                            {{ session('success') }}
-                        </div>
+                        <!-- Alerta sweetalert -->
+                        @if( ($message = session('message')) )
+                        <script>
+                            Swal.fire({
+                            position: "center",
+                            icon: "success",
+                            title: "{{$message}}",
+                            showConfirmButton: false,
+                            timer: 1500
+                            });
+                        </script>
                         @endif
                     </div>
             </div>

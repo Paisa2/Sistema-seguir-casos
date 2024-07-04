@@ -43,13 +43,13 @@ class CasoController extends Controller
      */
     public function store(CasoCreateRequest $request)
     {
-        
+
         $data_all = $request->all();
         if ($request->hasFile('image')) {
             $data_all['image'] = $request->file('image')->store('uploads', 'public');
         }
         Caso::create($data_all);
-        return redirect()->route('admin.unidad.casos', ['id_unidad' => $request->unidad])->with('success', 'Case registered successfully!');
+        return redirect()->route('admin.unidad.casos', ['id_unidad' => $request->unidad])->with('message', 'Caso registrado correctamente!');
     }
 
     /**

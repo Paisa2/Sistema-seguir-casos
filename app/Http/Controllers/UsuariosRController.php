@@ -50,7 +50,7 @@ class UsuariosRController extends Controller
 
         $roles = $request->input('roles', []);
         $user->syncRoles($roles);
-        return redirect()->route('admin.usuarios.index', $user->id)->with('success', 'Usuario creado correctamente');
+        return redirect()->route('admin.usuarios.index', $user->id)->with('message', 'Usuario creado correctamente');
     }
 
     public function delete(Request $request, $usuarioId)
