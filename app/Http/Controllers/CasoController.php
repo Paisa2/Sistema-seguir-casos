@@ -43,39 +43,11 @@ class CasoController extends Controller
      */
     public function store(CasoCreateRequest $request)
     {
-        // Validate the request data
-        // dd($request->all());
-        /* $validatedData = $request->validate([
-            'numero_caso' => 'required',
-            'tipologia_caso' => 'required',
-            'responsable_caso' => 'required',
-            'etapa_caso' => 'required',
-            'fecha_registro' => 'required|date',
-            'derivar_casos' => 'required',
-            //'image' => 'required|file',
-            'denunciante_nombre' => 'required',
-            'denunciante_apellido' => 'required',
-            'denunciante_ci' => 'required',
-            'denunciante_sexo' => 'required',
-            'denunciante_edad' => 'required|numeric',
-            'denunciante_ocupacion' => 'required',
-            'denunciante_estado_civil' => 'required',
-            'denunciante_telefono' => 'required',
-            'denunciado_nombre' => 'required',
-            'denunciado_apellido' => 'required',
-            'denunciado_ci' => 'required',
-            'denunciado_sexo' => 'required',
-            'denunciado_edad' => 'required|numeric',
-            'denunciado_telefono' => 'required',
-            'unidad' => 'required',
-        ]); */
-        // Handle file upload
+        
         $data_all = $request->all();
         if ($request->hasFile('image')) {
             $data_all['image'] = $request->file('image')->store('uploads', 'public');
         }
-        // Save the new case
-
         Caso::create($data_all);
         return redirect()->route('admin.unidad.casos', ['id_unidad' => $request->unidad])->with('success', 'Case registered successfully!');
     }
