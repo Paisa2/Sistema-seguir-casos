@@ -32,7 +32,7 @@ class UsuariosRController extends Controller
         abort_if(Gate::denies('user_edit'), 403);
         $roles = Role::all()->pluck('name', 'id');
         $user->load('roles');
-        return view('admin.usuarios.edit', compact('user', 'roles'));
+        return view('admin.usuarios.edit', compact('user', 'roles'))->with('message', 'El usuario se actualizo correctamente!');
     }
 
     public function store(UserCreateRequest $request)
@@ -50,7 +50,7 @@ class UsuariosRController extends Controller
 
         $roles = $request->input('roles', []);
         $user->syncRoles($roles);
-        return redirect()->route('admin.usuarios.index', $user->id)->with('message', 'Usuario creado correctamente');
+        return redirect()->route('admin.usuarios.index', $user->id);
     }
 
     public function delete(Request $request, $usuarioId)
@@ -81,7 +81,7 @@ class UsuariosRController extends Controller
 
         $roles = $request->input('roles', []);
         $user->syncRoles($roles);
-        return redirect()->route('admin.usuarios.index', $user->id)->with('success', 'Usuario actualizado correctamente');
+        return redirect()->route('admin.usuarios.index', $user->id)->with('message', 'El usuario se actualizo correctamente!');
     }
     public function destroy(User $user)
     {
@@ -92,6 +92,6 @@ class UsuariosRController extends Controller
         }
 
         $user->delete();
-        return back()->with('succes', 'Usuario eliminado correctamente');
+        return back()->with('message', 'Usuario eliminado correctamente');
     }
 }

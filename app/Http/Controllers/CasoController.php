@@ -73,7 +73,7 @@ class CasoController extends Controller
     {
         $caso = Caso::findOrFail($request->id)->first();
         $unidad = Unidad::findOrFail($request->id_unidad);
-        return view('admin.casos.edit', compact(['caso','unidad']));
+        return view('admin.casos.edit', compact(['caso','unidad']))->with('message', 'El caso se actualizo correctamente!');
     }
 
     /**
@@ -92,7 +92,7 @@ class CasoController extends Controller
         dd($caso);
         $caso->save();
 
-        return redirect()->back();
+        return redirect()->back()->with('message', 'El caso se actualizo correctamente!');
     }
 
     /**
@@ -107,6 +107,6 @@ class CasoController extends Controller
 
         $caso = Caso::findOrFail($id);
         $caso->delete();
-        return back()->with('succes', 'Caso eliminado correctamente');
+        return back()->with('message', 'El caso eliminado correctamente');
     }
 }

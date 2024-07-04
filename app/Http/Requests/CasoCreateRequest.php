@@ -53,6 +53,7 @@ class CasoCreateRequest extends FormRequest
     {
         return [
             'numero_caso.required' => 'El número de caso es obligatorio.',
+            'unique:casos'         => 'El numero del:attribute ya está en uso.',
             'tipologia_caso.required' => 'La tipología del caso es obligatoria.',
             'fecha_registro.required' => 'La fecha de registro es obligatoria.',
             'derivar_casos.required' => 'El estado de derivación es obligatorio.',

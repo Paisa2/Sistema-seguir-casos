@@ -99,7 +99,7 @@ class RoleController extends Controller
         // $role->permissions()->sync($request->input('permissions', []));
         $role->syncPermissions($request->input('permissions', []));
 
-        return redirect()->route('roles.index');
+        return redirect()->route('roles.index')->with('message', 'El rol se actualizo correctamente!');
     }
 
     /**
@@ -114,6 +114,6 @@ class RoleController extends Controller
 
         $role->delete();
 
-        return redirect()->route('roles.index');
+        return redirect()->route('roles.index')->with('message', 'Rol eliminado correctamente');
     }
 }

@@ -9,9 +9,23 @@ use Illuminate\Support\Arr;
     $estado = Arr::prepend($estado, "{$user->estadoCuenta}");
 ?>
     <div class="content">
-    <div class="container-fluid">
-        <div class="row">
-        <div class="col-md-12">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="card-body">
+                        <!-- Alerta sweetalert -->
+                        @if( ($message = session('message')) )
+                        <script>
+                            Swal.fire({
+                            position: "center",
+                            icon: "success",
+                            title: "{{$message}}",
+                            showConfirmButton: false,
+                            timer: 1500
+                            });
+                        </script>
+                        @endif
+                    </div>
         <form action="{{route('admin.usuarios.update', $user->id)}}" method="post" class="form-horizontal">
                         @csrf
                         @method('PUT')

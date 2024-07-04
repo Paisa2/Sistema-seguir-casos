@@ -5,6 +5,20 @@
             <div class="container-fluid">
                     <div class="row">
                         <div class="col-md-12">
+                            <div class="card-body">
+                                <!-- Alerta sweetalert -->
+                                @if( ($message = session('message')) )
+                                    <script>
+                                        Swal.fire({
+                                        position: "center",
+                                        icon: "success",
+                                        title: "{{$message}}",
+                                        showConfirmButton: false,
+                                        timer: 1500
+                                        });
+                                    </script>
+                                @endif
+                            </div>
                             <form method="POST" action="{{ route('roles.update', $role->id) }}" class="form-horizontal">
                             @csrf
                             @method('PUT')
