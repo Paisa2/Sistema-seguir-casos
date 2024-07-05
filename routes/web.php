@@ -229,3 +229,10 @@ Route::fallback(function () {
         return redirect('/login');
     }
 });
+
+//Ruta reportes
+Route::get('/reportes/index', [\App\Http\Controllers\ReporteController::class, 'index'])
+    ->name('admin.reportes.index');
+
+Route::get('/reportes/generar', [\App\Http\Controllers\ReporteController::class, 'generar'])
+    ->name('admin.reportes.generar');

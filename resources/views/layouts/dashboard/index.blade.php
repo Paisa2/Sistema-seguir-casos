@@ -84,6 +84,16 @@
 
             <!-- Divider -->
             <hr class="sidebar-divider my-0">
+            <!-- Ruta los Reportes -->
+
+            <li class="nav-item active {{ request()->is('reportes')  ? 'active' : ''}}">
+                <a class="nav-link" href="{{route('admin.reportes.index')}}">
+                    <span>{{ __('Reportes Casos') }}</span></a>
+            </li>
+
+
+            <!-- Divider -->
+            <hr class="sidebar-divider my-0">
 
             <!-- Divider -->
             {{-- <hr class="sidebar-divider">
