@@ -231,8 +231,8 @@ Route::fallback(function () {
 });
 
 //Ruta reportes
-Route::get('/reportes/index', [\App\Http\Controllers\ReporteController::class, 'index'])
-    ->name('admin.reportes.index');
+Route::get('/reportes/create', [\App\Http\Controllers\ReporteController::class, 'create'])
+    ->name('admin.reportes.create');
 
 Route::get('/reportes/generar', [\App\Http\Controllers\ReporteController::class, 'generar'])
     ->name('admin.reportes.generar');

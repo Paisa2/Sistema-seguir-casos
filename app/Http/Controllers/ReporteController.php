@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Reporte;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Gate;
 
 class ReporteController extends Controller
 {
@@ -14,9 +15,7 @@ class ReporteController extends Controller
      */
     public function index()
     {
-        $reportes = Reporte::all();
 
-        return view('admin.reports.index', compact('reportes'));
     }
 
     /**
@@ -26,7 +25,8 @@ class ReporteController extends Controller
      */
     public function create()
     {
-        //
+        abort_if(Gate::denies('report_create'), 403);
+        return view('admin.reportes.create');
     }
 
     /**

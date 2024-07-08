@@ -67,9 +67,9 @@
 
             @foreach ($unidades as $unidad)
             <hr class="sidebar-divider my-0">
-            @can('unidad_index')
+            @can('unidad_4_index')
             <li class="nav-item active {{ request()->is('unidades')  ? 'active' : ''}}">
-                <a class="nav-link collapsed" href="{{route('admin.unidadesA.index')}}" data-bs-toggle="collapse" data-bs-target="#collapse{{$unidad->id}}" aria-expanded="false" aria-controls="collapse{{$unidad->id}}"><i class="fas fa-columns"></i>
+                <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#collapse{{$unidad->id}}" aria-expanded="false" aria-controls="collapse{{$unidad->id}}"><i class="fas fa-columns"></i>
                     <span>{{ $unidad->nombre }}</span>
                 </a>
                 <div class="collapse" id="collapse{{$unidad->id}}" aria-labelledby="headingOne" data-bs-parent="#sidenavAccordion">
@@ -85,12 +85,12 @@
             <!-- Divider -->
             <hr class="sidebar-divider my-0">
             <!-- Ruta los Reportes -->
-
+            @can('report_create')
             <li class="nav-item active {{ request()->is('reportes')  ? 'active' : ''}}">
-                <a class="nav-link" href="{{route('admin.reportes.index')}}">
+                <a class="nav-link" href="{{route('admin.reportes.create')}}">
                     <span>{{ __('Reportes Casos') }}</span></a>
             </li>
-
+            @endcan
 
             <!-- Divider -->
             <hr class="sidebar-divider my-0">
