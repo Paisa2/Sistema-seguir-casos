@@ -25,7 +25,7 @@ class ReporteController extends Controller
      */
     public function create()
     {
-        abort_if(Gate::denies('report_create'), 403);
+        // abort_if(Gate::denies('report_create'), 403);
         return view('admin.reportes.create');
     }
 
