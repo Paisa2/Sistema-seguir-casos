@@ -38,6 +38,9 @@
                     <option value="Psicologo" @if(old('responsable_caso')=='Psicologo' ) selected @endif>Psicologo</option>
                     <option value="Abogado" @if(old('responsable_caso')=='Abogado' ) selected @endif>Abogado</option>
                 </select>
+                    @if ($errors->has('responsable_caso'))
+                    <span class="error text-danger" for="input-responsable_caso" style="font-size: 15px">{{ $errors->first('responsable_caso')}}</span>
+                    @endif
             </div>
 
             <div class="col-sm-3">
@@ -48,6 +51,9 @@
                     <option value="Preparatoria" @if(old('')=='Preparatoria' ) selected @endif>Etapa-Preparatoria</option>
                     <option value="J.Oral" @if(old('')=='J.Oral' ) selected @endif>Jucio-Oral</option>
                 </select>
+                    @if ($errors->has('etapa_caso'))
+                    <span class="error text-danger" for="input-etapa_caso" style="font-size: 15px">{{ $errors->first('etapa_caso')}}</span>
+                    @endif
             </div>
 
             <div class="col-sm-2">
