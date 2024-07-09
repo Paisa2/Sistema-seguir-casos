@@ -25,11 +25,10 @@ class CasoCreateRequest extends FormRequest
     {
         return [
             'numero_caso' => 'required|integer|max:999|unique:casos',
-            'tipologia_caso' => 'required|string|max:255',
+            'tipologia_caso' => 'required|string|regex:/^[a-zA-Z]+$/u|max:255',
             'fecha_registro' => 'required|date',
             // 'derivar_casos' => 'required',
             'image' => 'required|file',
-
             'denunciante_nombre' => 'required|string|max:255',
             'denunciante_apellido' => 'required|string|max:255',
             'denunciante_ci' => 'required|integer|unique:casos',
@@ -38,7 +37,6 @@ class CasoCreateRequest extends FormRequest
             'denunciante_estado_civil' => 'required|string|max:255',
             'denunciante_telefono' => 'required|integer',
             'denunciante_sexo' => 'required|string|max:255',
-
             'denunciado_nombre' => 'required|string|max:255',
             'denunciado_apellido' => 'required|string|max:255',
             'denunciado_ci' => 'required|integer|unique:casos',
@@ -54,6 +52,7 @@ class CasoCreateRequest extends FormRequest
         return [
             'numero_caso.required' => 'El número de caso es obligatorio.',
             'unique:casos'         => 'El numero del:attribute ya está en uso.',
+            'regex:/^[a-zA-Z]+$/u' => 'El attribute solo debe contener letras',
             'tipologia_caso.required' => 'La tipología del caso es obligatoria.',
             'fecha_registro.required' => 'La fecha de registro es obligatoria.',
             'derivar_casos.required' => 'El estado de derivación es obligatorio.',
