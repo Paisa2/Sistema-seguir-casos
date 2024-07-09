@@ -66,8 +66,9 @@
             @endcan
 
             @foreach ($unidades as $unidad)
+            @can('unidad_'.$unidad->id.'_index')
             <hr class="sidebar-divider my-0">
-            @can('unidad_index')
+
             <li class="nav-item active {{ request()->is('unidades')  ? 'active' : ''}}">
                 <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#collapse{{$unidad->id}}" aria-expanded="false" aria-controls="collapse{{$unidad->id}}"><i class="fas fa-columns"></i>
                     <span>{{ $unidad->nombre }}</span>
@@ -90,43 +91,7 @@
                 <a class="nav-link" href="{{route('admin.reportes.create')}}">
                     <span>{{ __('Reportes Casos') }}</span></a>
             </li>
-
-
-            <!-- Divider -->
             <hr class="sidebar-divider my-0">
-
-            <!-- Divider -->
-            {{-- <hr class="sidebar-divider">
-
-        <!-- Heading -->
-        <div class="sidebar-heading">
-            {{ __('Settings') }}
-    </div>
-
-    <!-- Nav Item - Profile -->
-    <li class="nav-item {{ Nav::isRoute('profile') }}">
-        <a class="nav-link" href="{{ route('profile') }}">
-            <i class="fas fa-fw fa-user"></i>
-            <span>{{ __('Profile') }}</span>
-        </a>
-    </li>
-
-    <!-- Nav Item - About -->
-    <li class="nav-item {{ Nav::isRoute('about') }}">
-        <a class="nav-link" href="{{ route('about') }}">
-            <i class="fas fa-fw fa-hands-helping"></i>
-            <span>{{ __('About') }}</span>
-        </a>
-    </li>
-
-    <!-- Divider -->
-    <hr class="sidebar-divider d-none d-md-block"> --}}
-
-    <!-- Sidebar Toggler (Sidebar) -->
-    {{-- <div class="text-center d-none d-md-inline">
-            <button class="rounded-circle border-0" id="sidebarToggle"></button>
-        </div> --}}
-
     </ul>
     <!-- End of Sidebar -->
 

@@ -208,6 +208,8 @@ Route::get('/unidad/{id_unidad}/casos/create', [\App\Http\Controllers\CasoContro
     ->name('admin.unidad.casos.create');
 Route::get('/unidad/{id_unidad}/casos/edit/{id}', [\App\Http\Controllers\CasoController::class, 'edit'])
     ->name('admin.unidad.casos.edit');
+    Route::put('/unidad/{id_unidad}/casos/{casoId}/update', [\App\Http\Controllers\CasoController::class, 'update'])
+    ->name('admin.unidad.casos.update');
 
 Route::post('/casos.store', [\App\Http\Controllers\CasoController::class, 'store'])
     ->name('admin.casos.store');
@@ -234,5 +236,5 @@ Route::fallback(function () {
 Route::get('/reportes/create', [\App\Http\Controllers\ReporteController::class, 'create'])
     ->name('admin.reportes.create');
 
-Route::get('/reportes/generar', [\App\Http\Controllers\ReporteController::class, 'generar'])
-    ->name('admin.reportes.generar');
+Route::get('/reportes/generar', [\App\Http\Controllers\ReporteController::class, 'store'])
+    ->name('admin.reportes.store');

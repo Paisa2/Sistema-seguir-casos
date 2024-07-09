@@ -7,6 +7,7 @@ use App\Models\Caso;
 use App\Models\Unidad;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Gate;
+use Illuminate\Support\Facades\Storage;
 
 class CasoController extends Controller
 {
@@ -71,9 +72,9 @@ class CasoController extends Controller
      */
     public function edit(Request $request)
     {
-        $caso = Caso::findOrFail($request->id)->first();
+        $caso = Caso::findOrFail($request->id);
         $unidad = Unidad::findOrFail($request->id_unidad);
-        return view('admin.casos.edit', compact(['caso','unidad']))->with('message', 'El caso se actualizo correctamente!');
+        return view('admin.casos.edit', compact(['caso', 'unidad']))->with('message', 'El caso se actualizo correctamente!');
     }
 
     /**
@@ -83,14 +84,19 @@ class CasoController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $casoId)
-    {
-        abort_if(Gate::denies('casos_edit'), 403);
-        $caso = Caso::find($casoId);
-
-        $caso->numero_caso = $request->numero_caso;
-        dd($caso);
-        $caso->save();
+    public function update(Request $request)
+    {  
+        $data_all = $request->all();
+        if ($request->hasFile('image')) {
+            $caso = Caso::find($request->casoId);
+            if ($caso->image) {
+                Storage::disk('public')->delete($caso->image);
+            }
+            $data_all['image'] = $request->file('image')->store('uploads', 'public');
+        }
+        $caso = Caso::find($request->casoId);
+        $data_all['unidad'] = $request->id_unidad;
+        $caso->update($data_all);
 
         return redirect()->back()->with('message', 'El caso se actualizo correctamente!');
     }
@@ -103,8 +109,6 @@ class CasoController extends Controller
      */
     public function delete($id)
     {
-        //abort_if(Gate::denies('user_destroy'), 403);
-
         $caso = Caso::findOrFail($id);
         $caso->delete();
         return back()->with('message', 'El caso eliminado correctamente');

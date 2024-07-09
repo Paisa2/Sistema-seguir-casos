@@ -14,7 +14,7 @@
 
             <div class="col-sm-2">
                 <label for="numero_caso" class="form-label">Numero de Caso</label>
-                <input type="text" class="form-control" name="numero_caso" placeholder="Ingrese Nª de caso" value="{{ old('numero_caso') }}" autofocus minlength="1" maxlength="3"
+                <input type="number" class="form-control" name="numero_caso" placeholder="Ingrese Nª de caso" value="{{ old('numero_caso') }}" autofocus minlength="1" maxlength="3"
                 onkeypress="return blckSpecialChar(event)">
                 @if ($errors->has('numero_caso'))
                     <span class="error text-danger" for="input-numero_caso" style="font-size: 15px">{{ $errors->first('numero_caso')}}</span>
@@ -34,7 +34,7 @@
                 <label for="responsable_caso" class="form-label">Responsable Caso</label>
                 <select name="responsable_caso" id="responsable_caso" class="form-control" >
                     <option value="">-- Selecciona el Responsable--</option>
-                    <option value="TrabajadorSocial" @if(old('responsable_caso')=='TrabajadorSocial' ) selected @endif>Trabajador Social</option>
+                    <option value="T.Social" @if(old('responsable_caso')=='TrabajadorSocial' ) selected @endif>Trabajador Social</option>
                     <option value="Psicologo" @if(old('responsable_caso')=='Psicologo' ) selected @endif>Psicologo</option>
                     <option value="Abogado" @if(old('responsable_caso')=='Abogado' ) selected @endif>Abogado</option>
                 </select>
@@ -45,8 +45,8 @@
                 <select name="etapa_caso" id="etapa_caso" class="form-control" value="" >
                     <option value="">-- Selecciona la Etapa--</option>
                     <option value="Premilinar" @if(old('')=='Premilinar' ) selected @endif>Premilinar</option>
-                    <option value="EtapaPreparatoria" @if(old('')=='EtapaPreparatoria' ) selected @endif>Etapa-Preparatoria</option>
-                    <option value="JucioOral" @if(old('')=='JucioOral' ) selected @endif>Jucio-Oral</option>
+                    <option value="Preparatoria" @if(old('')=='Preparatoria' ) selected @endif>Etapa-Preparatoria</option>
+                    <option value="J.Oral" @if(old('')=='J.Oral' ) selected @endif>Jucio-Oral</option>
                 </select>
             </div>
 
@@ -115,6 +115,9 @@
                     <option value="Masculino" @if(old('masculino')=='Masculino' ) selected @endif>Masculino</option>
                     <option value="Femenino" @if(old('femenino')=='Femenino' ) selected @endif>Femenino</option>
                 </select>
+                @if ($errors->has('denunciante_sexo'))
+                    <span class="error text-danger" for="input-denunciante_sexo" style="font-size: 15px">{{ $errors->first('denunciante_sexo')}}</span>
+                @endif
             </div>
 
             <div class="col-sm-2">
@@ -191,6 +194,9 @@
                     <option value="Masculino" @if(old('masculino')=='Masculino' ) selected @endif>Masculino</option>
                     <option value="Femenino" @if(old('femenino')=='Femenino' ) selected @endif>Femenino</option>
                 </select>
+                @if ($errors->has('denunciado_sexo'))
+                    <span class="error text-danger" for="input-denunciado_sexo" style="font-size: 15px">{{ $errors->first('denunciado_sexo')}}</span>
+                @endif
             </div>
 
             <div class="col-sm-2">

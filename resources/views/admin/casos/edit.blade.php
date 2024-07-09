@@ -8,8 +8,9 @@
         <!-- Divider -->
         <hr class="sidebar-divider my-0">
         <br>
-        <form class="row g-3" action="#" method="POST" enctype="multipart/form-data">
+        <form class="row g-3" action="{{ route('admin.unidad.casos.update', ['id_unidad'=>$unidad->id,'casoId'=>$caso->id]) }}" method="post" enctype="multipart/form-data">
             @csrf
+            @method('PUT')
             <input type="hidden" name="unidad" value="#">
 
             <div class="col-sm-2">
@@ -32,19 +33,20 @@
                 <label for="responsable_caso" class="form-label">Responsable Caso</label>
                 <select name="responsable_caso" id="responsable_caso" class="form-control" required>
                     <option value="">-- Selecciona el Responsable--</option>
-                    <option value="TrabajadorSocial" @if($caso->responsable_caso == 'TrabajadorSocial' ) selected @endif>Trabajador Social</option>
+                    <option value="T.Social" @if($caso->responsable_caso == 'T.Social' ) selected @endif>Trabajador Social</option>
                     <option value="Psicologo" @if($caso->responsable_caso == 'Psicologo' ) selected @endif>Psicologo</option>
                     <option value="Abogado" @if($caso->responsable_caso =='Abogado' ) selected @endif>Abogado</option>
                 </select>
             </div>
 
             <div class="col-sm-3">
+                {{$caso->etapa_caso}}
                 <label for="etapa_caso" class="form-label">Etapa del caso</label>
                 <select name="etapa_caso" id="etapa_caso" class="form-control" required>
                     <option value="">-- Selecciona la Etapa--</option>
                     <option value="Premilinar" @if($caso->etapa_caso=='Premilinar' ) selected @endif>Premilinar</option>
-                    <option value="EtapaPreparatoria" @if($caso->etapa_caso=='EtapaPreparatoria' ) selected @endif>Etapa-Preparatoria</option>
-                    <option value="JucioOral" @if($caso->etapa_caso=='JucioOral' ) selected @endif>Jucio-Oral</option>
+                    <option value="Preparatoria" @if($caso->etapa_caso=='Preparatoria' ) selected @endif>Etapa-Preparatoria</option>
+                    <option value="J.Oral" @if($caso->etapa_caso=='J.Oral' ) selected @endif>Jucio-Oral</option>
                 </select>
             </div>
 

@@ -2,9 +2,12 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Caso;
 use App\Models\Reporte;
+use App\Models\Unidad;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Gate;
+use \PDF;
 
 class ReporteController extends Controller
 {
@@ -15,7 +18,6 @@ class ReporteController extends Controller
      */
     public function index()
     {
-
     }
 
     /**
@@ -25,8 +27,8 @@ class ReporteController extends Controller
      */
     public function create()
     {
-        // abort_if(Gate::denies('report_create'), 403);
-        return view('admin.reportes.create');
+        $unidades = Unidad::all();
+        return view('admin.reportes.create', compact(['unidades']));
     }
 
     /**
@@ -37,7 +39,34 @@ class ReporteController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        // Retrieve filter inputs
+        $unidad = $request->input('unidad');
+        $etapa_caso = $request->input('etapa_caso');
+        $fecha_inicio = $request->input('fecha_inicio');
+        $fecha_fin = $request->input('fecha_fin');
+        $query = Caso::query(); // Retrieve the cases from your database
+        if ($unidad && $unidad != 'Todos') {
+            $query->where('unidad', $unidad);
+        }
+
+        if ($etapa_caso && $etapa_caso != 'Todos') {
+            $query->where('etapa_caso', $etapa_caso);
+        }
+
+        if ($fecha_inicio && $fecha_fin) {
+            $query->whereBetween('fecha_registro', [$fecha_inicio, $fecha_fin]);
+        } elseif ($fecha_inicio) {
+            $query->where('fecha_registro', '>=', $fecha_inicio);
+        } elseif ($fecha_fin) {
+            $query->where('fecha_registro', '<=', $fecha_fin);
+        }
+        $cases = $query->with('unidaditem')->get();
+        if(@$unidad){
+            $unidad = Unidad::findOrFail($unidad);
+        }
+        $pdf = PDF::loadView('admin.reportes.pdf_report', compact(['cases','unidad', 'etapa_caso', 'fecha_inicio', 'fecha_fin']));
+
+        return $pdf->download('case_report.pdf');
     }
 
     /**

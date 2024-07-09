@@ -27,7 +27,7 @@ class CasoCreateRequest extends FormRequest
             'numero_caso' => 'required|integer|max:999|unique:casos',
             'tipologia_caso' => 'required|string|regex:/^[a-zA-Z]+$/u|max:255',
             'fecha_registro' => 'required|date',
-            // 'derivar_casos' => 'required',
+            'derivar_casos' => 'required',
             'image' => 'required|file',
             'denunciante_nombre' => 'required|string|max:255',
             'denunciante_apellido' => 'required|string|max:255',
@@ -52,7 +52,8 @@ class CasoCreateRequest extends FormRequest
         return [
             'numero_caso.required' => 'El número de caso es obligatorio.',
             'unique:casos'         => 'El numero del:attribute ya está en uso.',
-            'regex:/^[a-zA-Z]+$/u' => 'El attribute solo debe contener letras',
+            'derivar_casos.required' => 'Este campo es obligatorio.',
+            'tipologia_caso.regex' => 'El attribute solo debe contener letras',
             'tipologia_caso.required' => 'La tipología del caso es obligatoria.',
             'fecha_registro.required' => 'La fecha de registro es obligatoria.',
             'derivar_casos.required' => 'El estado de derivación es obligatorio.',
@@ -67,13 +68,14 @@ class CasoCreateRequest extends FormRequest
             'denunciante_ocupacion.required' => 'La ocupacion del denunciante es obligatoria',
             'denunciante_estado_civil.required' => 'El estado civil del denunciante es obligatorio',
             'denunciante_telefono.required' => 'El telefono del denunciante es obligatorio',
+            'denunciante_sexo.required' => 'El sexo del denunciante es obligatorio',
 
             'denunciado_nombre.required' => 'El nombre del denunciado es obligatorio',
             'denunciado_apellido.required' => 'El apellido del denunciado es obligatorio',
             'denunciado_ci.required' => 'El CI del denunciado es obligatorio',
             'denunciado_edad.required' => 'La edad del denunciado es obligatorio',
             'denunciado_telefono.required' => 'El telefono del denunciado es obligatorio',
-
+            'denunciado_sexo.required' => 'El sexo del denunciado es obligatorio',
         ];
     }
 }
