@@ -66,6 +66,30 @@ class PermissionSeeder extends Seeder
             'unidad_4_destroy',
             'unidad_4_buscar',
 
+            'unidad_1_report_create',
+            'unidad_1_report_index',
+            'unidad_1_report_edit',
+            'unidad_1_report_destroy',
+            'unidad_1_report_buscar',
+
+            'unidad_2_report_create',
+            'unidad_2_report_index',
+            'unidad_2_report_edit',
+            'unidad_2_report_destroy',
+            'unidad_2_report_buscar',
+
+            'unidad_3_report_create',
+            'unidad_3_report_index',
+            'unidad_3_report_edit',
+            'unidad_3_report_destroy',
+            'unidad_3_report_buscar',
+
+            'unidad_4_report_create',
+            'unidad_4_report_index',
+            'unidad_4_report_edit',
+            'unidad_4_report_destroy',
+            'unidad_4_report_buscar',
+
             'denuncia_index',
             'denuncia_create',
             'denuncia_edit',
@@ -77,8 +101,6 @@ class PermissionSeeder extends Seeder
             'caso_edit',
             'caso_destroy',
             'caso_buscar',
-
-            'report_create',
 
         ];
 

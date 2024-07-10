@@ -46,6 +46,7 @@ class ReporteController extends Controller
         $fecha_fin = $request->input('fecha_fin');
         $query = Caso::query(); // Retrieve the cases from your database
         if ($unidad && $unidad != 'Todos') {
+
             $query->where('unidad', $unidad);
         }
 
@@ -61,7 +62,9 @@ class ReporteController extends Controller
             $query->where('fecha_registro', '<=', $fecha_fin);
         }
         $cases = $query->with('unidaditem')->get();
-        if(@$unidad){
+        $unidad = null;
+        if ($unidad && $unidad != 'Todos') {
+
             $unidad = Unidad::findOrFail($unidad);
         }
         $pdf = PDF::loadView('admin.reportes.pdf_report', compact(['cases','unidad', 'etapa_caso', 'fecha_inicio', 'fecha_fin']));
