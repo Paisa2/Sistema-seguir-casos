@@ -55,13 +55,13 @@
                             </div>
 
                                 <div class="row">
-                                    <label for="cargo" class="col-sm-2 col-form-label">Cargo</label>
+                                    <label for="cargo" class="col-sm-2 col-form-label">Responsable</label>
                                     <div class="col-sm-7">
                                         <select name="cargo" id="cargo" class="form-control" value="{{old('cargo')}}" required>
-                                        <option value="">-- Selecciona el cargo--</option>
-                                        <option value="Slim" @if(old('users') == 'Slim') selected @endif>Dep. Slim</option>
-                                        <option value="Discapacidad" @if(old('users') == 'Discapacidad') selected @endif>Dep. Discapacidad</option>
-                                        <option value="AdultoMayor" @if(old('users') == 'Adulto-Mayor') selected @endif>Dep. Adulto-Mayor</option>
+                                        <option value="">-- Selecciona el responsable--</option>
+                                        <option value="T.Social" @if(old('users') == 'T.Social') selected @endif>Resp. Trabajador Social</option>
+                                        <option value="Psicologo" @if(old('users') == 'Psicologo') selected @endif>Resp. Psicologo</option>
+                                        <option value="Abogado" @if(old('users') == 'Abogado') selected @endif>Resp. Abogado</option>
                                         </select>
                                     </div>
                                 </div>

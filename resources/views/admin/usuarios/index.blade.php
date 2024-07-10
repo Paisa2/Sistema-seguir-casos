@@ -45,7 +45,7 @@
                                     <th scope="col">#</th>
                                     <th scope="col">Nombre</th>
                                     <th scope="col">Apellidos</th>
-                                    <th scope="col">Cargo</th>
+                                    <th scope="col">Responsable</th>
                                     <th scope="col">Correo Electronico</th>
                                     <th scope="col">Estado</th>
                                     <th scope="col">Rol</th>
