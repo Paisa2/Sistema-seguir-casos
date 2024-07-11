@@ -25,7 +25,7 @@ class CasoCreateRequest extends FormRequest
     {
         return [
             'numero_caso' => 'required|integer|max:999|unique:casos',
-            'tipologia_caso' => 'required|string|regex:/^[a-zA-Z]+$/u|max:255',
+            'tipologia_caso' => 'required|string|regex:/^[a-zA-Z ]+$/|max:255',
             'responsable_caso' => 'required|string|max:255',
             'etapa_caso' => 'required|string|max:255',
             'fecha_registro' => 'required|date',

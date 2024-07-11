@@ -30,6 +30,7 @@
 <body>
     <h3>Reporte de caso</h3>
     <div class="filter-info">
+        <p><strong>Elaborado por:</strong> {{ Auth::user()->name  }} {{ Auth::user()->apellido  }} <strong>Fecha: </strong> {{date("Y-m-d H:i:s");}}</p>
         <p><strong>Unidad:</strong> {{ @$unidad->nombre ?? 'Todos' }}</p>
         <p><strong>Etapa Caso:</strong> {{ $etapa_caso ?? 'Todos' }}</p>
         <p><strong>Fecha Inicio:</strong> {{ $fecha_inicio ?? 'No seleccionado' }}</p>
