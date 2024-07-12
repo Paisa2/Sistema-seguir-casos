@@ -28,12 +28,24 @@ class UserEditRequest extends FormRequest
             'name' => 'required',
             // Logic for findOrFail
             // 'username' => 'unique:users,username,'.$this->user.'|required',
-
+            'apellido' => 'required',
             'email' => [
                 'required', 'unique:users,email,' . request()->route('user')->id
             ],
-            'password' => 'sometimes',
-            'departamento' => 'required',
+            // 'password' => 'sometimes',
+            'password' => 'required',
+            'cargo' => 'required',
+        ];
+    }
+
+    public function messages()
+    {
+        return [
+            'name.required' => 'El campo nombre es obligatorio ',
+            'apellido.required' => 'El campo apellido es obligatorio',
+            'email.required' => 'El campo correo es obligatorio',
+            'password.required' => 'El campo contraña es obligatorio',
+            'cargo.required' => 'El campo cargo es obligatorio',
         ];
     }
 }

@@ -39,6 +39,7 @@ class UserCreateRequest extends FormRequest
             'apellido.required' => 'El campo apellido es obligatorio',
             'email.required' => 'El campo correo es obligatorio',
             'password.required' => 'El campo contraña es obligatorio',
+            'cargo.required' => 'El campo cargo es obligatorio',
         ];
     }
 }

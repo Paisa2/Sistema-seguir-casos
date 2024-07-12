@@ -63,6 +63,9 @@
                                         <option value="Psicologo" @if(old('users') == 'Psicologo') selected @endif>Resp. Psicologo</option>
                                         <option value="Abogado" @if(old('users') == 'Abogado') selected @endif>Resp. Abogado</option>
                                         </select>
+                                        @if ($errors->has('cargo'))
+                                        <span class="error text-danger" for="input-cargo" style="font-size: 15px">{{ $errors->first('cargo')}}</span>
+                                        @endif
                                     </div>
                                 </div>
 

@@ -19,10 +19,11 @@ class RegisterAdminController extends Controller
             'email' => 'required|email',
             'password' => 'required|confirmed',
             'role' => 'required',
+            'cargo' => 'required'
 
         ]);
 
-        $user = User::create(request(['name','ci','email','password', 'role']));
+        $user = User::create(request(['name','ci','email','password', 'role', 'cargo']));
 
         auth()->login($user);
         return redirect()->to('/admin');

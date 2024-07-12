@@ -75,13 +75,13 @@ use Illuminate\Support\Arr;
                             </div>
 
                             <div class="row">
-                                    <label for="departamento" class="col-sm-2 col-form-label">Cago-Responsable</label>
+                                    <label for="cargo" class="col-sm-2 col-form-label">Responsable</label>
                                     <div class="col-sm-7">
-                                        <select name="departamento" id="departamento" class="form-control" value="{{old('departamento')}}" required>
-                                        <option value="">-- Selecciona el Cago-Responsable--</option>
-                                        <option value="Sistemas" @if(old('carrera') == 'Sistemas') selected @endif>Dep. Slim</option>
-                                        <option value="Informatica" @if(old('carrera') == 'Informatica') selected @endif>Dep. Discapacidad</option>
-                                        <option value="Electromecanica" @if(old('carrera') == 'Electromecanica') selected @endif>Dep. Adulto-Mayor</option>
+                                        <select name="cargo" id="cargo" class="form-control" value="{{old('cargo')}}" required>
+                                        <option value="">-- Selecciona el Responsable--</option>
+                                        <option value="T.Social" @if(old('users') == 'T.Social"') selected @endif>Resp. T.Social"</option>
+                                        <option value="Psicologo" @if(old('users') == 'Psicologo') selected @endif>Resp. Psicologo</option>
+                                        <option value="Abogado" @if(old('users') == 'Abogado') selected @endif>Resp. Abogado</option>
                                         </select>
                                     </div>
                                 </div>
