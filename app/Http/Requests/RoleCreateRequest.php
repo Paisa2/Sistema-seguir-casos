@@ -31,7 +31,7 @@ class RoleCreateRequest extends FormRequest
     public function messages()
     {
         return [
-            'name.required' => 'El nombre es requerido '
+            'name.required' => 'El nombre del rol es requerido '
         ];
     }
 }

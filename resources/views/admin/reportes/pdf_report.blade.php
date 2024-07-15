@@ -32,7 +32,7 @@
         .left,
         .right {
             display: inline-block;
-            
+
             vertical-align: top;
         }
 
@@ -59,7 +59,7 @@
             <p><strong>Unidad:</strong> {{ @$unidad->nombre ?? 'Todos' }}</p>
             <p><strong>Etapa Caso:</strong> {{ $etapa_caso ?? 'Todos' }}</p>
             <p><strong>Fecha Inicio:</strong> {{ $fecha_inicio ?? 'No seleccionado' }}</p>
-            <p><strong>Fecha Fin:</strong> {{ $fecha_fin ?? 'No seleccionado' }}</p>
+            <p><strong>Fecha Ultimo Actualizado:</strong> {{ $fecha_fin ?? 'No seleccionado' }}</p>
         </div>
         <div class="right"><img src="{{ $base64Image }}" alt="Logo"></div>
     </div>

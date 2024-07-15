@@ -14,7 +14,7 @@
 
             <div class="col-sm-2">
                 <label for="numero_caso" class="form-label">Numero de Caso</label>
-                <input type="number" class="form-control" name="numero_caso" placeholder="Ingrese Nª de caso" value="{{ old('numero_caso') }}" autofocus minlength="1" maxlength="3"
+                <input type="number" class="form-control" name="numero_caso" placeholder="Ingrese Nª" value="{{ old('numero_caso') }}" autofocus minlength="1" maxlength="3"
                 onkeypress="return blckSpecialChar(event)">
                 @if ($errors->has('numero_caso'))
                     <span class="error text-danger" for="input-numero_caso" style="font-size: 15px">{{ $errors->first('numero_caso')}}</span>
@@ -45,7 +45,7 @@
 
             <div class="col-sm-3">
                 <label for="etapa_caso" class="form-label">Etapa del caso</label>
-                <select name="etapa_caso" id="etapa_caso" class="form-control" value="" >
+                <select name="etapa_caso" id="etapa_caso" class="form-control" value="{{old('etapa_caso')}}" >
                     <option value="">-- Selecciona la Etapa--</option>
                     <option value="Premilinar" @if(old('')=='Premilinar' ) selected @endif>Premilinar</option>
                     <option value="Preparatoria" @if(old('')=='Preparatoria' ) selected @endif>Etapa-Preparatoria</option>

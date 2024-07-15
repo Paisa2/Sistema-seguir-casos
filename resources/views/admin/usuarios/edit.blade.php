@@ -7,6 +7,10 @@ use Illuminate\Support\Arr;
     $estado = ["Habilitado","Deshabilitado"];
     $estado = array_diff($estado, array("{$user->estadoCuenta}"));
     $estado = Arr::prepend($estado, "{$user->estadoCuenta}");
+
+    $cargo = ['T.Social', 'Psicologo', 'Abogado'];
+    $cargo = array_diff($cargo, array("{$user->cargo}"));
+    $cargo = Arr::prepend($cargo, "{$user->cargo}");
 ?>
     <div class="content">
         <div class="container-fluid">
@@ -77,11 +81,10 @@ use Illuminate\Support\Arr;
                             <div class="row">
                                     <label for="cargo" class="col-sm-2 col-form-label">Responsable</label>
                                     <div class="col-sm-7">
-                                        <select name="cargo" id="cargo" class="form-control" value="{{old('cargo')}}" required>
-                                        <option value="">-- Selecciona el Responsable--</option>
-                                        <option value="T.Social" @if(old('users') == 'T.Social"') selected @endif>Resp. T.Social"</option>
-                                        <option value="Psicologo" @if(old('users') == 'Psicologo') selected @endif>Resp. Psicologo</option>
-                                        <option value="Abogado" @if(old('users') == 'Abogado') selected @endif>Resp. Abogado</option>
+                                        <select name="cargo" id="cargo" class="form-control" required>
+                                            @foreach($cargo as $cargos)
+                                            <option value="{{$cargos}}">{{$cargos}}</option>
+                                            @endforeach
                                         </select>
                                     </div>
                                 </div>
