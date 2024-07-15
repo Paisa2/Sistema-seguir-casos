@@ -29,7 +29,6 @@ class CasoCEditRequest extends FormRequest
             'responsable_caso' => 'required|string|max:255',
             'etapa_caso' => 'required|string|max:255',
             'fecha_registro' => 'required|date',
-            // 'derivar_casos' => 'required',
             'image' => 'required|file',
 
             'denunciante_nombre' => 'required|string|max:255',
@@ -57,7 +56,6 @@ class CasoCEditRequest extends FormRequest
             'numero_caso.required' => 'El número de caso es obligatorio.',
             'tipologia_caso.required' => 'La tipología del caso es obligatoria.',
             'fecha_registro.required' => 'La fecha de registro es obligatoria.',
-            'derivar_casos.required' => 'El estado de derivación es obligatorio.',
             'responsable_caso.required' => 'El estado del responsable es obligatorio.',
             'image.required' => 'El archivo del caso es obligatorio.',
             'responsable_caso.required' => 'El responsable del caso es obligatorio.',

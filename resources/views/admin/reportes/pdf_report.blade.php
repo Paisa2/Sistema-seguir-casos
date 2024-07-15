@@ -24,17 +24,44 @@
         th {
             background-color: #f2f2f2;
         }
+
+        .content-title {
+            width: 100%;
+        }
+
+        .left,
+        .right {
+            display: inline-block;
+            
+            vertical-align: top;
+        }
+
+        .left {
+            text-align: left;
+            width: 65%;
+        }
+
+        .right {
+            text-align: right;
+            width: 30%;
+        }
+        .right img {
+            width: 100% !important;
+        }
     </style>
 </head>
 
 <body>
-    <h3>Reporte de caso</h3>
-    <div class="filter-info">
-        <p><strong>Elaborado por:</strong> {{ Auth::user()->name  }} {{ Auth::user()->apellido  }} <strong>Fecha: </strong> {{date("Y-m-d H:i:s");}}</p>
-        <p><strong>Unidad:</strong> {{ @$unidad->nombre ?? 'Todos' }}</p>
-        <p><strong>Etapa Caso:</strong> {{ $etapa_caso ?? 'Todos' }}</p>
-        <p><strong>Fecha Inicio:</strong> {{ $fecha_inicio ?? 'No seleccionado' }}</p>
-        <p><strong>Fecha Fin:</strong> {{ $fecha_fin ?? 'No seleccionado' }}</p>
+    <div class="content-title">
+        <div class="left">
+            <h3>Reporte de caso</h3>
+            <p><strong>Elaborado por:</strong> {{ Auth::user()->name  }} {{ Auth::user()->apellido  }} el {{date("Y-m-d H:i:s");}}</p>
+            <p><strong>Unidad:</strong> {{ @$unidad->nombre ?? 'Todos' }}</p>
+            <p><strong>Etapa Caso:</strong> {{ $etapa_caso ?? 'Todos' }}</p>
+            <p><strong>Fecha Inicio:</strong> {{ $fecha_inicio ?? 'No seleccionado' }}</p>
+            <p><strong>Fecha Fin:</strong> {{ $fecha_fin ?? 'No seleccionado' }}</p>
+        </div>
+        <div class="right"><img src="{{ $base64Image }}" alt="Logo"></div>
     </div>
     <table>
         <thead>

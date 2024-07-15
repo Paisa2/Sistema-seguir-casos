@@ -58,14 +58,7 @@
                 @endif
             </div>
 
-            <div class="col-sm-4">
-                <label for="derivar_casos" class="form-label">Derivar Casos</label>
-                <input type="text" class="form-control" name="derivar_casos" placeholder="Ingrese la derivacion" value="{{ $caso->derivar_casos  }}" autofocus minlength="1" maxlength="50" onkeypress="return blckSpecialChar(event)">
-                @if ($errors->has('derivar_casos'))
-                <span class="error text-danger" for="input-derivar_casos" style="font-size: 15px">{{ $errors->first('derivar_casos')}}</span>
-                @endif
-            </div>
-
+           
             <div class="col-sm-5">
                 <label for="image" class="form-label">Archivos</label>
                 <input type="file" accept="application/pdf,application/msword" class="form-control" name="image" placeholder="Subir Archivos" value="{{ $caso->image  }}" autofocus minlength="1" maxlength="50" onkeypress="return blckSpecialChar(event)">

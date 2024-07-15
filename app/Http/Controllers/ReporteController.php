@@ -37,6 +37,14 @@ class ReporteController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
+    public function convertImageToBase64($path)
+    {
+        $imagePath = public_path($path);
+        $imageData = file_get_contents($imagePath);
+        $base64Image = base64_encode($imageData);
+        $mimeType = mime_content_type($imagePath);
+        return 'data:' . $mimeType . ';base64,' . $base64Image;
+    }
     public function store(Request $request)
     {
         // Retrieve filter inputs
@@ -63,11 +71,12 @@ class ReporteController extends Controller
         }
         $cases = $query->with('unidaditem')->get();
         $unidad = null;
+        $base64Image = $this->convertImageToBase64('images/logocolca.jpg');
         if ($unidad && $unidad != 'Todos') {
 
             $unidad = Unidad::findOrFail($unidad);
         }
-        $pdf = PDF::loadView('admin.reportes.pdf_report', compact(['cases','unidad', 'etapa_caso', 'fecha_inicio', 'fecha_fin']));
+        $pdf = PDF::loadView('admin.reportes.pdf_report', compact(['cases','unidad', 'etapa_caso', 'fecha_inicio', 'fecha_fin','base64Image']));
 
         return $pdf->download('case_report.pdf');
     }
@@ -82,7 +91,7 @@ class ReporteController extends Controller
     {
         //
     }
-
+   
     /**
      * Show the form for editing the specified resource.
      *

@@ -19,9 +19,14 @@
                         <select name="unidad" id="unidad" class="form-control" value="">
                             <option value="">-- Selecciona la Unidad--</option>
                             @foreach ($unidades as $unidad)
+                            @can('unidad_'.$unidad->id.'_report_create')
                             <option value="{{ $unidad->id }}" @if(old('')=='Preliminar' ) selected @endif>{{ $unidad->nombre }}</option>
+                            @endcan
+
                             @endforeach
+                            @hasrole('admin|Admin')
                             <option value="Todos" @if(old('')=='Todos' ) selected @endif>Todos</option>
+                            @endhasrole
                         </select>
                     </div>
 
