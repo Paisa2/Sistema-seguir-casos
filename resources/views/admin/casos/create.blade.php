@@ -11,7 +11,7 @@
         <form class="row g-3" action="{{ route('admin.casos.store') }}" method="POST" enctype="multipart/form-data">
             @csrf
             <input type="hidden" name="unidad" value="{{ $unidad->id }}">
-
+            {{var_dump($errors)}}
             <div class="col-sm-2">
                 <label for="numero_caso" class="form-label">Numero de Caso</label>
                 <input type="number" class="form-control" name="numero_caso" placeholder="Ingrese Nª" value="{{ old('numero_caso') }}" autofocus minlength="1" maxlength="3"

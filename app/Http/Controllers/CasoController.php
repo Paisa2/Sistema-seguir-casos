@@ -98,7 +98,7 @@ class CasoController extends Controller
         $data_all['unidad'] = $request->id_unidad;
         $caso->update($data_all);
 
-        return redirect()->back()->with('message', 'El caso se actualizo correctamente!');
+        return redirect()->route('admin.unidad.casos', ['id_unidad' => $request->id_unidad])->with('message', 'Caso Actualizado correctamente!');
     }
 
     /**

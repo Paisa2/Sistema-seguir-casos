@@ -29,7 +29,6 @@ class CasoCreateRequest extends FormRequest
             'responsable_caso' => 'required|string|max:255',
             'etapa_caso' => 'required|string|max:255',
             'fecha_registro' => 'required|date',
-            'derivar_casos' => 'required',
             'image' => 'required|file',
             'denunciante_nombre' => 'required|string|max:255',
             'denunciante_apellido' => 'required|string|max:255',
