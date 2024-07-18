@@ -42,6 +42,12 @@
                             style="font-family: 'Times New Roman'; width: 100%; font-size: 20px; "/>
                 </div>
 
+                <div>
+                    @error('message')
+                        <p class="alert alert-danger ">{{$message}}</p>
+                    @enderror
+                </div>
+
                 <!-- <div class="btn d-flex gap-2 justify-content-center border mt-3 shadow-sm" >
                     <img src="/assets/google-icon.svg" alt="google-icon" style="height: 1.6rem" />
                     <div class="fw-semibold text-secondary">Continue con Google</div>
