@@ -35,8 +35,8 @@
                         <select name="etapa_caso" id="etapa_caso" class="form-control" value="">
                             <option value="">-- Selecciona el Reporte--</option>
                             <option value="Premilinar" @if(old('')=='Preliminar' ) selected @endif>Proceso Preliminar</option>
-                            <option value="EtapaPreparatoria" @if(old('')=='Preparatoria' ) selected @endif>Proceso Preparatoria</option>
-                            <option value="JucioOral" @if(old('')=='JuicioOral' ) selected @endif>Proceso Juicio Oral</option>
+                            <option value="Preparatoria" @if(old('')=='Preparatoria' ) selected @endif>Proceso Preparatoria</option>
+                            <option value="J.Oral" @if(old('')=='J.Oral' ) selected @endif>Proceso Juicio Oral</option>
                             <option value="Todos" @if(old('')=='Todos' ) selected @endif>Todos</option>
                         </select>
                     </div>
