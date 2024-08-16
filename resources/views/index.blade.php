@@ -20,7 +20,7 @@
                             </div>
                     </div>
                     <h1 class="text-center">
-                        CORAZON DEL VALLE DEFENSORIA COLCAPIRHUA
+                        CORAZON DEL VALLE UNIDAD DE DESARROLLO COLCAPIRHUA
                     </h1>
                 </div>
     </div>
