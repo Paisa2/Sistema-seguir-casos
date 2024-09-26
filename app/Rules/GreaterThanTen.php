@@ -26,6 +26,11 @@ class GreaterThanTen implements Rule
     public function passes($attribute, $value)
     {
         //
+        if($value->entity("id_unidad")) {
+
+            return true;
+        }
+        return false;
     }
 
     /**
