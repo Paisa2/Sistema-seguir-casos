@@ -3,6 +3,7 @@
 namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
+use App\Rules\GreaterThanTen;
 
 class CasoCEditRequest extends FormRequest
 {
@@ -24,16 +25,15 @@ class CasoCEditRequest extends FormRequest
     public function rules()
     {
         return [
-            'numero_caso' => 'required|integer|max:999',
             'tipologia_caso' => 'required|string|max:255',
             'responsable_caso' => 'required|string|max:255',
             'etapa_caso' => 'required|string|max:255',
             'fecha_registro' => 'required|date',
-            'image' => 'required|file',
+            'image' => 'file',
 
             'denunciante_nombre' => 'required|string|max:255',
             'denunciante_apellido' => 'required|string|max:255',
-            'denunciante_ci' => 'required|integer|unique:casos',
+            'denunciante_ci' => 'required|integer',
             'denunciante_edad' => 'required|integer',
             'denunciante_ocupacion' => 'required|string|max:255',
             'denunciante_estado_civil' => 'required|string|max:255',
@@ -42,11 +42,12 @@ class CasoCEditRequest extends FormRequest
 
             'denunciado_nombre' => 'required|string|max:255',
             'denunciado_apellido' => 'required|string|max:255',
-            'denunciado_ci' => 'required|integer|unique:casos',
+            'denunciado_ci' => 'required|integer',
             'denunciado_edad' => 'required|integer',
             'denunciado_telefono' => 'required|integer',
             'denunciado_sexo' => 'required|string|max:255',
             'unidad' => 'required',
+            'numero_caso' => ["required","integer", new GreaterThanTen]
         ];
     }
 

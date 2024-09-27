@@ -3,6 +3,7 @@
 namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
+use App\Rules\GreaterThanTen;
 
 class CasoCreateRequest extends FormRequest
 {
@@ -24,7 +25,6 @@ class CasoCreateRequest extends FormRequest
     public function rules()
     {
         return [
-            'numero_caso' => 'required|integer|max:999|',
             'tipologia_caso' => 'required|string|regex:/^[a-zA-Z ]+$/|max:255',
             'responsable_caso' => 'required|string|max:255',
             'etapa_caso' => 'required|string|max:255',
@@ -45,6 +45,7 @@ class CasoCreateRequest extends FormRequest
             'denunciado_telefono' => 'required|integer',
             'denunciado_sexo' => 'required|string|max:255',
             'unidad' => 'required',
+            'numero_caso' => ["required","integer", new GreaterThanTen]
         ];
     }
 

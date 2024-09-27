@@ -3,7 +3,7 @@
 namespace App\Rules;
 
 use Illuminate\Contracts\Validation\Rule;
-
+use App\Models\Caso;
 class GreaterThanTen implements Rule
 {
     /**
@@ -13,7 +13,7 @@ class GreaterThanTen implements Rule
      */
     public function __construct()
     {
-        //
+
     }
 
     /**
@@ -26,11 +26,12 @@ class GreaterThanTen implements Rule
     public function passes($attribute, $value)
     {
         //
-        if($value->entity("id_unidad")) {
-
-            return true;
+        $unit = request()->input('unidad');
+        $caso = Caso::where('unidad', $unit)->where('numero_caso', $value)->first();
+        if($caso){
+            return false;
         }
-        return false;
+        return true;
     }
 
     /**
@@ -40,6 +41,6 @@ class GreaterThanTen implements Rule
      */
     public function message()
     {
-        return 'The validation error message.';
+        return 'Numero de caso ya esta registrado en esta unidad.';
     }
 }

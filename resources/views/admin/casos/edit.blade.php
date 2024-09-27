@@ -11,7 +11,7 @@
         <form class="row g-3" action="{{ route('admin.unidad.casos.update', ['id_unidad'=>$unidad->id,'casoId'=>$caso->id]) }}" method="post" enctype="multipart/form-data">
             @csrf
             @method('PUT')
-            <input type="hidden" name="unidad" value="#">
+            <input type="hidden" name="unidad" value="{{ $unidad->id }}">
 
             <div class="col-sm-2">
                 <label for="numero_caso" class="form-label">Numero de Caso</label>
@@ -58,7 +58,7 @@
                 @endif
             </div>
 
-           
+
             <div class="col-sm-5">
                 <label for="image" class="form-label">Archivos</label>
                 <input type="file" accept="application/pdf,application/msword" class="form-control" name="image" placeholder="Subir Archivos" value="{{ $caso->image  }}" autofocus minlength="1" maxlength="50" onkeypress="return blckSpecialChar(event)">

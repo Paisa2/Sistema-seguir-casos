@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\CasoCreateRequest;
+use App\Http\Requests\CasoCEditRequest;
 use App\Models\Caso;
 use App\Models\Unidad;
 use Illuminate\Http\Request;
@@ -84,8 +85,7 @@ class CasoController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request)
-    {  
+    public function update(CasoCEditRequest $request){
         $data_all = $request->all();
         if ($request->hasFile('image')) {
             $caso = Caso::find($request->casoId);
