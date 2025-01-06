@@ -24,7 +24,7 @@ class CasoCEditRequest extends FormRequest
     public function rules()
     {
         return [
-            'numero_caso' => 'required|integer|max:999|unique:casos',
+            'numero_caso' => 'required|integer|max:999',
             'tipologia_caso' => 'required|string|max:255',
             'responsable_caso' => 'required|string|max:255',
             'etapa_caso' => 'required|string|max:255',
