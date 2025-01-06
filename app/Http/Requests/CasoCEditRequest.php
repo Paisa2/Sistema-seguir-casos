@@ -47,7 +47,7 @@ class CasoCEditRequest extends FormRequest
             'denunciado_telefono' => 'required|integer',
             'denunciado_sexo' => 'required|string|max:255',
             'unidad' => 'required',
-            'numero_caso' => ["required","integer", new GreaterThanTen]
+            'numero_caso' => "required","integer",
         ];
     }
 
